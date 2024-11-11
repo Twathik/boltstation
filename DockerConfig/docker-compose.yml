@@ -1,0 +1,447 @@
+x-minio-common: &minio-common
+  build: .
+  command: server --console-address ":9001" http://minio{1...2}/data{1...2}
+  expose:
+    - "9000"
+    - "9001"
+  environment:
+    MINIO_ROOT_USER: minio
+    MINIO_ROOT_PASSWORD: minio123
+    MINIO_API_CORS_ALLOW_ORIGIN: ${MINIO_HOSTNAMES}
+  healthcheck:
+    test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+    interval: 30s
+    timeout: 20s
+    retries: 3
+
+# starts 2 docker containers running minio server instances.
+# using nginx reverse proxy, load balancing, you can access
+# it through port 9000.
+
+# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+services:
+  traefik:
+    image: "traefik:v2.6"
+    container_name: "traefik"
+    restart: unless-stopped
+    environment:
+      BOLT_HOST: "100.85.245.1"
+      BOLT_DOMAIN: "bolt4"
+    networks:
+      bolt_network:
+        aliases:
+          - traefik
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "./traefik/conf.d:/etc/traefik/conf.d"
+      - "./traefik/traefik.toml:/etc/traefik/traefik.toml"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+
+  rabbitmq:
+    # image: 'bitnami/rabbitmq:latest'
+    build: 
+      context: ./rabbitmq
+      dockerfile: Dockerfile
+    container_name: "rabbitmq"
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin"
+      RABBITMQ_PLUGINS: "rabbitmq_management"
+    restart: unless-stopped
+    volumes:
+      - ./data/rabbitmq_data:/var/lib/rabbitmq    
+    networks:
+      bolt_network:
+        aliases:
+          - rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: [ "CMD", "rabbitmqctl", "node_health_check" ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  
+  minio:
+    image: minio/minio
+    restart: unless-stopped
+    container_name: "minio"
+    networks:
+      bolt_network:
+        aliases:
+          - minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./data/minio:/data
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: server --console-address ":9001" /data
+
+  postgres:
+    image: postgres:13-alpine
+    container_name: "postgres"
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      bolt_network:
+        aliases:
+          - postgres
+    environment:
+      POSTGRES_DB: ${POSTGRESQL_DB}
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
+      POSTGRES_HOST: postgres
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    healthcheck:
+      test: "exit 0"
+    extra_hosts:
+      api.bolt3.local: 192.168.50.131 
+
+  keycloak:
+    image: "quay.io/keycloak/keycloak:${KC_VERSION}"
+    command: ["start-dev"]
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health/ready"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    container_name: "keycloak"
+    environment:
+      KC_METRICS_ENABLED: false
+      KC_HEALTH_ENABLED: true
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KEYCLOAK_FRONTEND_URL: http://keycloak.local
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      AUTH_CLIENT_SECRET: ${AUTH_CLIENT_SECRET}
+      REDIRECT_URI: ${REDIRECT_URI}
+      KEYCLOAK_LOGLEVEL: DEBUG
+      #GITHUB_APP_CLIENT_SECRET: ${GITHUB_APP_CLIENT_SECRET}
+      #GITHUB_APP_CLIENT_ID: ${GITHUB_APP_CLIENT_ID}
+      KEYCLOAK_PATH_PREFIX: keycloak
+      PROXY_ADDRESS_FORWARDING: true
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: ${POSTGRESQL_USER}
+      KC_DB_PASSWORD: ${POSTGRESQL_PASS}
+      KC_DB_SCHEMA: public
+
+    volumes:
+      - ./keycloakTheme:/opt/jboss/keycloak/standalone/deployments/
+      - ./data/keycloak/realm.json:/opt/keycloak/data/import/realm.json:ro
+    ports:
+      - "8082:8080"
+      - "9990:9990"
+    restart: unless-stopped
+    networks:
+      bolt_network:
+        aliases:
+          - keycloak
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.keycloak-admin.entrypoints=web"
+      - "traefik.http.routers.keycloak-admin.service=keycloak-docker"
+      - "traefik.http.routers.keycloak-admin.rule=Host(`keycloak.local`)"
+      - "traefik.http.services.keycloak-docker.loadbalancer.server.port=8080"
+    security_opt:
+      - no-new-privileges:true
+    extra_hosts:
+      api.bolt3.local: 192.168.50.131 # Custom host mapping
+  redis:
+    image: redis:6.2-alpine
+    container_name: "redis"
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    networks:
+      bolt_network:
+        aliases:
+          - redis
+    #links:
+    #  - redis-commander
+
+  #redis-commander:
+  #  container_name: redis-commander
+  ## hostname: redis-commander
+  ## image: rediscommander/redis-commander:latest
+  # build: .
+  # restart: always
+  # environment:
+  #   REDIS_HOSTS: redis
+  #   REDIS_HOST: redis
+  #   REDIS_PORT: redis:6379
+  #   REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+  #   HTTP_USER: root
+  #   HTTP_PASSWORD: root
+  # ports:
+  #   - 8088:8081
+
+  postgres_orthanc:
+    image: postgres:13-alpine
+    container_name: "postgres_orthanc"
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: orthanc
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
+      POSTGRES_HOST: postgres
+    volumes:
+      - ./data/orthanc/postgres_database:/var/lib/postgresql/data
+    healthcheck:
+      test: "exit 0"
+    networks:
+      bolt_network:
+        aliases:
+          - postgres_orthanc
+
+  orthanc:
+    image: orthancteam/orthanc
+    container_name: orthanc
+    restart: always
+    ports:
+      - 4242:4242
+      - 8042:8042
+    depends_on:
+      postgres_orthanc:
+        condition: service_healthy
+    environment:
+      #OSIMIS_WEB_VIEWER1_PLUGIN_ENABLED: "true"
+      VERBOSE_ENABLED: "true"
+      #ORTHANC_WEB_VIEWER_PLUGIN_ENABLED: "true"
+      STONE_WEB_VIEWER_PLUGIN_ENABLED: "true"
+      #OSIMIS_WEB_VIEWER1_ALPHA_PLUGIN_ENABLED: "true"
+      DICOM_WEB_PLUGIN_ENABLED: "true"
+      ORTHANC__REGISTERED_USERS: |
+        {"admin": "admin"}
+      OHIF_PLUGIN_ENABLED: "true"
+      ORTHANC_EXPLORER_2_ENABLED: |
+        {
+          "OrthancExplorer2": {
+            "Enable": true,
+            "IsDefaultOrthancUI": true
+          }
+        }
+
+      ORTHANC_JSON: |
+        {
+          "PostgreSQL": {
+            "EnableIndex": true,
+            "EnableStorage": false,
+            "Port": 5432,
+            "Host": "postgres_orthanc",
+            "Database": "orthanc",
+            "Username": "${POSTGRESQL_USER}",
+            "Password": "${POSTGRESQL_PASS}",
+            "EnableSsl": false,
+            "Lock": false
+          },
+          "Worklists": {
+            "Enable": true,
+            "Database": "/var/lib/orthanc/worklists"
+          },
+          "DicomModalities" : {
+            "horos" : [ "HOROS", "192.168.0.8", 11112 ],
+            "findscu" : [ "FINDSCU", "127.0.0.1", 1234 ],
+            "modality" : [ "MODALITY", "192.168.175.209", 104 ],
+            "echopac" : ["ADEL-PC", "192.168.1.10", 104],
+            "inova730" : ["IGS730", "3.3.3.3", 4002],
+            "inova730_sub1" : ["IGS730", "192.168.65.1", 4002],
+            "vividE92" : ["VIVIDE9", "192.168.1.120", 104],
+            "vividE91" : ["VIVIDE9-006630", "192.168.1.100", 104],
+            "modality1" : ["AET", "0.0.0.0", 104],
+            "modality2" : ["AET", "0.0.0.0", 104],
+            "modality3" : ["AET", "0.0.0.0", 104],
+            "modality4" : ["AET", "0.0.0.0", 104]
+          }
+        }
+    #
+    volumes:
+      - ./data/orthanc/db:/var/lib/orthanc/db/
+      - ./data/worklists:/var/lib/orthanc/worklists
+    networks:
+      bolt_network:
+        aliases:
+          - orthanc
+
+  typesense:
+    image: typesense/typesense:0.25.1
+    restart: unless-stopped
+    container_name: typesense
+    ports:
+      - "8108:8108"
+    environment: 
+      KC_URL: "http://keycloak.local"
+      KC_REALM: "bolt3"
+      KC_CLIENT_ID: "bolt3"
+      KC_CLIENT_SECRET: "gak8OAIo7OcHaOUCnaN6IBS5eGPAzZZb"
+
+    volumes:
+      - ./data/typesense-data:/data
+      - ./typesense-config/typesense-server.ini:/etc/typesense/typesense-server.ini
+    command: "--config=/etc/typesense/typesense-server.ini"
+    networks:
+      bolt_network:
+        aliases:
+          - typesense
+
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      # - "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
+      - "8067:80/tcp"
+    environment:
+      TZ: "America/Chicago"
+      WEBPASSWORD: "admin"
+    # Volumes store your data between container upgrades
+    volumes:
+      - "./etc-pihole:/etc/pihole"
+      - "./etc-dnsmasq.d:/etc/dnsmasq.d"
+    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+    cap_add:
+      - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
+    restart: unless-stopped
+    networks:
+      bolt_network:
+        aliases:
+          - pihole
+
+  zero:
+    container_name: zero
+    image: dgraph/dgraph:latest
+    restart: unless-stopped
+    networks:
+      bolt_network:
+        aliases:
+          - zero
+    volumes:
+      - ./data/dgraph:/dgraph
+    ports:
+      - 5080:5080
+      - 6080:6080
+
+    command: dgraph zero --my=zero:5080
+
+  #lambda:
+  #  container_name: lambda
+  #  image: dgraph/dgraph:latest
+  #  restart: unless-stopped
+  #volumes:
+  #  - ./dgraphLambda/script.js:/app/script/script.js:ro
+  #  ports:
+  #    - 8686:8686
+  #  environment:
+  #    DGRAPH_URL: "http://alpha:8080"
+
+  alpha:
+    container_name: alpha
+    image: dgraph/dgraph:latest
+    volumes:
+      - ./data/dgraph:/dgraph
+    ports:
+      - 8087:8080
+      - 9080:9080
+    restart: unless-stopped
+
+    command: dgraph alpha  --my=alpha:7080 --zero=zero:5080 --security "whitelist=10.0.0.0/8,172.0.0.0/8,192.168.0.0/16,100.0.0.0/8"
+    networks:
+      bolt_network:
+        aliases:
+          - alpha
+    #--graphql "lambda-url=http://lambda:8686/graphql-worker"
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.dgraph.entrypoints=web"
+      - "traefik.http.routers.dgraph.service=alpha-docker"
+      - "traefik.http.routers.dgraph.rule=Host(`dgraph-alpha.local`)"
+      - "traefik.http.services.alpha-docker.loadbalancer.server.port=8080"
+
+  zero-drugs:
+    container_name: zero-drugs
+    image: dgraph/dgraph:latest
+    restart: unless-stopped
+    volumes:
+      - ./data/dgraph-drugs:/dgraph
+    ports:
+      - 5070:5080
+      - 6070:6080
+
+    command: dgraph zero --my=zero-drugs:5080
+    networks:
+      bolt_network:
+        aliases:
+          - zero-drugs
+
+  alpha-drugs:
+    container_name: alpha-drugs
+    image: dgraph/dgraph:latest
+    volumes:
+      - ./data/dgraph-drugs:/dgraph
+    ports:
+      - 8088:8080
+      - 9081:9080
+    restart: unless-stopped
+
+    command: dgraph alpha  --my=alpha-drugs:7080 --zero=zero-drugs:5080 --security "whitelist=10.0.0.0/8,172.0.0.0/8,192.168.0.0/16,100.0.0.0/1"
+    #--graphql "lambda-url=http://lambda:8686/graphql-worker"
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.dgraph_drugs.entrypoints=web"
+      - "traefik.http.routers.dgraph_drugs.service=alpha-drugs-docker"
+      - "traefik.http.routers.dgraph_drugs.rule=Host(`dgraph-alpha-drugs.local`)"
+      - "traefik.http.services.alpha-drugs-docker.loadbalancer.server.port=8080"
+    networks:
+      bolt_network:
+        aliases:
+          - alpha-drugs
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    restart: always
+    container_name: qdrant
+    ports:
+      - 6333:6333
+      - 6334:6334
+    expose:
+      - 6333
+      - 6334
+      - 6335
+    configs:
+      - source: qdrant_config
+        target: /qdrant/config/production.yaml
+    volumes:
+      - ./qdrant_data:/qdrant/storage
+
+#volumes:
+#  data:
+#  postgresql_data:
+#    driver: local
+#  odoo_data:
+#    driver: local
+
+configs:
+  qdrant_config:
+    content: |
+      log_level: INFO  
+
+networks:
+  bolt_network:
+    driver: bridge # This can be 'bridge', 'overlay', or another Docker network driver
+    name: bolt_network

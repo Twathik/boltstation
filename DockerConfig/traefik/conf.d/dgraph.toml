@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.dgraph-route]
+entryPoints = ["web"]
+rule = "Host(`dgraph.{{ env 'BOLT_DOMAIN' }}.local`)"
+service = "dgraph"
+
+[http.services]
+[http.services.dgraph]
+[http.services.dgraph.loadBalancer]
+[[http.services.dgraph.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:8087'

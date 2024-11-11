@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.ollama-route]
+entryPoints = ["web"]
+rule = "Host(`ollama.{{ env 'BOLT_DOMAIN' }}.local`)"
+service = "ollama"
+
+[http.services]
+[http.services.ollama]
+[http.services.ollama.loadBalancer]
+[[http.services.ollama.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:11434'

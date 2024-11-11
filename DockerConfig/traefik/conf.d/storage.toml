@@ -1,0 +1,18 @@
+[http]
+[http.routers]
+[http.routers.storage-route]
+entryPoints = ["web"]
+rule = "Host(`storage.{{ env 'BOLT_DOMAIN' }}.local`)"
+service = "storage"
+middlewares = "app-auth"
+
+[http.middlewares]
+[http.middlewares.app-auth.forwardAuth]
+address = "http://{{ env 'BOLT_DOMAIN' }}.local/user"
+
+
+[http.services]
+[http.services.storage]
+[http.services.storage.loadBalancer]
+[[http.services.storage.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:9000'

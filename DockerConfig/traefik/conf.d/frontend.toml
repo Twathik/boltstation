@@ -1,0 +1,13 @@
+[http]
+[http.routers]
+[http.routers.frontend-route]
+entryPoints = ["web"]
+priority = 4
+rule = "Host(`{{ env 'BOLT_DOMAIN' }}.local`)"
+service = "frontend"
+
+[http.services]
+[http.services.frontend]
+[http.services.frontend.loadBalancer]
+[[http.services.frontend.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:3000'

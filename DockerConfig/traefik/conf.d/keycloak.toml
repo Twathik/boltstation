@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.keycloak-route]
+entryPoints = ["web"]
+rule = "Host(`auth.{{ env 'BOLT_DOMAIN' }}.local`)"
+service = "keycloak"
+
+[http.services]
+[http.services.keycloak]
+[http.services.keycloak.loadBalancer]
+[[http.services.keycloak.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:8082'

@@ -1,0 +1,574 @@
+[
+    {
+        "parameterName": "Nombre de Globules Blancs (WBC), leucocytes, globules blancs",
+        "description": "Mesure le nombre total de globules blancs dans le sang, qui sont essentiels pour la réponse immunitaire et la lutte contre les infections."
+    },
+    {
+        "parameterName": "Nombre de Globules Rouges (RBC), érythrocytes, hématies",
+        "description": "Compte le nombre de globules rouges, responsables du transport de l'oxygène des poumons vers les tissus et de l'élimination du dioxyde de carbone."
+    },
+    {
+        "parameterName": "Hémoglobine (Hb), pigment sanguin, oxygène sanguin",
+        "description": "Détermine la quantité d'hémoglobine dans le sang, une protéine des globules rouges qui se lie à l'oxygène pour le transporter dans tout le corps."
+    },
+    {
+        "parameterName": "Hématocrite (Hct), volume cellulaire, érythrocrit",
+        "description": "Mesure la proportion de globules rouges dans le sang, indiquant la viscosité sanguine et la capacité de transport d'oxygène."
+    },
+    {
+        "parameterName": "Volume Corpusculaire Moyen (MCV), taille moyenne des globules rouges, indice érythrocytaire",
+        "description": "Calcule la taille moyenne des globules rouges, utilisé pour aider à classifier les types d'anémie."
+    },
+    {
+        "parameterName": "Teneur Moyenne en Hémoglobine Corpusculaire (MCH), hémoglobine cellulaire moyenne, concentration hémoglobine moyenne",
+        "description": "Mesure la quantité moyenne d'hémoglobine par globule rouge, aidant au diagnostic et à l'évaluation de l'anémie."
+    },
+    {
+        "parameterName": "Concentration Corpusculaire Moyenne en Hémoglobine (MCHC), saturation en hémoglobine, concentration cellulaire moyenne",
+        "description": "Calcule la concentration d'hémoglobine dans un volume donné de globules rouges, aidant à l'évaluation de la santé des globules rouges."
+    },
+    {
+        "parameterName": "Nombre de Plaquettes, thrombocytes, taux plaquettaire",
+        "description": "Détermine le nombre de plaquettes, essentielles pour la coagulation sanguine et la cicatrisation des plaies."
+    },
+    {
+        "parameterName": "Volume Plaquettaire Moyen (MPV), taille moyenne des plaquettes, indice plaquettaire",
+        "description": "Mesure la taille moyenne des plaquettes, fournissant des informations sur la production et la fonction des plaquettes."
+    },
+    {
+        "parameterName": "Largeur de Distribution des Globules Rouges (RDW), variation de taille, distribution cellulaire",
+        "description": "Calcule la variation de taille des globules rouges, aidant au diagnostic de différents types d'anémie."
+    },
+    {
+        "parameterName": "Neutrophiles, polynucléaires neutrophiles, leucocytes neutrophiles",
+        "description": "Mesure le pourcentage ou le nombre absolu de neutrophiles, un type de globule blanc essentiel pour combattre les infections bactériennes."
+    },
+    {
+        "parameterName": "Lymphocytes, cellules immunitaires, globules blancs lymphocytaires",
+        "description": "Compte les lymphocytes, des globules blancs impliqués dans la défense immunitaire contre les infections virales et les cellules cancéreuses."
+    },
+    {
+        "parameterName": "Monocytes, macrophages, phagocytes",
+        "description": "Détermine le nombre de monocytes, des globules blancs qui aident à décomposer les bactéries et jouent un rôle dans la réponse immunitaire."
+    },
+    {
+        "parameterName": "Éosinophiles, granulocytes éosinophiles, leucocytes éosinophiles",
+        "description": "Mesure les éosinophiles, des globules blancs associés aux réactions allergiques et aux infections parasitaires."
+    },
+    {
+        "parameterName": "Basophiles, granulocytes basophiles, leucocytes basophiles",
+        "description": "Compte les basophiles, un type de globule blanc impliqué dans la réponse immunitaire, en particulier contre les allergènes et l'inflammation."
+    },
+    {
+        "parameterName": "Sodium (Na), sel minéral, électrolyte sodique",
+        "description": "Un électrolyte essentiel pour maintenir l'équilibre des fluides, la fonction nerveuse et la contraction musculaire."
+    },
+    {
+        "parameterName": "Potassium (K), électrolyte potassique, ion potassium",
+        "description": "Un électrolyte qui joue un rôle clé dans la fonction cardiaque, la contraction musculaire et la transmission nerveuse."
+    },
+    {
+        "parameterName": "Kaliémie (K), taux de potassium, concentration de potassium",
+        "description": "Un électrolyte qui joue un rôle clé dans la fonction cardiaque, la contraction musculaire et la transmission nerveuse."
+    },
+    {
+        "parameterName": "Chlorure (Cl), ion chlorure, électrolyte chloré",
+        "description": "Un électrolyte qui aide à maintenir l'équilibre des fluides et l'équilibre acido-basique dans le corps."
+    },
+    {
+        "parameterName": "Bicarbonate (HCO3), tampon acido-basique, ion bicarbonate",
+        "description": "Un tampon qui maintient le niveau de pH du corps en équilibrant les acides et les bases dans le sang."
+    },
+    {
+        "parameterName": "Azote uréique sanguin (BUN), urémie, taux d'azote uréique",
+        "description": "Mesure la quantité d'azote dans le sang provenant de l'urée, fournissant des informations sur la fonction rénale."
+    },
+    {
+        "parameterName": "Créatinine, taux de créatinine, marqueur rénal",
+        "description": "Un déchet provenant du métabolisme musculaire, utilisé comme indicateur de la santé rénale."
+    },
+    {
+        "parameterName": "Glucose, sucre sanguin, glycémie",
+        "description": "Le principal sucre dans le sang, une source d'énergie primaire pour les cellules et un indicateur clé dans la gestion du diabète."
+    },
+    {
+        "parameterName": "Calcium (Ca), minéral osseux, électrolyte calcique",
+        "description": "Un minéral essentiel pour la santé des os, la fonction musculaire, la transmission nerveuse et la coagulation sanguine."
+    },
+    {
+        "parameterName": "Albumine, protéine sanguine, protéine hépatique",
+        "description": "Une protéine produite par le foie qui aide à maintenir le volume sanguin et transporte les hormones et les médicaments."
+    },
+    {
+        "parameterName": "Protéines totales, albumine-globulines, taux protéique",
+        "description": "Le niveau combiné d'albumine et de globulines, indiquant l'état nutritionnel et la fonction hépatique ou rénale."
+    },
+    {
+        "parameterName": "Phosphatase alcaline (ALP), enzyme osseuse, enzyme hépatique",
+        "description": "Une enzyme présente dans plusieurs tissus, principalement utilisée pour évaluer la santé du foie et des os."
+    },
+    {
+        "parameterName": "Alanine Aminotransférase (ALT), enzyme hépatique, marqueur hépatique",
+        "description": "Une enzyme présente dans le foie ; des niveaux élevés peuvent indiquer des dommages au foie."
+    },
+    {
+        "parameterName": "Aspartate Aminotransférase (AST), enzyme hépatique, enzyme cardiaque",
+        "description": "Une enzyme présente dans le foie et le cœur, utilisée pour détecter les lésions hépatiques ou les blessures cardiaques."
+    },
+    {
+        "parameterName": "Bilirubine, pigment biliaire, produit de dégradation",
+        "description": "Un sous-produit de la dégradation des globules rouges, des niveaux élevés peuvent indiquer une maladie du foie ou des problèmes de voies biliaires."
+    },
+    {
+        "parameterName": "Cholestérol total, cholestérol global, profil lipidique",
+        "description": "Le niveau global de cholestérol dans le sang, incluant HDL, LDL et VLDL ; utilisé pour évaluer la santé cardiovasculaire."
+    },
+    {
+        "parameterName": "Lipoprotéine de basse densité (LDL), mauvais cholestérol, lipoprotéine athérogène",
+        "description": "Connue sous le nom de « mauvais » cholestérol, des niveaux élevés peuvent conduire à l'accumulation de plaques dans les artères, augmentant le risque cardiovasculaire."
+    },
+    {
+        "parameterName": "Lipoprotéine de haute densité (HDL), bon cholestérol, cholestérol protecteur",
+        "description": "Appelée « bon » cholestérol, elle aide à éliminer le LDL de la circulation sanguine, réduisant le risque de maladie cardiaque."
+    },
+    {
+        "parameterName": "Triglycérides, graisses sanguines, lipides",
+        "description": "Un type de graisse dans le sang ; des niveaux élevés peuvent augmenter le risque de maladie cardiaque et de troubles métaboliques."
+    },
+    {
+        "parameterName": "Lipoprotéine de très basse densité (VLDL), transporteur de triglycérides, lipoprotéine athérogène",
+        "description": "Transporte les triglycérides dans le sang ; des niveaux élevés peuvent contribuer à l'accumulation de plaques dans les artères."
+    },
+    {
+        "parameterName": "Rapport Cholestérol/HDL, ratio cholestérol-total/HDL, indice cardiovasculaire",
+        "description": "Le ratio entre le cholestérol total et le HDL, fournissant des informations sur le risque cardiovasculaire."
+    },
+    {
+        "parameterName": "Alanine Aminotransférase (ALT), transaminase hépatique, enzyme hépatique",
+        "description": "Une enzyme principalement dans le foie ; des niveaux élevés suggèrent des lésions ou une inflammation du foie."
+    },
+    {
+        "parameterName": "Aspartate Aminotransférase (AST), transaminase, enzyme cardiaque",
+        "description": "Une enzyme présente dans le foie et le cœur, des niveaux élevés peuvent indiquer des lésions du foie ou du cœur."
+    },
+    {
+        "parameterName": "Phosphatase alcaline (ALP), enzyme osseuse, enzyme hépatique",
+        "description": "Une enzyme liée à la santé du foie, des os et des voies biliaires ; des niveaux élevés peuvent indiquer des troubles du foie ou des os."
+    },
+    {
+        "parameterName": "Bilirubine (Total, Directe, Indirecte), pigment biliaire, déchet sanguin",
+        "description": "Sous-produit de la dégradation des globules rouges, dont les niveaux indiquent la fonction du foie et une possible maladie du foie."
+    },
+    {
+        "parameterName": "Albumine, protéine sanguine, protéine hépatique",
+        "description": "Une protéine produite par le foie qui maintient le volume sanguin et transporte des substances dans le sang."
+    },
+    {
+        "parameterName": "Protéines totales, albumine-globulines, taux protéique",
+        "description": "La somme de l'albumine et des globulines, évaluant la fonction hépatique, la santé rénale et l'état nutritionnel."
+    },
+    {
+        "parameterName": "Gamma-Glutamyl Transférase (GGT), enzyme hépatique, indicateur de santé biliaire",
+        "description": "Une enzyme indiquant la fonction hépatique ; des niveaux élevés peuvent suggérer des problèmes du foie ou des voies biliaires."
+    },
+    {
+        "parameterName": "Temps de prothrombine (PT), coagulation sanguine, temps de caillot",
+        "description": "Mesure le temps nécessaire pour que le sang se coagule, utilisé pour évaluer la coagulation sanguine et la fonction hépatique."
+    },
+    {
+        "parameterName": "Thyroid Stimulating Hormone (TSH), hormone thyroïdienne, thyrotropine",
+        "description": "Une hormone qui régule la fonction thyroïdienne, aidant à diagnostiquer l'hypothyroïdie ou l'hyperthyroïdie."
+    },
+    {
+        "parameterName": "Thyroxine libre (Free T4), hormone thyroïdienne active, T4 libre",
+        "description": "Une hormone thyroïdienne active ; des niveaux anormaux indiquent une dysfonction thyroïdienne."
+    },
+    {
+        "parameterName": "Triiodothyronine libre (Free T3), hormone thyroïdienne active, T3 libre",
+        "description": "Une hormone thyroïdienne active impliquée dans le métabolisme ; aide à évaluer la santé thyroïdienne."
+    },
+    {
+        "parameterName": "Pourcentage HbA1c, hémoglobine glyquée, taux de glucose moyen",
+        "description": "Le niveau moyen de glucose sanguin au cours des 2-3 derniers mois ; essentiel pour la gestion du diabète."
+    },
+    {
+        "parameterName": "pH, acidité sanguine, alcalinité urinaire",
+        "description": "Indique l'acidité ou l'alcalinité du sang ou de l'urine, reflétant la santé métabolique et respiratoire."
+    },
+    {
+        "parameterName": "Protéine, protéinurie, présence de protéines urinaires",
+        "description": "La présence de protéines dans l'urine peut indiquer des dommages ou des maladies rénales."
+    },
+    {
+        "parameterName": "Glucose, sucre sanguin, glycémie",
+        "description": "Mesure des niveaux de sucre dans le sang ou l'urine, utilisée pour diagnostiquer et surveiller le diabète."
+    },
+    {
+        "parameterName": "Cétones, corps cétoniques, acides gras",
+        "description": "Sous-produits du métabolisme des graisses ; des niveaux élevés peuvent indiquer un diabète non contrôlé ou la famine."
+    },
+    {
+        "parameterName": "Sang, hématurie, présence sanguine",
+        "description": "La présence de sang dans l'urine peut signaler une infection, un traumatisme ou des calculs rénaux."
+    },
+    {
+        "parameterName": "Bilirubine, pigment biliaire, produit de dégradation des globules rouges",
+        "description": "Sous-produit de la dégradation des globules rouges, indiquant la santé du foie et la fonction biliaire."
+    },
+    {
+        "parameterName": "Urobilinogène, produit de la bilirubine, sous-produit du métabolisme biliaire",
+        "description": "Sous-produit de la bilirubine, aide à détecter les maladies du foie et les troubles hémolytiques."
+    },
+    {
+        "parameterName": "Nitrites, indicateurs d'infection, produit bactérien",
+        "description": "Produit par certaines bactéries ; la présence dans l'urine suggère une infection urinaire bactérienne."
+    },
+    {
+        "parameterName": "Esterase des leucocytes, enzyme leucocytaire, marqueur d'infection",
+        "description": "Une enzyme indiquant la présence de globules blancs dans l'urine, ce qui peut signaler une infection ou une inflammation."
+    },
+    {
+        "parameterName": "Gravité spécifique, concentration urinaire, densité urinaire",
+        "description": "Mesure de la concentration de l'urine, fournissant des informations sur la fonction rénale et l'état d'hydratation."
+    },
+    {
+        "parameterName": "Valeur de la vitesse de sédimentation des érythrocytes (ESR), test de sédimentation, taux de sédimentation",
+        "description": "Le taux de sédimentation des érythrocytes, utilisé pour détecter l'inflammation dans le corps."
+    },
+    {
+        "parameterName": "Valeur de la protéine C-réactive (CRP), marqueur inflammatoire, test de CRP",
+        "description": "Le niveau de protéine C-réactive, indiquant une inflammation aiguë ou une infection."
+    },
+    {
+        "parameterName": "Temps de prothrombine (PT), test de coagulation, temps de caillot",
+        "description": "Mesure de la capacité de coagulation du sang, souvent utilisée pour évaluer la fonction hépatique et les troubles de la coagulation."
+    },
+    {
+        "parameterName": "Ratio international normalisé (INR), taux de coagulation, test de coagulation standardisé",
+        "description": "Mesure standardisée du temps de coagulation du sang, principalement utilisée chez les patients sous anticoagulants."
+    },
+    {
+        "parameterName": "Vitamine D 25-hydroxy (25(OH)D), statut de la vitamine D, concentration de vitamine D",
+        "description": "Un marqueur du statut en vitamine D, essentiel pour la santé des os et la fonction immunitaire."
+    },
+    {
+        "parameterName": "Niveau de ferritine, réserve de fer, concentration en ferritine",
+        "description": "Une mesure du fer stocké dans le corps, des niveaux faibles peuvent indiquer une carence en fer."
+    },
+    {
+        "parameterName": "Niveau d'azote uréique sanguin (BUN), taux de BUN, concentration en azote uréique",
+        "description": "Réflète la fonction rénale en mesurant les niveaux d'urée dans le sang."
+    },
+    {
+        "parameterName": "Créatinine sérique, taux de créatinine sanguine, concentration en créatinine",
+        "description": "Un produit de dégradation qui évalue la fonction rénale ; des niveaux élevés indiquent une dysfonction rénale."
+    },
+    {
+        "parameterName": "Créatinine urinaire, taux de créatinine dans l'urine, concentration urinaire de créatinine",
+        "description": "Utilisée pour évaluer la filtration rénale et pour calculer le rapport protéine/créatinine urinaire."
+    },
+    {
+        "parameterName": "Niveau d'albumine, concentration d'albumine, taux d'albumine sérique",
+        "description": "Une protéine produite par le foie, aide à évaluer l'état nutritionnel et la fonction hépatique."
+    },
+    {
+        "parameterName": "Calcium total, calcium sanguin total, concentration de calcium",
+        "description": "Mesure du calcium total dans le sang, important pour la santé des os et diverses fonctions cellulaires."
+    },
+    {
+        "parameterName": "Calcium ionisé, calcium actif, forme biologiquement active de calcium",
+        "description": "La forme biologiquement active du calcium ; critique pour la fonction musculaire et nerveuse."
+    },
+    {
+        "parameterName": "Niveau de magnésium, concentration en magnésium, taux de magnésium",
+        "description": "Un minéral essentiel pour la fonction musculaire, la transmission nerveuse et la production d'énergie."
+    },
+    {
+        "parameterName": "Niveau de phosphate, concentration en phosphate, taux de phosphate sanguin",
+        "description": "Une mesure du phosphate dans le sang, qui est important pour la santé des os, la production d'énergie et la fonction cellulaire."
+    },
+    {
+        "parameterName": "Fer sérique, concentration en fer, niveau de fer sanguin",
+        "description": "Mesure la quantité de fer dans le sang, essentiel pour le transport de l'oxygène et la production d'énergie."
+    },
+    {
+        "parameterName": "Capacité totale de liaison du fer (CTLF), capacité totale de fixation du fer, TIBC",
+        "description": "Évalue la capacité du sang à lier le fer avec la transferrine, aidant à diagnostiquer l'anémie ferriprive."
+    },
+    {
+        "parameterName": "Transferrine, protéine de transport du fer, niveau de transferrine",
+        "description": "Une protéine qui transporte le fer dans le sang ; les niveaux aident à évaluer le statut en fer et à détecter l'anémie."
+    },
+    {
+        "parameterName": "Saturation de la transferrine, pourcentage de transferrine liée au fer, taux de saturation de transferrine",
+        "description": "Pourcentage de transferrine liée au fer, fournissant des informations sur la disponibilité du fer dans le corps."
+    },
+    {
+        "parameterName": "Ferritine, niveau de ferritine, protéine de stockage du fer",
+        "description": "Une protéine qui stocke le fer ; les niveaux de ferritine reflètent le stockage total de fer dans le corps."
+    },
+    {
+        "parameterName": "Facteur rhumatoïde (FR), taux de facteur rhumatoïde, test du facteur rhumatoïde",
+        "description": "Un anticorps fréquemment élevé dans la polyarthrite rhumatoïde et d'autres maladies auto-immunes."
+    },
+    {
+        "parameterName": "Titrage des ANA, taux d'anticorps antinucléaires, test ANA",
+        "description": "Détecte les anticorps antinucléaires, qui sont souvent élevés dans les maladies auto-immunes comme le lupus."
+    },
+    {
+        "parameterName": "Modèle ANA, modèle de coloration des ANA, pattern des anticorps antinucléaires",
+        "description": "Le modèle de coloration des anticorps antinucléaires, fournissant des indices supplémentaires sur des conditions auto-immunes spécifiques."
+    },
+    {
+        "parameterName": "Anticorps anti-HIV, test des anticorps HIV, test de dépistage des anticorps HIV",
+        "description": "Un test des anticorps pour le VIH, indiquant l'exposition au virus."
+    },
+    {
+        "parameterName": "Antigène HIV, antigène p24, test de détection de l'antigène HIV",
+        "description": "Détecte l'antigène HIV, généralement le p24, pour la détection précoce de l'infection par le VIH."
+    },
+    {
+        "parameterName": "ARN du VIH, test ARN HIV, charge virale VIH",
+        "description": "Détecte l'ARN du VIH, souvent utilisé pour le diagnostic précoce de l'infection ou pour surveiller la charge virale chez les patients VIH-positifs."
+    },
+    {
+        "parameterName": "Hépatite A IgM, anticorps IgM pour Hépatite A, test IgM Hépatite A",
+        "description": "Anticorps indiquant une infection récente ou aiguë par le virus de l'Hépatite A."
+    },
+    {
+        "parameterName": "Antigène de surface de l'Hépatite B (HBsAg), antigène HBs, HBsAg",
+        "description": "Indique une infection active par le virus de l'Hépatite B, qu'elle soit aiguë ou chronique."
+    },
+    {
+        "parameterName": "Anticorps de surface de l'Hépatite B (HBsAb), anticorps HBs, anticorps contre HBs",
+        "description": "Anticorps indiquant une immunité à l'Hépatite B, soit par la vaccination, soit par la récupération après une infection."
+    },
+    {
+        "parameterName": "Anticorps de base de l'Hépatite B (HBcAb), anticorps anti-HBc, HBcAb",
+        "description": "Un anticorps qui peut indiquer une infection antérieure ou en cours par le virus de l'Hépatite B."
+    },
+    {
+        "parameterName": "Anticorps contre l'Hépatite C, anticorps anti-HCV, test de dépistage de l'Hépatite C",
+        "description": "Un anticorps indiquant une exposition au virus de l'Hépatite C, utilisé comme outil de dépistage."
+    },
+    {
+        "parameterName": "Culture sanguine (présence de bactéries ou de champignons), hémoculture, culture bactérienne ou fongique",
+        "description": "Détecte la présence de bactéries ou de champignons dans le sang, utilisé pour diagnostiquer des infections sanguines ou une septicémie."
+    },
+    {
+        "parameterName": "Troponine I, troponine cardiaque I, troponine I cardiaque",
+        "description": "Une enzyme cardiaque libérée lors de dommages au muscle cardiaque, couramment utilisée pour diagnostiquer les infarctus du myocarde."
+    },
+    {
+        "parameterName": "Troponine T, troponine cardiaque T, troponine T cardiaque",
+        "description": "Une enzyme cardiaque spécifique indiquant des lésions du muscle cardiaque, utilisée dans le diagnostic des infarctus du myocarde."
+    },
+    {
+        "parameterName": "Amylase sérique, taux d'amylase sérique, enzyme amylase",
+        "description": "Une enzyme qui aide à décomposer les glucides. Des niveaux élevés d'amylase sérique peuvent indiquer une pancréatite ou d'autres troubles digestifs."
+    },
+    {
+        "parameterName": "Lipase sérique, taux de lipase sérique, enzyme lipase",
+        "description": "Une enzyme produite principalement par le pancréas, importante pour la digestion des graisses. Des niveaux élevés peuvent indiquer des troubles pancréatiques, comme la pancréatite."
+    },
+    {
+        "parameterName": "Lactate déshydrogénase (LDH) niveau, LDH, enzyme LDH",
+        "description": "Une enzyme présente dans divers tissus, notamment le cœur, le foie et les muscles. Des niveaux élevés de LDH peuvent indiquer des lésions tissulaires ou des conditions telles que l'anémie, des maladies du foie ou un infarctus du myocarde."
+    },
+    {
+        "parameterName": "Folates sériques, taux de folate sérique, vitamine B9 sérique",
+        "description": "Une forme de vitamine B9 présente dans le sang, essentielle pour la division cellulaire et la synthèse de l'ADN. Des niveaux faibles peuvent entraîner de l'anémie et d'autres problèmes de santé."
+    },
+    {
+        "parameterName": "Folates des globules rouges, folate érythrocytaire, folate dans les globules rouges",
+        "description": "Mesure la quantité de folate dans les globules rouges, un indicateur plus fiable du statut à long terme en folate par rapport au folate sérique."
+    },
+    {
+        "parameterName": "Niveau de vitamine B12, taux de vitamine B12, vitamine B12 sanguine",
+        "description": "Mesure le niveau de vitamine B12 dans le sang, crucial pour la fonction nerveuse et la production de globules rouges. Une carence peut entraîner des problèmes neurologiques et de l'anémie."
+    },
+    {
+        "parameterName": "Folates, vitamine B9, acide folique",
+        "description": "Une vitamine B essentielle pour la synthèse et la réparation de l'ADN. Une carence peut entraîner des malformations congénitales, de l'anémie et d'autres problèmes de santé."
+    },
+    {
+        "parameterName": "Vitamine B12 sérique, taux de vitamine B12 sérique, vitamine B12 dans le sang",
+        "description": "Mesure la quantité de vitamine B12 dans le sang, nécessaire à la santé nerveuse, à la production d'ADN et à la formation des globules rouges. Des niveaux faibles peuvent causer des problèmes cognitifs et neurologiques."
+    },
+    {
+        "parameterName": "Testostérone totale, taux de testostérone totale",
+        "description": "La quantité totale de testostérone dans le sang, incluant les formes liées et libres. Elle est importante pour la santé sexuelle masculine et la fonction musculaire."
+    },
+    {
+        "parameterName": "Testostérone libre, testostérone non liée, testostérone libre dans le sang",
+        "description": "La fraction de testostérone qui n'est pas liée aux protéines dans le sang et est disponible pour agir sur les tissus. Elle joue un rôle clé dans la santé masculine et les performances physiques."
+    },
+    {
+        "parameterName": "Testostérone biodisponible, testostérone active, testostérone disponible pour les tissus",
+        "description": "La testostérone qui n'est pas fortement liée aux protéines et est disponible pour les tissus à utiliser. Elle inclut à la fois la testostérone libre et la testostérone faiblement liée à l'albumine."
+    },
+    {
+        "parameterName": "Niveau d'estradiol, estradiol sanguin",
+        "description": "Une forme d'œstrogène, l'hormone sexuelle féminine principale, importante pour la régulation des cycles menstruels, la santé reproductive et la densité osseuse."
+    },
+    {
+        "parameterName": "Niveau de progestérone, progestérone sanguine",
+        "description": "Une hormone jouant un rôle clé dans le cycle menstruel et la grossesse. Elle prépare l'utérus pour l'implantation d'un œuf fécondé et soutient le début de la grossesse."
+    },
+    {
+        "parameterName": "Niveau de LH, taux de LH, hormone lutéinisante",
+        "description": "L'hormone lutéinisante (LH) est impliquée dans la régulation du cycle menstruel chez les femmes et stimule la production de testostérone chez les hommes. Elle est essentielle pour l'ovulation et la fertilité."
+    },
+    {
+        "parameterName": "Niveau de FSH, taux de FSH, hormone folliculostimulante",
+        "description": "L'hormone folliculostimulante (FSH) joue un rôle clé dans la santé reproductive en stimulant la croissance des ovules dans les ovaires et la production de spermatozoïdes dans les testicules."
+    },
+    {
+        "parameterName": "Niveau de prolactine, taux de prolactine",
+        "description": "La prolactine est une hormone principalement impliquée dans la production de lait. Des niveaux élevés de prolactine peuvent affecter la fertilité, les cycles menstruels et la fonction sexuelle."
+    },
+    {
+        "parameterName": "Cortisol sérique, taux de cortisol sérique, cortisol sanguin",
+        "description": "Le cortisol est une hormone stéroïde produite par les glandes surrénales, importante pour la réponse au stress, la régulation du métabolisme et la fonction immunitaire."
+    },
+    {
+        "parameterName": "Cortisol libre (souvent dans la salive ou les urines), cortisol non lié",
+        "description": "Le cortisol libre représente la forme non liée du cortisol, souvent mesurée pour évaluer la fonction des glandes surrénales et les niveaux de stress, surtout dans la salive ou l'urine."
+    },
+    {
+        "parameterName": "Niveau de DHEA-S, sulfate de déhydroépiandrostérone",
+        "description": "Le sulfate de déhydroépiandrostérone (DHEA-S) est une hormone produite par les glandes surrénales, servant de précurseur aux hormones sexuelles masculines et féminines."
+    },
+    {
+        "parameterName": "Insuline à jeun, taux d'insuline à jeun",
+        "description": "Les niveaux d'insuline à jeun sont mesurés après un jeûne nocturne et aident à évaluer la résistance à l'insuline et la santé métabolique."
+    },
+    {
+        "parameterName": "Insuline postprandiale, insuline après repas",
+        "description": "L'insuline postprandiale est mesurée après avoir mangé et reflète la manière dont le corps réagit à un repas en libérant de l'insuline pour réguler la glycémie."
+    },
+    {
+        "parameterName": "Niveau de l'hormone parathyroïdienne (PTH), taux de PTH",
+        "description": "La PTH est responsable de la régulation des niveaux de calcium dans le sang. Des niveaux anormaux peuvent indiquer des problèmes liés au métabolisme du calcium ou à la santé osseuse."
+    },
+    {
+        "parameterName": "Niveau d'érythropoïétine, érythropoïétine sérique",
+        "description": "L'érythropoïétine est une hormone produite par les reins qui stimule la production de globules rouges dans la moelle osseuse, essentielle pour le transport de l'oxygène."
+    },
+    {
+        "parameterName": "Sérum d'aldostérone, niveau d'aldostérone",
+        "description": "L'aldostérone est une hormone produite par les glandes surrénales qui aide à réguler l'équilibre du sodium et du potassium, ainsi que la pression artérielle."
+    },
+    {
+        "parameterName": "Aldostérone urinaire, taux d'aldostérone dans l'urine",
+        "description": "L'aldostérone urinaire mesure l'excrétion d'aldostérone, utile pour diagnostiquer des conditions liées à la régulation de la pression artérielle et de l'équilibre électrolytique."
+    },
+    {
+        "parameterName": "Activité de la rénine plasmatique (PRA), niveau de rénine",
+        "description": "La rénine est une enzyme produite par les reins qui aide à réguler la pression artérielle et l'équilibre hydrique, influençant la production d'aldostérone."
+    },
+    {
+        "parameterName": "Niveau de C-peptide, taux de C-peptide",
+        "description": "Le C-peptide est un sous-produit de la production d'insuline, et sa mesure peut aider à évaluer la production d'insuline et la fonction pancréatique."
+    },
+    {
+        "parameterName": "pH sanguin, acidité du sang, pH",
+        "description": "Le pH mesure l'acidité ou l'alcalinité du sang, un paramètre critique pour évaluer la fonction métabolique et respiratoire globale."
+    },
+    {
+        "parameterName": "Pression partielle en oxygène (pO2), saturation en oxygène",
+        "description": "Le pO2 mesure la concentration d'oxygène dans le sang artériel et est important pour évaluer la fonction respiratoire et l'oxygénation."
+    },
+    {
+        "parameterName": "Pression partielle en dioxyde de carbone (pCO2), concentration en CO2",
+        "description": "Le pCO2 indique la concentration de dioxyde de carbone dans le sang, aidant à évaluer la fonction respiratoire et l'équilibre acido-basique du corps."
+    },
+    {
+        "parameterName": "Bicarbonate (HCO3), niveau de bicarbonate",
+        "description": "Le bicarbonate est un tampon dans le sang qui aide à maintenir l'équilibre du pH, des niveaux anormaux indiquant des perturbations respiratoires ou métaboliques."
+    },
+    {
+        "parameterName": "Saturation en oxygène (O2 Sat), Taux d'oxygène",
+        "description": "La saturation en oxygène mesure le pourcentage d'hémoglobine lié à l'oxygène, offrant un aperçu de l'efficacité du transport de l'oxygène dans le sang."
+    },
+    {
+        "parameterName": "Niveau de lactate, Taux de lactate",
+        "description": "Le lactate est un sous-produit du métabolisme anaérobie. Des niveaux élevés de lactate peuvent indiquer une hypoxie tissulaire ou des conditions métaboliques graves."
+    },
+    {
+        "parameterName": "Bêta-HCG quantitatif, HCG quantitatif",
+        "description": "La bêta-hCG (gonadotrophine chorionique humaine) est une hormone produite pendant la grossesse. Un test quantitatif mesure les niveaux de HCG pour évaluer la progression de la grossesse."
+    },
+    {
+        "parameterName": "Bêta-HCG qualitatif, Test de grossesse qualitatif",
+        "description": "Un test de bêta-HCG qualitatif détecte la présence ou l'absence de HCG dans l'urine ou le sang, confirmant si une personne est enceinte."
+    },
+    {
+        "parameterName": "Anticorps de la peroxydase thyroïdienne (TPO), Anticorps anti-TPO",
+        "description": "Les anticorps TPO sont souvent présents dans les maladies thyroïdiennes auto-immunes telles que la thyroïdite de Hashimoto et peuvent indiquer une dysfonction thyroïdienne."
+    },
+    {
+        "parameterName": "Anticorps thyroglobuline (TGAb), Anticorps anti-thyroglobuline",
+        "description": "Les anticorps thyroglobuline peuvent interférer avec la fonction thyroïdienne et sont souvent utilisés dans le diagnostic des maladies thyroïdiennes auto-immunes et le suivi du cancer de la thyroïde."
+    },
+    {
+        "parameterName": "Ammoniaque plasmatique, Niveau d'ammoniaque sanguine",
+        "description": "Les niveaux d'ammoniaque plasmatique sont utilisés pour diagnostiquer les maladies du foie et évaluer la gravité de conditions telles que l'encéphalopathie hépatique."
+    },
+    {
+        "parameterName": "Niveau de BNP, Peptide natriurétique de type B",
+        "description": "Le peptide natriurétique de type B (BNP) est une hormone libérée par le cœur en réponse à l'étirement, souvent utilisée pour diagnostiquer l'insuffisance cardiaque et en évaluer la gravité."
+    },
+    {
+        "parameterName": "Myoglobine sérique, Taux de myoglobine",
+        "description": "La myoglobine est une protéine présente dans les muscles qui est libérée lors d'une blessure musculaire. Des niveaux élevés peuvent indiquer des lésions musculaires, y compris des lésions du muscle cardiaque en cas de crise cardiaque."
+    },
+    {
+        "parameterName": "Niveau d'homocystéine, Taux d'homocystéine",
+        "description": "L'homocystéine est un acide aminé, et des niveaux élevés peuvent être un facteur de risque pour les maladies cardiovasculaires et les troubles neurologiques."
+    },
+    {
+        "parameterName": "Apolipoprotéine A1 (Apo A1), Apo A1",
+        "description": "L'apolipoprotéine A1 (Apo A1) est un composant protéique majeur des lipoprotéines de haute densité (HDL), également appelées 'bon' cholestérol. Elle joue un rôle clé dans le métabolisme des lipides et la santé cardiovasculaire en aidant à éliminer l'excès de cholestérol du sang."
+    },
+    {
+        "parameterName": "Apolipoprotéine B (Apo B), Apo B",
+        "description": "L'apolipoprotéine B (Apo B) est le principal composant protéique des lipoprotéines de basse densité (LDL), souvent appelées 'mauvais' cholestérol. Des niveaux élevés d'Apo B sont associés à un risque accru de maladies cardiovasculaires en raison du rôle des LDL dans la formation de plaques dans les artères."
+    },
+    {
+        "parameterName": "Niveau d'osmolarité sérique, Osmolalité sanguine",
+        "description": "L'osmolarité sérique est une mesure de la concentration en solutés dans le sang, aidant à évaluer l'état d'hydratation et la fonction rénale. Elle est importante dans le diagnostic de conditions telles que la déshydratation, les maladies rénales et le diabète."
+    },
+    {
+        "parameterName": "Osmolalité urinaire, Taux d'osmolarité de l'urine",
+        "description": "L'osmolalité urinaire mesure la concentration des solutés dans l'urine, reflétant la capacité des reins à concentrer l'urine. Elle est utilisée pour évaluer la fonction rénale et diagnostiquer des conditions liées à l'équilibre des fluides, telles que la déshydratation ou le diabète."
+    },
+    {
+        "parameterName": "IgE totale, Immunoglobuline E totale",
+        "description": "L'immunoglobuline E totale (IgE) est une classe d'anticorps impliquée dans les réponses allergiques. Des niveaux élevés d'IgE sont souvent associés à des conditions allergiques comme l'asthme, la rhinite allergique et les allergies alimentaires."
+    },
+    {
+        "parameterName": "IgE spécifique aux allergènes, IgE allergènes spécifiques",
+        "description": "L'IgE spécifique aux allergènes mesure les anticorps IgE dirigés contre des allergènes spécifiques, tels que le pollen, les acariens ou certains aliments. Ce test aide à identifier les sensibilités allergiques et est utilisé dans le diagnostic des maladies liées aux allergies."
+    },
+    {
+        "parameterName": "IgG, Immunoglobuline G",
+        "description": "L'IgG (Immunoglobuline G) est l'anticorps le plus courant dans le sang et autres fluides corporels. Elle fait partie de la réponse immunitaire du corps contre les infections bactériennes et virales. Des niveaux élevés ou faibles d'IgG peuvent indiquer diverses conditions, y compris des déficits immunitaires ou des infections chroniques."
+    },
+    {
+        "parameterName": "IgA, Immunoglobuline A",
+        "description": "L'IgA (Immunoglobuline A) est un anticorps principalement trouvé dans les membranes muqueuses, comme celles des voies respiratoires et du tractus gastro-intestinal, ainsi que dans la salive, les larmes et le lait maternel. Elle joue un rôle clé dans l'immunité muqueuse, protégeant contre les infections dans ces zones."
+    },
+    {
+        "parameterName": "IgM, Immunoglobuline M",
+        "description": "L'IgM (Immunoglobuline M) est le premier anticorps produit lors d'une réponse immunitaire initiale. Elle se trouve principalement dans le sang et le fluide lymphatique. Des niveaux élevés d'IgM peuvent être le signe d'une infection aiguë ou d'une condition auto-immune."
+    },
+    {
+        "parameterName": "Niveau de C3, C3 complément",
+        "description": "Le C3 est un composant clé du système du complément, qui fait partie de la réponse immunitaire et aide à éliminer les agents pathogènes du corps. Ses niveaux peuvent indiquer l'activité du système immunitaire. Des niveaux faibles sont associés à des maladies auto-immunes, tandis que des niveaux élevés peuvent suggérer une infection ou une inflammation."
+    },
+    {
+        "parameterName": "Niveau de C4, C4 complément",
+        "description": "Le C4 est un autre composant du système du complément qui travaille avec le C3 pour promouvoir les réponses immunitaires. Des niveaux anormaux de C4 peuvent indiquer des troubles du système immunitaire tels que le lupus, ainsi que des infections aiguës et des inflammations."
+    }
+]

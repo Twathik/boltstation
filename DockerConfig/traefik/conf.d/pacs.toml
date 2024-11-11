@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.pacs-route]
+entryPoints = ["web"]
+rule = "Host(`pacs.{{ env 'BOLT_DOMAIN' }}.local`)"
+service = "pacs"
+
+[http.services]
+[http.services.pacs]
+[http.services.pacs.loadBalancer]
+[[http.services.pacs.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:8042'

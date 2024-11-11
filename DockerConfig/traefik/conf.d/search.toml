@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.search-route]
+entryPoints = ["web"]
+rule = "Host(`search.{{ env 'BOLT_DOMAIN' }}.local`)"
+service = "search"
+
+[http.services]
+[http.services.search]
+[http.services.search.loadBalancer]
+[[http.services.search.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:8108'

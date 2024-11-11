@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.wundergraph-route]
+entryPoints = ["web"]
+service = "wundergraph"
+rule = "Host(`api.{{ env 'BOLT_DOMAIN' }}.local`)"
+
+[http.services]
+[http.services.wundergraph]
+[http.services.wundergraph.loadBalancer]
+[[http.services.wundergraph.loadBalancer.servers]]
+url = 'http://{{ env "BOLT4_HOST" }}:9991'

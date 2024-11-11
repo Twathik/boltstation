@@ -1,0 +1,574 @@
+[
+    {
+        "parameterName": "White Blood Cell (WBC) count",
+        "description": "Measures the total number of white blood cells in the blood, which are crucial for immune response and fighting infections."
+    },
+    {
+        "parameterName": "Red Blood Cell (RBC) count",
+        "description": "Counts the number of red blood cells, responsible for carrying oxygen from the lungs to body tissues and removing carbon dioxide."
+    },
+    {
+        "parameterName": "Hemoglobin (Hb)",
+        "description": "Determines the amount of hemoglobin in the blood, a protein in red blood cells that binds and transports oxygen throughout the body."
+    },
+    {
+        "parameterName": "Hematocrit (Hct)",
+        "description": "Measures the proportion of red blood cells in the blood, indicating blood viscosity and oxygen-carrying capacity."
+    },
+    {
+        "parameterName": "Mean Corpuscular Volume (MCV)",
+        "description": "Calculates the average size of red blood cells, used to help classify types of anemia."
+    },
+    {
+        "parameterName": "Mean Corpuscular Hemoglobin (MCH)",
+        "description": "Measures the average amount of hemoglobin per red blood cell, aiding in anemia diagnosis and assessment."
+    },
+    {
+        "parameterName": "Mean Corpuscular Hemoglobin Concentration (MCHC)",
+        "description": "Calculates the concentration of hemoglobin in a given volume of red blood cells, assisting in the evaluation of red blood cell health."
+    },
+    {
+        "parameterName": "Platelet count",
+        "description": "Determines the number of platelets, essential for blood clotting and wound healing."
+    },
+    {
+        "parameterName": "Mean Platelet Volume (MPV)",
+        "description": "Measures the average size of platelets, providing insight into platelet production and function."
+    },
+    {
+        "parameterName": "Red Cell Distribution Width (RDW)",
+        "description": "Calculates the variation in red blood cell size, helping in the diagnosis of different types of anemia."
+    },
+    {
+        "parameterName": "Neutrophils",
+        "description": "Measures the percentage or absolute count of neutrophils, a type of white blood cell vital for fighting bacterial infections."
+    },
+    {
+        "parameterName": "Lymphocytes",
+        "description": "Counts lymphocytes, white blood cells involved in immune defense against viral infections and cancer cells."
+    },
+    {
+        "parameterName": "Monocytes",
+        "description": "Determines the number of monocytes, white blood cells that help break down bacteria and play a role in immune response."
+    },
+    {
+        "parameterName": "Eosinophils",
+        "description": "Measures eosinophils, white blood cells associated with allergic reactions and parasitic infections."
+    },
+    {
+        "parameterName": "Basophils",
+        "description": "Counts basophils, a type of white blood cell involved in immune response, especially to allergens and inflammation."
+    },
+    {
+        "parameterName": "Sodium (Na)",
+        "description": "An electrolyte essential for maintaining fluid balance, nerve function, and muscle contraction."
+    },
+    {
+        "parameterName": "Potassium (K)",
+        "description": "An electrolyte that plays a key role in heart function, muscle contraction, and nerve signaling."
+    },
+    {
+        "parameterName": "Kalièmie (K)",
+        "description": "An electrolyte that plays a key role in heart function, muscle contraction, and nerve signaling."
+    },
+    {
+        "parameterName": "Chloride (Cl)",
+        "description": "An electrolyte that helps maintain fluid balance and acid-base balance in the body."
+    },
+    {
+        "parameterName": "Bicarbonate (HCO3)",
+        "description": "A buffer that maintains the body's pH level by balancing acids and bases in the blood."
+    },
+    {
+        "parameterName": "Blood Urea Nitrogen (BUN)",
+        "description": "Measures the amount of nitrogen in the blood from urea, providing insights into kidney function."
+    },
+    {
+        "parameterName": "Creatinine",
+        "description": "A waste product from muscle metabolism, used as an indicator of kidney health."
+    },
+    {
+        "parameterName": "Glucose",
+        "description": "The main sugar in blood, a primary energy source for cells, and a key marker in diabetes management."
+    },
+    {
+        "parameterName": "Calcium (Ca)",
+        "description": "An essential mineral for bone health, muscle function, nerve transmission, and blood clotting."
+    },
+    {
+        "parameterName": "Albumin",
+        "description": "A protein produced by the liver that helps maintain blood volume and carries hormones and drugs."
+    },
+    {
+        "parameterName": "Total Protein",
+        "description": "The combined levels of albumin and globulins, indicating nutritional status and liver or kidney function."
+    },
+    {
+        "parameterName": "Alkaline Phosphatase (ALP)",
+        "description": "An enzyme found in several tissues, primarily used to assess liver and bone health."
+    },
+    {
+        "parameterName": "Alanine Aminotransferase (ALT)",
+        "description": "An enzyme found in the liver; high levels may indicate liver damage."
+    },
+    {
+        "parameterName": "Aspartate Aminotransferase (AST)",
+        "description": "An enzyme found in the liver and heart, used to detect liver damage or heart injury."
+    },
+    {
+        "parameterName": "Bilirubin",
+        "description": "A byproduct of red blood cell breakdown, high levels may indicate liver disease or bile duct issues."
+    },
+    {
+        "parameterName": "Total Cholesterol",
+        "description": "The overall level of cholesterol in the blood, including HDL, LDL, and VLDL; used to assess cardiovascular health."
+    },
+    {
+        "parameterName": "Low-Density Lipoprotein (LDL)",
+        "description": "Known as 'bad' cholesterol, high levels can lead to plaque buildup in arteries, increasing cardiovascular risk."
+    },
+    {
+        "parameterName": "High-Density Lipoprotein (HDL)",
+        "description": "Referred to as 'good' cholesterol, it helps remove LDL from the bloodstream, lowering heart disease risk."
+    },
+    {
+        "parameterName": "Triglycerides",
+        "description": "A type of fat in the blood; high levels can increase the risk of heart disease and metabolic disorders."
+    },
+    {
+        "parameterName": "Very Low-Density Lipoprotein (VLDL)",
+        "description": "Transports triglycerides in the blood; high levels may contribute to plaque buildup in arteries."
+    },
+    {
+        "parameterName": "Cholesterol/HDL Ratio",
+        "description": "The ratio of total cholesterol to HDL, providing insights into cardiovascular risk."
+    },
+    {
+        "parameterName": "Alanine Aminotransferase (ALT)",
+        "description": "An enzyme primarily in the liver; elevated levels suggest liver damage or inflammation."
+    },
+    {
+        "parameterName": "Aspartate Aminotransferase (AST)",
+        "description": "An enzyme found in the liver and heart, elevated levels may indicate liver or heart damage."
+    },
+    {
+        "parameterName": "Alkaline Phosphatase (ALP)",
+        "description": "An enzyme linked to liver, bone, and bile duct health; high levels can indicate liver or bone disorders."
+    },
+    {
+        "parameterName": "Bilirubin (Total, Direct, Indirect)",
+        "description": "Byproduct of red blood cell breakdown, with levels indicating liver function and potential liver disease."
+    },
+    {
+        "parameterName": "Albumin",
+        "description": "A liver-produced protein that maintains blood volume and transports substances in the blood."
+    },
+    {
+        "parameterName": "Total Protein",
+        "description": "The sum of albumin and globulins, assessing liver function, kidney health, and nutritional status."
+    },
+    {
+        "parameterName": "Gamma-Glutamyl Transferase (GGT)",
+        "description": "An enzyme indicating liver function; high levels can suggest liver or bile duct issues."
+    },
+    {
+        "parameterName": "Prothrombin Time (PT)",
+        "description": "Measures how long it takes blood to clot, used to evaluate blood coagulation and liver function."
+    },
+    {
+        "parameterName": "Thyroid Stimulating Hormone (TSH)",
+        "description": "A hormone that regulates thyroid function, helping diagnose hypo- or hyperthyroidism."
+    },
+    {
+        "parameterName": "Free Thyroxine (Free T4)",
+        "description": "An active thyroid hormone; abnormal levels indicate thyroid dysfunction."
+    },
+    {
+        "parameterName": "Free Triiodothyronine (Free T3)",
+        "description": "An active thyroid hormone involved in metabolism; helps assess thyroid health."
+    },
+    {
+        "parameterName": "HbA1c percentage",
+        "description": "Average blood glucose level over the past 2-3 months; essential for diabetes management."
+    },
+    {
+        "parameterName": "pH",
+        "description": "Indicates the acidity or alkalinity of blood or urine, reflecting metabolic and respiratory health."
+    },
+    {
+        "parameterName": "Protein",
+        "description": "Presence of protein in urine can indicate kidney damage or disease."
+    },
+    {
+        "parameterName": "Glucose",
+        "description": "A measure of blood or urine sugar levels, used to diagnose and monitor diabetes."
+    },
+    {
+        "parameterName": "Ketones",
+        "description": "Byproducts of fat metabolism; high levels may indicate uncontrolled diabetes or starvation."
+    },
+    {
+        "parameterName": "Blood",
+        "description": "Presence of blood in urine can signal infection, trauma, or kidney stones."
+    },
+    {
+        "parameterName": "Bilirubin",
+        "description": "A byproduct of red blood cell breakdown, indicating liver health and biliary function."
+    },
+    {
+        "parameterName": "Urobilinogen",
+        "description": "A byproduct of bilirubin, helps in detecting liver disease and hemolytic disorders."
+    },
+    {
+        "parameterName": "Nitrites",
+        "description": "Produced by certain bacteria; presence in urine suggests a bacterial urinary tract infection."
+    },
+    {
+        "parameterName": "Leukocyte Esterase",
+        "description": "An enzyme indicating white blood cells in urine, which can signal infection or inflammation."
+    },
+    {
+        "parameterName": "Specific Gravity",
+        "description": "Measures urine concentration, providing insights into kidney function and hydration status."
+    },
+    {
+        "parameterName": "ESR value",
+        "description": "Erythrocyte Sedimentation Rate, used to detect inflammation in the body."
+    },
+    {
+        "parameterName": "CRP value",
+        "description": "C-Reactive Protein level, indicating acute inflammation or infection."
+    },
+    {
+        "parameterName": "Prothrombin Time (PT)",
+        "description": "Measures blood clotting ability, often used to assess liver function and coagulation disorders."
+    },
+    {
+        "parameterName": "International Normalized Ratio (INR)",
+        "description": "Standardized measure of blood clotting time, primarily used in patients on anticoagulants."
+    },
+    {
+        "parameterName": "25-Hydroxy Vitamin D (25(OH)D)",
+        "description": "A marker for Vitamin D status, essential for bone health and immune function."
+    },
+    {
+        "parameterName": "Ferritin level",
+        "description": "A measure of stored iron in the body, low levels can indicate iron deficiency."
+    },
+    {
+        "parameterName": "Blood Urea Nitrogen (BUN) level",
+        "description": "Reflects kidney function by measuring urea levels in the blood."
+    },
+    {
+        "parameterName": "Serum Creatinine",
+        "description": "A waste product that assesses kidney function; high levels indicate kidney dysfunction."
+    },
+    {
+        "parameterName": "Urine Creatinine",
+        "description": "Used to assess kidney filtration and in calculating urine protein-to-creatinine ratio."
+    },
+    {
+        "parameterName": "Albumin level",
+        "description": "A protein produced by the liver, helps in assessing nutritional status and liver function."
+    },
+    {
+        "parameterName": "Total Calcium",
+        "description": "Measures total calcium in blood, important for bone health and various cellular functions."
+    },
+    {
+        "parameterName": "Ionized Calcium",
+        "description": "The biologically active form of calcium; critical for muscle and nerve function."
+    },
+    {
+        "parameterName": "Magnesium level",
+        "description": "An essential mineral for muscle function, nerve transmission, and energy production."
+    },
+    {
+        "parameterName": "Phosphate level",
+        "description": "A measure of phosphate in the blood, which is important for bone health, energy production, and cellular function."
+    },
+    {
+        "parameterName": "Serum Iron",
+        "description": "Measures the amount of iron in the blood, essential for oxygen transport and energy production."
+    },
+    {
+        "parameterName": "Total Iron Binding Capacity (TIBC)",
+        "description": "Assesses the blood's capacity to bind iron with transferrin, helping diagnose iron-deficiency anemia."
+    },
+    {
+        "parameterName": "Transferrin",
+        "description": "A protein that transports iron in the blood; levels help assess iron status and detect anemia."
+    },
+    {
+        "parameterName": "Transferrin Saturation",
+        "description": "Percentage of transferrin bound to iron, giving insights into iron availability in the body."
+    },
+    {
+        "parameterName": "Ferritin",
+        "description": "A protein that stores iron; ferritin levels reflect total iron storage in the body."
+    },
+    {
+        "parameterName": "Rheumatoid Factor (RF) level",
+        "description": "An antibody commonly elevated in rheumatoid arthritis and other autoimmune diseases."
+    },
+    {
+        "parameterName": "ANA Titer",
+        "description": "Detects antinuclear antibodies, which are often elevated in autoimmune diseases like lupus."
+    },
+    {
+        "parameterName": "ANA Pattern",
+        "description": "The staining pattern of antinuclear antibodies, providing additional clues to specific autoimmune conditions."
+    },
+    {
+        "parameterName": "HIV Antibody",
+        "description": "An antibody test for HIV, indicating exposure to the virus."
+    },
+    {
+        "parameterName": "HIV Antigen",
+        "description": "Detects HIV antigen, usually p24, for early detection of HIV infection."
+    },
+    {
+        "parameterName": "HIV RNA",
+        "description": "Detects HIV RNA, often used in early infection diagnosis or to monitor viral load in HIV-positive patients."
+    },
+    {
+        "parameterName": "Hepatitis A IgM",
+        "description": "Antibody indicating recent or acute infection with the Hepatitis A virus."
+    },
+    {
+        "parameterName": "Hepatitis B Surface Antigen (HBsAg)",
+        "description": "Indicates active Hepatitis B infection, either acute or chronic."
+    },
+    {
+        "parameterName": "Hepatitis B Surface Antibody (HBsAb)",
+        "description": "Antibody indicating immunity to Hepatitis B, either from vaccination or recovery from infection."
+    },
+    {
+        "parameterName": "Hepatitis B Core Antibody (HBcAb)",
+        "description": "Antibody that may indicate previous or ongoing infection with Hepatitis B virus."
+    },
+    {
+        "parameterName": "Hepatitis C Antibody",
+        "description": "Antibody indicating exposure to Hepatitis C virus, used as a screening tool."
+    },
+    {
+        "parameterName": "Blood Culture (bacteria or fungi presence)",
+        "description": "Detects bacterial or fungal presence in the blood, used to diagnose bloodstream infections or sepsis."
+    },
+    {
+        "parameterName": "Troponin I",
+        "description": "A cardiac enzyme released during heart muscle damage, commonly used to diagnose heart attacks."
+    },
+    {
+        "parameterName": "Troponin T",
+        "description": "A specific cardiac enzyme indicating heart muscle injury, used in heart attack diagnosis."
+    },
+    {
+        "parameterName": "Serum Amylase",
+        "description": "An enzyme that helps break down carbohydrates. High levels of serum amylase may indicate pancreatitis or other digestive disorders."
+    },
+    {
+        "parameterName": "Serum Lipase",
+        "description": "An enzyme primarily produced by the pancreas, important for fat digestion. Elevated levels may indicate pancreatic disorders, such as pancreatitis."
+    },
+    {
+        "parameterName": "Lactate Dehydrogenase (LDH) level",
+        "description": "An enzyme found in various tissues, including the heart, liver, and muscles. Elevated LDH levels can indicate tissue damage or conditions like anemia, liver disease, or heart attack."
+    },
+    {
+        "parameterName": "Serum Folate",
+        "description": "A form of vitamin B9 present in the blood, essential for cell division and DNA synthesis. Low levels may lead to anemia and other health issues."
+    },
+    {
+        "parameterName": "Red Blood Cell Folate",
+        "description": "Measures the amount of folate within red blood cells, a more reliable indicator of long-term folate status compared to serum folate."
+    },
+    {
+        "parameterName": "Vitamin B12 level",
+        "description": "Measures the level of vitamin B12 in the blood, crucial for nerve function and red blood cell production. Deficiency can lead to neurological issues and anemia."
+    },
+    {
+        "parameterName": "Folate",
+        "description": "A B-vitamin essential for DNA synthesis and repair. Deficiency can lead to birth defects, anemia, and other health problems."
+    },
+    {
+        "parameterName": "Serum Vitamin B12",
+        "description": "Measures the amount of vitamin B12 in the blood, necessary for nerve health, DNA production, and red blood cell formation. Low levels can cause cognitive and neurological issues."
+    },
+    {
+        "parameterName": "Total Testosterone",
+        "description": "The total amount of testosterone in the blood, including bound and free forms. It's important for male sexual health and muscle function."
+    },
+    {
+        "parameterName": "Free Testosterone",
+        "description": "The fraction of testosterone that is not bound to proteins in the blood and is available to act on tissues. It plays a key role in male health and physical performance."
+    },
+    {
+        "parameterName": "Bioavailable Testosterone",
+        "description": "Testosterone that is not tightly bound to proteins and is available for tissues to use. It includes both free testosterone and testosterone loosely bound to albumin."
+    },
+    {
+        "parameterName": "Estradiol Level",
+        "description": "A form of estrogen, the primary female sex hormone, important for regulating menstrual cycles, reproductive health, and bone density."
+    },
+    {
+        "parameterName": "Progesterone Level",
+        "description": "A hormone that plays a key role in the menstrual cycle and pregnancy. It prepares the uterus for implantation of a fertilized egg and supports early pregnancy."
+    },
+    {
+        "parameterName": "LH Level",
+        "description": "Luteinizing Hormone (LH) is involved in regulating the menstrual cycle in females and stimulating testosterone production in males. It is essential for ovulation and fertility."
+    },
+    {
+        "parameterName": "FSH Level",
+        "description": "Follicle-Stimulating Hormone (FSH) plays a key role in reproductive health by stimulating the growth of eggs in ovaries and sperm production in testes."
+    },
+    {
+        "parameterName": "Prolactin Level",
+        "description": "Prolactin is a hormone primarily involved in milk production. Elevated prolactin can affect fertility, menstrual cycles, and sexual function."
+    },
+    {
+        "parameterName": "Serum Cortisol",
+        "description": "Cortisol is a steroid hormone produced by the adrenal glands, important for stress response, regulating metabolism, and immune function."
+    },
+    {
+        "parameterName": "Free Cortisol (often in saliva or urine)",
+        "description": "Free cortisol represents the unbound form of cortisol, often measured to assess adrenal function and stress levels, especially in saliva or urine."
+    },
+    {
+        "parameterName": "DHEA-S Level",
+        "description": "Dehydroepiandrosterone sulfate (DHEA-S) is a hormone produced by the adrenal glands, which serves as a precursor to male and female sex hormones."
+    },
+    {
+        "parameterName": "Fasting Insulin",
+        "description": "Fasting insulin levels are measured after an overnight fast and help evaluate insulin resistance and metabolic health."
+    },
+    {
+        "parameterName": "Postprandial Insulin",
+        "description": "Postprandial insulin is measured after eating and reflects how the body responds to a meal by releasing insulin to regulate blood glucose."
+    },
+    {
+        "parameterName": "Parathyroid Hormone (PTH) Level",
+        "description": "PTH is responsible for regulating calcium levels in the blood. Abnormal levels may indicate issues with calcium metabolism or bone health."
+    },
+    {
+        "parameterName": "Erythropoietin Level",
+        "description": "Erythropoietin is a hormone produced by the kidneys that stimulates red blood cell production in the bone marrow, crucial for oxygen transport."
+    },
+    {
+        "parameterName": "Serum Aldosterone",
+        "description": "Aldosterone is a hormone produced by the adrenal glands that helps regulate sodium and potassium balance, as well as blood pressure."
+    },
+    {
+        "parameterName": "Urine Aldosterone",
+        "description": "Urine aldosterone measures aldosterone excretion, useful for diagnosing conditions related to blood pressure regulation and electrolyte balance."
+    },
+    {
+        "parameterName": "Plasma Renin Activity (PRA)",
+        "description": "Renin is an enzyme produced by the kidneys that helps regulate blood pressure and fluid balance, influencing the production of aldosterone."
+    },
+    {
+        "parameterName": "C-Peptide Level",
+        "description": "C-peptide is a byproduct of insulin production, and measuring it can help assess insulin production and pancreatic function."
+    },
+    {
+        "parameterName": "pH",
+        "description": "pH measures the acidity or alkalinity of the blood, a critical parameter for evaluating overall metabolic and respiratory function."
+    },
+    {
+        "parameterName": "Partial Pressure of Oxygen (pO2)",
+        "description": "pO2 measures the oxygen concentration in arterial blood and is important for assessing respiratory function and oxygenation."
+    },
+    {
+        "parameterName": "Partial Pressure of Carbon Dioxide (pCO2)",
+        "description": "pCO2 indicates the concentration of carbon dioxide in the blood, helping assess respiratory function and the body's acid-base balance."
+    },
+    {
+        "parameterName": "Bicarbonate (HCO3)",
+        "description": "Bicarbonate is a buffer in the blood that helps maintain the pH balance, with abnormal levels indicating respiratory or metabolic disturbances."
+    },
+    {
+        "parameterName": "Oxygen Saturation (O2 Sat)",
+        "description": "Oxygen saturation measures the percentage of hemoglobin bound with oxygen, providing insight into the efficiency of oxygen transport in the blood."
+    },
+    {
+        "parameterName": "Lactate Level",
+        "description": "Lactate is a byproduct of anaerobic metabolism. Elevated lactate levels can indicate tissue hypoxia or severe metabolic conditions."
+    },
+    {
+        "parameterName": "Quantitative Beta-HCG",
+        "description": "Beta-human chorionic gonadotropin (HCG) is a hormone produced during pregnancy. A quantitative test measures HCG levels to assess pregnancy progression."
+    },
+    {
+        "parameterName": "Qualitative Beta-HCG",
+        "description": "A qualitative beta-HCG test detects the presence or absence of HCG in urine or blood, confirming whether a person is pregnant."
+    },
+    {
+        "parameterName": "Thyroid Peroxidase Antibody (TPO)",
+        "description": "TPO antibodies are often present in autoimmune thyroid diseases such as Hashimoto's thyroiditis and can indicate thyroid dysfunction."
+    },
+    {
+        "parameterName": "Thyroglobulin Antibody (TGAb)",
+        "description": "Thyroglobulin antibodies can interfere with thyroid function and are often used in diagnosing autoimmune thyroid diseases and monitoring thyroid cancer."
+    },
+    {
+        "parameterName": "Plasma Ammonia",
+        "description": "Plasma ammonia levels are used to diagnose liver disease and assess the severity of conditions like hepatic encephalopathy."
+    },
+    {
+        "parameterName": "BNP Level",
+        "description": "B-type natriuretic peptide (BNP) is a hormone released by the heart in response to stretching, often used to diagnose heart failure and assess its severity."
+    },
+    {
+        "parameterName": "Serum Myoglobin",
+        "description": "Myoglobin is a protein found in muscles that is released during muscle injury. Elevated levels can indicate muscle damage, including heart muscle damage in the case of a heart attack."
+    },
+    {
+        "parameterName": "Homocysteine Level",
+        "description": "Homocysteine is an amino acid, and elevated levels can be a risk factor for cardiovascular disease and neurological disorders."
+    },
+    {
+        "parameterName": "Apo A1",
+        "description": "Apolipoprotein A1 (Apo A1) is a major protein component of high-density lipoproteins (HDL), also known as 'good' cholesterol. It plays a key role in lipid metabolism and cardiovascular health by helping to remove excess cholesterol from the bloodstream."
+    },
+    {
+        "parameterName": "Apo B",
+        "description": "Apolipoprotein B (Apo B) is the primary protein component of low-density lipoproteins (LDL), often referred to as 'bad' cholesterol. High levels of Apo B are associated with an increased risk of cardiovascular disease due to the role of LDL in plaque buildup in arteries."
+    },
+    {
+        "parameterName": "Serum Osmolality Level",
+        "description": "Serum osmolality is a measure of the solute concentration in the blood, helping assess hydration status and kidney function. It is important in the diagnosis of conditions like dehydration, kidney disease, and diabetes."
+    },
+    {
+        "parameterName": "Urine Osmolality Level",
+        "description": "Urine osmolality measures the concentration of solutes in urine, reflecting the kidneys' ability to concentrate urine. It is used to evaluate kidney function and diagnose conditions related to fluid balance, such as dehydration or diabetes."
+    },
+    {
+        "parameterName": "Total IgE",
+        "description": "Total immunoglobulin E (IgE) is a class of antibodies involved in allergic responses. Elevated IgE levels are often associated with allergic conditions like asthma, hay fever, and food allergies."
+    },
+    {
+        "parameterName": "Allergen-specific IgE",
+        "description": "Allergen-specific IgE measures IgE antibodies directed against specific allergens, such as pollen, dust mites, or certain foods. This test helps identify allergic sensitivities and is used in the diagnosis of allergy-related diseases."
+    },
+    {
+        "parameterName": "IgG",
+        "description": "IgG (Immunoglobulin G) is the most common antibody in blood and other body fluids. It is part of the body's immune response to bacterial and viral infections. Elevated or decreased IgG levels can indicate a variety of conditions, including immune deficiencies or chronic infections."
+    },
+    {
+        "parameterName": "IgA",
+        "description": "IgA (Immunoglobulin A) is an antibody found primarily in mucous membranes, such as those of the respiratory and gastrointestinal tracts, as well as in saliva, tears, and breast milk. It plays a key role in mucosal immunity, protecting against infections in these areas."
+    },
+    {
+        "parameterName": "IgM",
+        "description": "IgM (Immunoglobulin M) is the first antibody produced during an initial immune response. It is mainly found in the blood and lymphatic fluid. Elevated IgM levels can be a sign of an acute infection or autoimmune condition."
+    },
+    {
+        "parameterName": "C3 Level",
+        "description": "C3 is a key component of the complement system, part of the immune response that helps clear pathogens from the body. Its levels can indicate the activity of the immune system. Low levels are associated with autoimmune diseases, while high levels can suggest infection or inflammation."
+    },
+    {
+        "parameterName": "C4 Level",
+        "description": "C4 is another component of the complement system that works with C3 to promote immune responses. Abnormal C4 levels can indicate immune system disorders such as lupus, as well as acute infections and inflammation."
+    }
+]

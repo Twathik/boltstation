@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.storage-admin-route]
+entryPoints = ["web"]
+rule = "Host(`storage-admin.{{ env 'BOLT_DOMAIN' }}.local`)"
+service = "storage-admin"
+
+[http.services]
+[http.services.storage-admin]
+[http.services.storage-admin.loadBalancer]
+[[http.services.storage-admin.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:9001'
