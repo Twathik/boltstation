@@ -1,0 +1,13 @@
+[http]
+[http.routers]
+[http.routers.omni-parser-route]
+entryPoints = ["web"]
+rule = 'Host(`omni-parser.bolt.local`)'
+service = "omni-parser"
+
+
+[http.services]
+[http.services.omni-parser]
+[http.services.omni-parser.loadBalancer]
+[[http.services.omni-parser.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:4020'

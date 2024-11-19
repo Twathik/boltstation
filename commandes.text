@@ -1,1 +1,13 @@
 watch -n 1 nvidia-smi
+
+watch -n 1 nvidia-smi
+kill -9 $(nvidia-smi --query-compute-apps=pid --format=csv,noheader)
+kill -9 <pid>
+sudo kill -9 $(nvidia-smi --query-compute-apps=pid --format=csv,noheader,nounits)
+
+pkill -f python
+
+sudo chown myserviceuser /path/to/files
+sudo systemctl stop omniparse.service
+sudo systemctl daemon-reload
+journalctl -u omniparse.service --since "10 min ago"

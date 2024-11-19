@@ -2,7 +2,7 @@
 [http.routers]
 [http.routers.pacs-route]
 entryPoints = ["web"]
-rule = "Host(`pacs.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`pacs.bolt.local`)'
 service = "pacs"
 
 [http.services]

@@ -2,7 +2,7 @@
 [http.routers]
 [http.routers.ollama-route]
 entryPoints = ["web"]
-rule = "Host(`ollama.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`ollama.bolt.local`)'
 service = "ollama"
 
 [http.services]

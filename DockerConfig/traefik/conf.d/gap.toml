@@ -3,11 +3,11 @@
 [http.routers.gap-route]
 entryPoints = ["web"]
 priority = 4
-rule = "Host(`gap.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`gap.bolt.local`)'
 service = "gap"
 
 [http.services]
 [http.services.gap]
 [http.services.gap.loadBalancer]
 [[http.services.gap.loadBalancer.servers]]
-url = 'http://{{ env "BOLT_HOST" }}:3001'
+url = 'http://{{ env "BOLT_REMOTE_IP" }}:3001'

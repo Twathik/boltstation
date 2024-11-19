@@ -2,11 +2,11 @@
 [http.routers]
 [http.routers.live-route]
 entryPoints = ["web"]
-rule = "Host(`live.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`live.bolt.local`)'
 service = "live"
 
 [http.services]
 [http.services.live]
 [http.services.live.loadBalancer]
 [[http.services.live.loadBalancer.servers]]
-url = 'http://{{ env "BOLT_HOST" }}:5555'
+url = 'http://{{ env "BOLT_REMOTE_IP" }}:5555'

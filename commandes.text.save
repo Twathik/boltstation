@@ -1,0 +1,5 @@
+watch -n 1 nvidia-smi
+kill -9 $(nvidia-smi --query-compute-apps=pid --format=csv,noheader)
+kill -9 <pid>
+
+pkill -f python

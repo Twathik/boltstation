@@ -2,7 +2,7 @@
 [http.routers]
 [http.routers.storage-admin-route]
 entryPoints = ["web"]
-rule = "Host(`storage-admin.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`storage-admin.bolt.local`)'
 service = "storage-admin"
 
 [http.services]

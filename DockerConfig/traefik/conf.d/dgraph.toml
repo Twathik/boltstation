@@ -2,7 +2,7 @@
 [http.routers]
 [http.routers.dgraph-route]
 entryPoints = ["web"]
-rule = "Host(`dgraph.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`dgraph.bolt.local`)'
 service = "dgraph"
 
 [http.services]

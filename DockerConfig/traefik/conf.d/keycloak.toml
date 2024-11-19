@@ -2,7 +2,7 @@
 [http.routers]
 [http.routers.keycloak-route]
 entryPoints = ["web"]
-rule = "Host(`auth.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`auth.bolt.local`)'
 service = "keycloak"
 
 [http.services]

@@ -3,10 +3,10 @@
 [http.routers.wundergraph-route]
 entryPoints = ["web"]
 service = "wundergraph"
-rule = "Host(`api.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`api.bolt.local`)'
 
 [http.services]
 [http.services.wundergraph]
 [http.services.wundergraph.loadBalancer]
 [[http.services.wundergraph.loadBalancer.servers]]
-url = 'http://{{ env "BOLT4_HOST" }}:9991'
+url = 'http://{{ env "BOLT_REMOTE_IP" }}:9991'

@@ -2,13 +2,13 @@
 [http.routers]
 [http.routers.storage-route]
 entryPoints = ["web"]
-rule = "Host(`storage.{{ env 'BOLT_DOMAIN' }}.local`)"
+rule = 'Host(`storage.bolt.local`)'
 service = "storage"
 middlewares = "app-auth"
 
 [http.middlewares]
 [http.middlewares.app-auth.forwardAuth]
-address = "http://{{ env 'BOLT_DOMAIN' }}.local/user"
+address = 'http://app.bolt.local/user'
 
 
 [http.services]
