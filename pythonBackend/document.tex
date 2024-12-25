@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{ulem}%
+\usepackage{xcolor}%
+\usepackage{soul}%
+\usepackage{ifthen}%
+\usepackage{fancyhdr}%
+\usepackage{tikz}%
+%
+\usepackage{geometry}%
+\geometry{top=10mm, bottom=10mm, outer=10mm, inner=10mm}%
+\usepackage{graphicx}%
+\usepackage{eso-pic}%
+
+            \pagestyle{fancy}
+            \fancyhf{} % Clear existing headers and footers
+            \fancyhead{} % Clear the header
+            \fancyfoot[C]{% Centered footer
+                \mbox{\tikz[baseline=(page.base)]{
+                    \node[draw=black, fill=white, rounded corners=3pt, inner sep=3pt] (page) {\thepage};
+                }}
+            }
+            \renewcommand{\headrulewidth}{0pt} % Remove the top black line
+            \renewcommand{\footrulewidth}{0pt} % Remove any footer line
+            %
+
+    \newcommand\OddBackgroundPic{
+        \put(0,0){%
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \vfill
+                \centering
+                \includegraphics[width=\paperwidth,height=\paperheight]{/home/mac/boltStation/pythonBackend/Templates/3withHeader.jpg}
+                \vfill
+            }
+        }
+    }
+    %
+
+    \newcommand\EvenBackgroundPic{
+        \put(0,0){%
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \vfill
+                \centering
+                \includegraphics[width=\paperwidth,height=\paperheight]{/home/mac/boltStation/pythonBackend/Templates/3noHeader.jpg}
+                \vfill
+            }
+        }
+    }
+    %
+
+    \AddToShipoutPictureBG{%
+        \ifthenelse{\isodd{\value{page}}}{\OddBackgroundPic}{\EvenBackgroundPic}%
+    }
+    %
+%
+\begin{document}%
+\normalsize%
+1%
+\clearpage%
+2%
+\end{document}

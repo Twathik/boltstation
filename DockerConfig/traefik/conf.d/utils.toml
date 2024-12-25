@@ -1,0 +1,17 @@
+[http]
+[http.routers]
+[http.routers.utils-route]
+entryPoints = ["web"]
+rule = 'Host(`utils.bolt.local`)'
+service = "utils"
+middlewares = "app-auth"
+
+[http.middlewares]
+[http.middlewares.app-auth.forwardAuth]
+address = 'http://app.bolt.local/auth'
+
+[http.services]
+[http.services.utils]
+[http.services.utils.loadBalancer]
+[[http.services.utils.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:4010'

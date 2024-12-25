@@ -8,7 +8,7 @@ middlewares = "app-auth"
 
 [http.middlewares]
 [http.middlewares.app-auth.forwardAuth]
-address = 'http://app.bolt.local/user'
+address = 'http://api.bolt.local/auth/user'
 
 
 [http.services]

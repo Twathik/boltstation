@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+strawberry-graphql
+httpie
+black
+isort
+prisma
+redis
+pprintpp
+pylatex[matrices]
+jinja2
+pydantic
+python-ulid[pydantic]
+requests
+langchain
+langchain_ollama
+typesense

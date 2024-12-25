@@ -1,0 +1,12 @@
+python3 -m venv venv
+
+#####install pdflatex
+
+sudo apt install texlive
+sudo apt install texlive-latex-extra
+sudo apt install texlive-fonts-recommended
+sudo apt install texlive-fonts-extra
+pdflatex --version
+
+
+

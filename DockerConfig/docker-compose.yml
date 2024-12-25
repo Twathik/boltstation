@@ -85,7 +85,7 @@ services:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
       MINIO_API_CORS_ALLOW_ORIGIN: '*'
-      MINIO_HTTP_TRACE: /data/minio-http-trace.log 
+      MINIO_HTTP_TRACE: /data/minio-http-trace.log
     command: server --console-address ":9001" /data
 
   postgres:
@@ -172,6 +172,16 @@ services:
       bolt_network:
         aliases:
           - redis
+  ratel:
+    image: dgraph/ratel
+    container_name: "ratel"
+    restart: always
+    ports:
+      - "9020:8000"
+    networks:
+      bolt_network:
+        aliases:
+          - ratel
     #links:
     #  - redis-commander
 

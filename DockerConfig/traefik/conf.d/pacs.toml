@@ -9,4 +9,4 @@ service = "pacs"
 [http.services.pacs]
 [http.services.pacs.loadBalancer]
 [[http.services.pacs.loadBalancer.servers]]
-url = 'http://{{ env "BOLT_HOST" }}:8042'
+url = 'http://{{ env "BOLT_REMOTE_IP" }}:8042'

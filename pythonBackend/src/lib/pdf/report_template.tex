@@ -1,0 +1,67 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{parskip}
+
+% Customize section titles
+\titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
+
+% Document title
+\title{\textbf{Medical Report}}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Patient Information}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Name:}       & John Doe \\ \hline
+\textbf{Age:}        & 35 \\ \hline
+\textbf{Gender:}     & Male \\ \hline
+\textbf{Patient ID:} & 12345 \\ \hline
+\textbf{Date:}       & \today \\ \hline
+\end{tabular}
+
+\vspace{1cm}
+
+\section*{Clinical Summary}
+John Doe presented with complaints of chest pain radiating to the left arm. Initial examination revealed elevated blood pressure (140/90 mmHg) and mild tachycardia.
+
+\section*{Examinations and Tests}
+\subsection*{Physical Examination}
+- Blood Pressure: 140/90 mmHg  
+- Heart Rate: 110 bpm  
+- Respiratory Rate: 16 bpm  
+
+\subsection*{Laboratory Tests}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Test}         & \textbf{Result} & \textbf{Reference Range} \\ \hline
+Complete Blood Count  & Normal          & -                        \\ \hline
+Lipid Profile         & Elevated LDL    & LDL: <100 mg/dL          \\ \hline
+Troponin Levels       & Elevated        & <0.03 ng/mL              \\ \hline
+\end{tabular}
+
+\section*{Diagnosis}
+Acute Coronary Syndrome (ACS) suspected.
+
+\section*{Treatment Plan}
+1. Initiate dual antiplatelet therapy (aspirin + clopidogrel).  
+2. Administer sublingual nitroglycerin as needed for chest pain.  
+3. Admit for further observation and cardiac catheterization.  
+
+\section*{Physician's Notes}
+Further evaluation required to confirm diagnosis and rule out myocardial infarction.  
+
+\vspace{1cm}
+
+\textbf{Physician Name:} Dr. Jane Smith \\
+\textbf{Signature:} \rule{5cm}{0.5pt}
+
+\end{document}
