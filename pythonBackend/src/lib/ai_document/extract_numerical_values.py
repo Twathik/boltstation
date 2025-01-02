@@ -15,10 +15,11 @@ from src.lib.ai_document.utils.populate_found_data import (
 from src.lib.websocketTypes.general_classes import OperationEnum
 from src.lib.websocketTypes.publish_temporary_chanel_message import publish_message
 from src.lib.websocketTypes.temporary_chanel_message_class import TemporaryMessageType
-from src.lib.ai_document.system_prompts.extract_numerical_data_system_prompt import (
-    extract_numerical_data_system_prompt,
-)
+
 from langchain_core.output_parsers import PydanticOutputParser
+from src.lib.ai_document.system_prompts.french.extract_numerical_data_system_prompt_fr import (
+    extract_numerical_data_system_prompt_fr,
+)
 
 
 parser = PydanticOutputParser(pydantic_object=FilteredData)
@@ -38,7 +39,7 @@ def extract_numerical_values(
         # print(target_input)
 
         message = [
-            SystemMessage(content=extract_numerical_data_system_prompt),
+            SystemMessage(content=extract_numerical_data_system_prompt_fr),
             HumanMessage(
                 content=f"""
                     <MedicalObservation>{content}</MedicalObservation>

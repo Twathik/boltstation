@@ -1,12 +1,14 @@
 from os import replace
 from typing import Optional
 from click import argument
+from pprintpp import pprint
 from pylatex import Document, Command
 from pylatex.base_classes.command import Options
 from src.lib.pdf.slate_parser.slates_classes import Slate_SimpleText
+from src.lib.pdf.slate_parser.parsers.convert_rgb_to_hex import rgb_to_hex_if_rgb
 
 
-def parse_simple_text(node: dict, doc: Document, append: Optional[bool] = True):
+def parse_simple_text(node: dict, doc: Document, append: Optional[bool] = True) -> bool:
 
     simpleText = Slate_SimpleText(**node)
 
@@ -39,7 +41,10 @@ def parse_simple_text(node: dict, doc: Document, append: Optional[bool] = True):
         Command(
             "textcolor",
             options=Options(["HTML"]),
-            arguments=[simpleText.color.replace("#", ""), formattedText],
+            arguments=[
+                rgb_to_hex_if_rgb(simpleText.color).replace("#", ""),
+                formattedText,
+            ],
         )
         if not simpleText.color == None
         else formattedText
@@ -54,7 +59,7 @@ def parse_simple_text(node: dict, doc: Document, append: Optional[bool] = True):
         if not simpleText.backgroundColor == None
         else formattedText
     )
-    if append:
+    if append == True:
         doc.append(formattedText)
         return
     return formattedText

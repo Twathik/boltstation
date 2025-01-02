@@ -1,12 +1,16 @@
 import json
 import tempfile
+from typing import Optional
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Request
 from fastapi.responses import FileResponse
 from pathlib import Path
 import requests
+from src.lib.pdf.get_document_title import get_document_title
 from src.lib.pdf.get_file_data import get_file_data
 from src.lib.pdf.get_file_settings import get_file_settings
-from src.lib.pdf.slate_parser.slates_classes import QueryParams
+from src.lib.pdf.get_patient_data import get_patient_data
+from src.lib.pdf.slate_parser.parsers.format_lists import format_lists
+from src.lib.pdf.slate_parser.slates_classes import Patient, QueryParams
 from ..lib.pdf.generate_pdf_util import generate_pdf
 from pprintpp import pprint
 import os
@@ -61,11 +65,18 @@ async def pdf(
     async with temporary_directory(custom_dir=custom_dir) as temp_dir:
         settings = await get_file_settings(user_id=user["userId"], temp_dir=temp_dir)
         data = await get_file_data(pdf_id=pdf_id)
+        patient: Optional[Patient] = await get_patient_data(pdf_id)
+        documentTitle: str = await get_document_title(pdf_id)
+
+        data = format_lists(data)
+
         pdf = generate_pdf(
             tmpdirname=temp_dir,
             data=data,
             settings=settings,
             query_params=query_params,
+            patient=patient,
+            documentTitle=documentTitle,
         )
-        background_tasks.add_task(lambda: shutil.rmtree(temp_dir))
+        # background_tasks.add_task(lambda: shutil.rmtree(temp_dir))
         return FileResponse(pdf, media_type="application/pdf")

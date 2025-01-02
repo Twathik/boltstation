@@ -1,4 +1,5 @@
 import os
+from pprintpp import pprint
 import requests
 from src.lib.pdf.slate_parser.slates_classes import PDF_Urls, PDF_paddings, PDF_settings
 from src.lib.prismaClient import prisma_client
@@ -8,11 +9,12 @@ host = os.getenv("HOST", "localhost")
 
 
 async def get_file_settings(user_id: str, temp_dir: str) -> PDF_settings:
+
     settings = await prisma_client.user.find_unique_or_raise(
         where={"userId": user_id},
     )
 
-    if not settings.documentSettings == None:
+    if not settings.documentSettings == None and not settings.documentSettings == "":
         settings = PDF_settings.model_validate_json(settings.documentSettings)
 
         if "storage.bolt.local" in settings.urls.evenUrl:

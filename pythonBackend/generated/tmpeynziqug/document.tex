@@ -5,19 +5,21 @@
 \usepackage{textcomp}%
 \usepackage{lastpage}%
 \usepackage{ulem}%
-\usepackage{xcolor}%
+\usepackage[HTML]{xcolor}%
 \usepackage{soul}%
 \usepackage{ifthen}%
 \usepackage{fancyhdr}%
 \usepackage{tikz}%
-\usepackage[utf8]{inputenc}%
-\usepackage{graphicx}%
+\usepackage{unicode-math}%
+\usepackage{fontspec}%
 \usepackage{ragged2e}%
 %
 \usepackage{geometry}%
 \geometry{top=49mm, bottom=25mm, outer=10mm, inner=24mm}%
 \usepackage{graphicx}%
 \usepackage{eso-pic}%
+\usepackage{tcolorbox}%
+\usepackage{inputenc}%
 
             \pagestyle{fancy}
             \fancyhf{} % Clear existing headers and footers
@@ -59,48 +61,84 @@
         \ifthenelse{\isodd{\value{page}}}{\OddBackgroundPic}{\EvenBackgroundPic}%
     }
     %
+\definecolor{main_title_background_color}{HTML}{e2e8f0}%
+\definecolor{main_title_border_color}{HTML}{1e293b}%
+\definecolor{kinetic_base_color}{HTML}{f1f5f9}%
+\definecolor{hypokinetic_color}{HTML}{fecdd3}%
+\definecolor{akinetic_color}{HTML}{f87171}%
+\definecolor{dyskinetic_color}{HTML}{fcd34d}%
 %
 \begin{document}%
 \normalsize%
+\begin{minipage}{0.5\linewidth}%
+\textbf{\underline{Nom :}} \hspace{1cm} Zighoud%
+\\%
+\textbf{\underline{Prénom :}} \hspace{1cm} Sabine%
+\\%
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}%
+\textbf{\underline{DDN :}} \hspace{1cm} 26-08-1991%
+\\%
+\textbf{\underline{Date :}} \hspace{1cm} 30/12/2024%
+\\%
+\end{minipage}%
+\hspace{\textwidth}%
+\\%
+\begin{center}%
+
+        \begin{tcolorbox}[
+            colframe=main_title_border_color,        % Couleur de la bordure
+            colback=main_title_background_color,        % Couleur de fond
+            coltitle=main_title_border_color,       % Couleur du texte (si titre utilisé)
+            arc=8pt,              % Rayon des coins arrondis
+            boxrule=0.5mm,          % Épaisseur de la bordure
+            auto outer arc,       % Ajuste automatiquement les coins arrondis
+            width=\linewidth,     % Largeur de la boîte
+            halign=center         % Centrer le texte horizontalement
+        ]
+        \LARGE{\textbf{Examen clinique}}
+        \end{tcolorbox}
+        %
+\end{center}%
+%
+\vspace*{\baselineskip}%
 %
 \vspace*{\baselineskip}%
 
 
-\begin{figure}[h!]%
+\begin{table}[h!]%
 \centering%
-\includegraphics[width=0.5552238805970149\textwidth]{/home/mac/boltStation/pythonBackend/generated/tmpaycfc_pf/01JGBJ5M0P5S46MEZBA8P1VKNH.jpeg}%
-\caption{%
-test caption%
+\resizebox{0.9\linewidth}{!}{%
+\begin{tabular}{p{0.17731343283582088\linewidth} p{0.3156716417910448\linewidth} p{0.398955223880597\linewidth}}%
+\hline%
+header10%
+&%
+header 2%
+&%
+header3%
+\\%
+\hline%
+value 1%
+&%
+value 2 %
+&%
+value 3 %
+\\%
+\hline%
+\end{tabular}%
 }%
-\end{figure}
+\end{table}
 
 %
 %
 \vspace*{\baselineskip}%
 %
 \vspace*{\baselineskip}%
-%
-\vspace*{\baselineskip}%
-\begin{minipage}{0.25\textwidth}%
-This is the left column (1/4 width).%
-\end{minipage}%
-\hspace{0.05\textwidth}%
-\begin{minipage}{0.75\textwidth}%
-This is the right column (3/4 width).%
-\end{minipage}%
-%
-\vspace*{\baselineskip}%
-\begin{minipage}{0.25\textwidth}%
-This is the left column (1/4 width).%
-\end{minipage}%
-\hspace{0.05\textwidth}%
-\begin{minipage}{0.75\textwidth}%
-This is the right column (3/4 width).%
-\end{minipage}%
-%
-\vspace*{\baselineskip}%
-%
-\vspace*{\baselineskip}%
+\begin{quote}%
+``%
+test bloquote%
+''%
+\end{quote}%
 %
 \vspace*{\baselineskip}%
 %

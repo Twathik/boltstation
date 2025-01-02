@@ -15,6 +15,7 @@ class TextAlignEnum(str, Enum):
 class ListInformationTypeEnum(str, Enum):
     disc = "disc"
     decimal = "decimal"
+    todo = "todo"
 
 
 class InputTypeEnum(str, Enum):
@@ -106,6 +107,7 @@ class Slate_Table_TD(BaseModel):
     id: Optional[str] = None
     type: Literal["td"]
     children: List[Any]
+    colSizes: Optional[List[int]] = []
 
 
 class Slate_Table_TR(BaseModel):
@@ -226,3 +228,9 @@ class PDF_settings(BaseModel):
 
 class QueryParams(BaseModel):
     page_size: Optional[PageSizeEnum] = None
+
+
+class Patient(BaseModel):
+    first_name: str
+    last_name: str
+    dob: str

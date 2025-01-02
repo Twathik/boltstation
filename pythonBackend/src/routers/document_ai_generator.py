@@ -48,7 +48,7 @@ async def document_ai_generator(request: Request, Document: Document):
     try:
         llm = OllamaLLM(
             model="gemma2:latest",
-            temperature=0,
+            temperature=0.2,
             # other params...
         )
 

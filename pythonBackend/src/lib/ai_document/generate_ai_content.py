@@ -10,11 +10,11 @@ from src.lib.websocketTypes.temporary_chanel_message_class import TemporaryMessa
 from pprintpp import pprint
 from src.lib.typesense.typesense_client import typesense_client
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
-from src.lib.ai_document.system_prompts.generate_ai_document_system_message import (
-    generate_ai_document_system_message,
+from src.lib.ai_document.system_prompts.french.generate_ai_document_system_message_fr import (
+    generate_ai_document_system_message_fr,
 )
-from src.lib.ai_document.system_prompts.get_delta_content_system_message import (
-    get_delta_content_system_message,
+from src.lib.ai_document.system_prompts.french.get_delta_content_system_message_fr import (
+    get_delta_content_system_message_fr,
 )
 
 
@@ -28,10 +28,11 @@ async def generate_ai(
     sex: SexeEnum,
     chunk: Optional[Any] = None,
 ):
+    # pprint(chunk, depth=4)
     if final_remarks == True:
 
         message = [
-            SystemMessage(content=get_delta_content_system_message),
+            SystemMessage(content=get_delta_content_system_message_fr),
             HumanMessage(
                 content=f"""<MedicalObservation>{content}</MedicalObservation><Sex>{'female' if sex == SexeEnum.F else 'male'}</Sex><ExtractedData>{' '.join(extracted_data)}</ExtractedData>"""
             ),
@@ -44,12 +45,22 @@ async def generate_ai(
             .retrieve()
         )
         message = [
-            SystemMessage(content=generate_ai_document_system_message),
+            SystemMessage(content=generate_ai_document_system_message_fr),
             HumanMessage(
-                content=f"""<MedicalObservation>{content}</MedicalObservation><Sex>{'female' if sex == SexeEnum.F else 'male'}</Sex><Description>{widget["description"]}</Description>
+                content=f"""
+                <MedicalObservation>
+                {content}
+                </MedicalObservation>
+                <Sex>{'female' if sex == SexeEnum.F else 'male'}</Sex>
+                <Description>
+                {widget["description"]}
+                </Description>
+                <Missing>{"true" if widget["NegativeStatement"] else 'false'}</Missing>
             """
             ),
         ]
+
+        print(message)
 
     stream = llm.stream(message)
     chunk_count = 0
