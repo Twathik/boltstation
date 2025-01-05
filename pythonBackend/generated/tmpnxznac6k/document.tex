@@ -1,0 +1,114 @@
+\documentclass[12pt,a4paper]{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{ulem}%
+\usepackage[HTML]{xcolor}%
+\usepackage{soul}%
+\usepackage{ifthen}%
+\usepackage{fancyhdr}%
+\usepackage{tikz}%
+\usepackage{unicode-math}%
+\usepackage{fontspec}%
+\usepackage{ragged2e}%
+%
+\usepackage{geometry}%
+\geometry{top=49mm, bottom=25mm, outer=10mm, inner=24mm}%
+\usepackage{graphicx}%
+\usepackage{array}%
+\usepackage{eso-pic}%
+\usepackage{tcolorbox}%
+\usepackage{inputenc}%
+\usepackage{enumitem}%
+\setlist{topsep=0pt} %
+
+            \pagestyle{fancy}
+            \fancyhf{} % Clear existing headers and footers
+            \fancyhead{} % Clear the header
+            \fancyfoot[C]{% Centered footer
+                \mbox{\tikz[baseline=(page.base)]{
+                    \node[draw=black, fill=white, rounded corners=3pt, inner sep=3pt] (page) {\thepage};
+                }}
+            }
+            \renewcommand{\headrulewidth}{0pt} % Remove the top black line
+            \renewcommand{\footrulewidth}{0pt} % Remove any footer line
+            %
+
+    \newcommand\OddBackgroundPic{
+        \put(0,0){%
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \vfill
+                \centering
+                \includegraphics[width=\paperwidth,height=\paperheight]{/home/mac/boltStation/pythonBackend/Templates/1withHeader.jpg}
+                \vfill
+            }
+        }
+    }
+    %
+
+    \newcommand\EvenBackgroundPic{
+        \put(0,0){%
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \vfill
+                \centering
+                \includegraphics[width=\paperwidth,height=\paperheight]{/home/mac/boltStation/pythonBackend/Templates/1noHeader.jpg}
+                \vfill
+            }
+        }
+    }
+    %
+\renewcommand{\arraystretch}{1.5}%
+
+    \AddToShipoutPictureBG{%
+        \ifthenelse{\isodd{\value{page}}}{\OddBackgroundPic}{\EvenBackgroundPic}%
+    }
+    %
+\definecolor{main_title_background_color}{HTML}{e2e8f0}%
+\definecolor{main_title_border_color}{HTML}{1e293b}%
+\definecolor{kinetic_base_color}{HTML}{f1f5f9}%
+\definecolor{hypokinetic_color}{HTML}{fecdd3}%
+\definecolor{akinetic_color}{HTML}{f87171}%
+\definecolor{dyskinetic_color}{HTML}{fcd34d}%
+%
+\begin{document}%
+\normalsize%
+\begin{minipage}{0.5\linewidth}%
+\textbf{\underline{Nom :}} \hspace{1cm} Zighoud%
+\\%
+\textbf{\underline{Prénom :}} \hspace{1cm} Sabine%
+\\%
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}%
+\textbf{\underline{DDN :}} \hspace{1cm} 26-08-1991%
+\\%
+\textbf{\underline{Date :}} \hspace{1cm} 04/01/2025%
+\\%
+\end{minipage}%
+\hspace{\textwidth}%
+\\%
+\begin{center}%
+
+        \begin{tcolorbox}[
+            colframe=main_title_border_color,        % Couleur de la bordure
+            colback=main_title_background_color,        % Couleur de fond
+            coltitle=main_title_border_color,       % Couleur du texte (si titre utilisé)
+            arc=8pt,              % Rayon des coins arrondis
+            boxrule=0.5mm,          % Épaisseur de la bordure
+            auto outer arc,       % Ajuste automatiquement les coins arrondis
+            width=\linewidth,     % Largeur de la boîte
+            halign=center         % Centrer le texte horizontalement
+        ]
+        \LARGE{\textbf{Examen clinique}}
+        \end{tcolorbox}
+        %
+\end{center}%
+%
+\vspace*{\baselineskip}%
+\hspace*{0.5cm}%
+test%
+\\%
+%
+\vspace*{\baselineskip}%
+\end{document}

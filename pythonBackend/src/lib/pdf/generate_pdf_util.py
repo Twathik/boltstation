@@ -1,5 +1,5 @@
 import os
-from typing import Optional
+from typing import List, Optional
 from pprintpp import pprint
 from pylatex import Command, Document, MiniPage, Center
 from pylatex.utils import NoEscape
@@ -18,7 +18,7 @@ cwd = os.getcwd()
 
 def generate_pdf(
     tmpdirname: str,
-    data: dict,
+    data: List[dict],
     settings: PDF_settings,
     query_params: QueryParams,
     documentTitle: str,
@@ -52,6 +52,7 @@ def generate_pdf(
             )
         )
     doc.preamble.append(Command("usepackage", "graphicx"))
+    doc.preamble.append(Command("usepackage", "array"))
     doc.packages.append(NoEscape(r"\usepackage{ifthen}"))
     doc.preamble.append(Command("usepackage", NoEscape("eso-pic")))
     doc.packages.append(NoEscape(r"\usepackage{fancyhdr}"))
@@ -60,6 +61,9 @@ def generate_pdf(
     doc.packages.append(NoEscape(r"\usepackage{fontspec}"))
     doc.preamble.append(Command("usepackage", "tcolorbox"))
     doc.preamble.append(Command("usepackage", "inputenc"))
+    doc.preamble.append(Command("usepackage", "enumitem"))
+
+    doc.preamble.append(NoEscape(r"\setlist{topsep=0pt} "))
 
     doc.preamble.append(
         NoEscape(
@@ -116,6 +120,8 @@ def generate_pdf(
     """
         )
     )
+
+    doc.preamble.append(NoEscape(r"\renewcommand{\arraystretch}{1.5}"))
 
     # Add conditional background logic
     doc.preamble.append(
@@ -194,11 +200,20 @@ def generate_pdf(
             )
         )
 
+    # pprint(data, depth=4)
+
     if len(data) == 0:
         doc.append("No data")
     else:
-        for node in data:
-            slate_broker(node=node, doc=doc, tmpdirname=tmpdirname, len_data=len(data))
+        for node_index, node in enumerate(data):
+            slate_broker(
+                data=data,
+                node_index=node_index,
+                node=node,
+                doc=doc,
+                tmpdirname=tmpdirname,
+                len_data=len(data),
+            )
 
     pdf_file_path = os.path.join(tmpdirname, pdf_name)
     doc.generate_pdf(clean_tex=False, filepath=pdf_file_path, compiler="lualatex")

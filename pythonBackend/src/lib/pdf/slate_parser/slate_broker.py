@@ -23,6 +23,9 @@ from pylatex import (
     Figure,
     HorizontalSpace,
     MiniPage,
+    Section,
+    Subsection,
+    Subsubsection,
 )
 from pylatex.base_classes import Environment
 from src.lib.pdf.slate_parser.slates_classes import (
@@ -54,6 +57,8 @@ class JUSTIFY(Environment):
 
 
 def paragraph_parse(
+    data: List[dict],
+    node_index: int,
     node: dict,
     doc: Document,
     tmpdirname: str,
@@ -78,6 +83,8 @@ def paragraph_parse(
     if "children" in node:
         for child in list(node["children"]):
             slate_broker(
+                data=data,
+                node_index=node_index,
                 node=child,
                 doc=doc,
                 tmpdirname=tmpdirname,
@@ -89,6 +96,8 @@ def paragraph_parse(
 
 
 def generate_table_raws(
+    data: List[dict],
+    node_index: int,
     columns: List[Slate_Table_TD],
     table: Document,
     tmpdirname: str,
@@ -99,6 +108,8 @@ def generate_table_raws(
     for column_index, column in enumerate(columns):
         for cell_index, cell in enumerate(column.children):
             slate_broker(
+                data=data,
+                node_index=node_index,
                 node=cell,
                 doc=table,
                 tmpdirname=tmpdirname,
@@ -119,6 +130,8 @@ def generate_table_raws(
 
 
 def create_table(
+    data: List[dict],
+    node_index: int,
     node: dict,
     doc: Document,
     tmpdirname: str,
@@ -140,7 +153,7 @@ def create_table(
         table_pec = " ".join(
             list(
                 map(
-                    lambda x: f"p{{{0.9 * (x if not x == 0 else remaining_length/undefined_size)/total_len}\\linewidth}}",
+                    lambda x: f">{{\centering\\arraybackslash}}p{{{round(0.9 * (x if not x == 0 else remaining_length/undefined_size)/total_len,2)}\\linewidth}}",
                     node["colSizes"],
                 )
             )
@@ -150,7 +163,7 @@ def create_table(
         table_pec = " ".join(
             list(
                 map(
-                    lambda _x: f"p{{{0.9/len(headers)}\\linewidth}}",
+                    lambda _x: f">{{\centering\\arraybackslash}}p{{{round(0.9/len(headers),2)}\\linewidth}}",
                     headers,
                 )
             )
@@ -165,6 +178,8 @@ def create_table(
 
             if row_index == 0:
                 generate_table_raws(
+                    data=data,
+                    node_index=node_index,
                     columns=row.children,
                     table=doc,
                     tmpdirname=tmpdirname,
@@ -175,6 +190,8 @@ def create_table(
                 tabular.add_hline()
             else:
                 generate_table_raws(
+                    data=data,
+                    node_index=node_index,
                     columns=row.children,
                     table=doc,
                     tmpdirname=tmpdirname,
@@ -193,6 +210,8 @@ total_len = 670
 
 
 def slate_broker(
+    data: List[dict],
+    node_index: int,
     node: dict,
     doc: Document,
     tmpdirname: str,
@@ -211,6 +230,8 @@ def slate_broker(
             if "children" in node:
                 for child in list(node["children"]):
                     slate_broker(
+                        data=data,
+                        node_index=node_index,
                         node=child,
                         doc=doc,
                         tmpdirname=tmpdirname,
@@ -240,6 +261,8 @@ def slate_broker(
                     or node["listStyleType"] == "decimal"
                 ):
                     paragraph_parse(
+                        data=data,
+                        node_index=node_index,
                         node=node,
                         doc=doc,
                         tmpdirname=tmpdirname,
@@ -255,6 +278,8 @@ def slate_broker(
                         if paragraph.align == TextAlignEnum.justify:
                             with doc.create(JUSTIFY()):
                                 paragraph_parse(
+                                    data=data,
+                                    node_index=node_index,
                                     node=node,
                                     doc=doc,
                                     tmpdirname=tmpdirname,
@@ -267,6 +292,8 @@ def slate_broker(
                         if paragraph.align == TextAlignEnum.center:
                             with doc.create(Center()):
                                 paragraph_parse(
+                                    data=data,
+                                    node_index=node_index,
                                     node=node,
                                     doc=doc,
                                     tmpdirname=tmpdirname,
@@ -279,6 +306,8 @@ def slate_broker(
                         if paragraph.align == TextAlignEnum.right:
                             with doc.create(FlushRight()):
                                 paragraph_parse(
+                                    data=data,
+                                    node_index=node_index,
                                     node=node,
                                     doc=doc,
                                     tmpdirname=tmpdirname,
@@ -291,6 +320,8 @@ def slate_broker(
                         if paragraph.align == TextAlignEnum.left:
                             with doc.create(FlushLeft()):
                                 paragraph_parse(
+                                    data=data,
+                                    node_index=node_index,
                                     node=node,
                                     doc=doc,
                                     tmpdirname=tmpdirname,
@@ -304,6 +335,8 @@ def slate_broker(
                         if not paragraph.indent == None:
                             doc.append(HorizontalSpace(f"{paragraph.indent/2}cm"))
                         paragraph_parse(
+                            data=data,
+                            node_index=node_index,
                             node=node,
                             doc=doc,
                             tmpdirname=tmpdirname,
@@ -313,13 +346,30 @@ def slate_broker(
                             floating_env=floating_env,
                         )
                         pass
+                    pprint(node, depth=4)
+                    print("automatic_line_break", automatic_line_break)
                     if automatic_line_break:
                         if "text" in paragraph.children[0]:
                             if paragraph.children[0]["text"] == "":
                                 doc.append(NoEscape(r"\vspace*{\baselineskip}"))
                             else:
+                                if "type" in data[node_index + 1]:
+                                    line = True
+                                    if (
+                                        data[node_index + 1]["type"]
+                                        in ["h1", "h2", "h3", "begin_itemize"]
+                                        and data[node_index + 1]
+                                    ):
+                                        line = False
+                                        pass
 
-                                doc.append(NoEscape(r"\\"))
+                                    if data[node_index]["type"] == "table":
+                                        line = False
+                                        pass
+                                    if line:
+                                        doc.append(NoEscape(r"\\"))
+                                else:
+                                    doc.append(NoEscape(r"\\"))
                                 pass
                         else:
                             # pprint(node, depth=4)
@@ -331,7 +381,7 @@ def slate_broker(
                         if "type" in el:
                             if el["type"] == "data-input":
                                 data_input_container = True
-                    if data_input_container:
+                    if data_input_container and automatic_line_break:
                         doc.append(NoEscape(r"\\"))
 
                 pass
@@ -340,6 +390,8 @@ def slate_broker(
                     doc.append(NoEscape(r"``"))
                     for child in node["children"]:
                         slate_broker(
+                            data=data,
+                            node_index=node_index,
                             doc=quote,
                             node=child,
                             tmpdirname=tmpdirname,
@@ -359,67 +411,28 @@ def slate_broker(
                 pass
             case "h1":
 
-                doc.append(Command("LARGE"))
-                for child in list(node["children"]):
-                    child["bold"] = True
-                    slate_broker(
-                        node=child,
-                        doc=doc,
-                        tmpdirname=tmpdirname,
-                        len_data=len_data,
-                        automatic_line_break=automatic_line_break,
-                        force_break=force_break,
-                        floating_env=floating_env,
-                    )
-                if automatic_line_break:
-                    doc.append(NoEscape(r"\\ \normalsize"))
-                else:
-                    doc.append(NoEscape(r"\normalsize"))
-                pass
+                with doc.create(Section(node["children"][0]["text"], numbering=False)):
+                    pass
+
             case "h2":
 
-                doc.append(Command("Large"))
-                for child in list(node["children"]):
-                    child["bold"] = True
-                    slate_broker(
-                        node=child,
-                        doc=doc,
-                        tmpdirname=tmpdirname,
-                        len_data=len_data,
-                        automatic_line_break=automatic_line_break,
-                        force_break=force_break,
-                        floating_env=floating_env,
-                    )
-                if automatic_line_break:
-                    doc.append(NoEscape(r"\\ \normalsize"))
-                else:
-                    doc.append(NoEscape(r"\normalsize"))
+                with doc.create(
+                    Subsection(node["children"][0]["text"], numbering=False)
+                ):
+                    pass
 
-                pass
             case "h3":
 
-                doc.append(Command("large"))
-                for child in list(node["children"]):
-                    child["bold"] = True
-                    slate_broker(
-                        node=child,
-                        doc=doc,
-                        tmpdirname=tmpdirname,
-                        len_data=len_data,
-                        automatic_line_break=automatic_line_break,
-                        force_break=force_break,
-                        floating_env=floating_env,
-                    )
-                if automatic_line_break:
-                    doc.append(NoEscape(r"\\ \normalsize"))
-                else:
-                    doc.append(NoEscape(r"\normalsize"))
-
-                pass
+                with doc.create(
+                    Subsubsection(node["children"][0]["text"], numbering=False)
+                ):
+                    pass
             case "table":
                 if floating_env:
                     with doc.create(Table(position="h!")) as table:
                         create_table(
+                            data=data,
+                            node_index=node_index,
                             doc=table,
                             floating_env=floating_env,
                             node=node,
@@ -428,6 +441,8 @@ def slate_broker(
                         )
                 else:
                     create_table(
+                        data=data,
+                        node_index=node_index,
                         doc=doc,
                         floating_env=floating_env,
                         node=node,
@@ -476,6 +491,8 @@ def slate_broker(
                             if not img.caption == None:
                                 for child in img.caption:
                                     slate_broker(
+                                        data=data,
+                                        node_index=node_index,
                                         node=child,
                                         doc=fig,
                                         tmpdirname=tmpdirname,
@@ -496,6 +513,7 @@ def slate_broker(
                 pass
             case "begin_itemize":
                 doc.append(NoEscape(r"\begin{itemize}"))
+                doc.append(NoEscape(r"\setlength{\itemsep}{0pt}"))
                 pass
             case "end_itemize":
                 doc.append(NoEscape(r"\end{itemize}"))
@@ -516,6 +534,8 @@ def slate_broker(
                         ) as column:
                             for child in node["children"][index]["children"]:
                                 slate_broker(
+                                    data=data,
+                                    node_index=node_index,
                                     node=child,
                                     doc=column,
                                     tmpdirname=tmpdirname,

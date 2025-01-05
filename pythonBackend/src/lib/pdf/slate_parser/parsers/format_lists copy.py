@@ -5,11 +5,11 @@ from pprintpp import pprint
 
 def format_lists(data: List[dict]) -> List[dict]:
     formatted_data: List[dict] = []
-    for node_index, node in enumerate(data):
-        append = True
-
+    new_data: List[dict] = []
+    indent_level = 0
+    list_type: dict = {}
+    for node in data:
         if "type" in node:
-
             if node["type"] == "p":
                 if not "indent" in node:
                     node["indent"] = None
@@ -21,27 +21,11 @@ def format_lists(data: List[dict]) -> List[dict]:
                             children = []
                             for child in node["children"]:
                                 children.append(
-                                    {
-                                        **child,
-                                        "strikethrough": True,
-                                        "color": "#475569",
-                                    }
+                                    {**child, "strikethrough": True, "color": "#475569"}
                                 )
                             node["children"] = children
                             pass
-
-                if node["children"][0] == {"text": ""}:
-                    if node_index > 0:
-                        if not data[node_index - 1]["children"][0] == {"text": ""}:
-                            append = False
-
-        if "AIgenerated" in node:
-            if node["AIgenerated"] == True:
-                append = False
-
-        if append == True:
-            formatted_data.append(node)
-
+        formatted_data.append(node)
     formatted_data.append(
         {
             "type": "p",
@@ -51,12 +35,7 @@ def format_lists(data: List[dict]) -> List[dict]:
         }
     )
 
-    new_data: List[dict] = []
-    indent_level = 0
-    list_type: dict = {}
-    opened_list = False
-
-    for node in formatted_data:
+    for node_index, node in enumerate(formatted_data):
         if "type" in node:
             if node["type"] == "p":
                 if not node["indent"] == None and (
@@ -64,23 +43,11 @@ def format_lists(data: List[dict]) -> List[dict]:
                     or node["listStyleType"] == "decimal"
                 ):
 
-                    if not opened_list:
-                        new_data.append(
-                            {
-                                "type": (
-                                    "begin_itemize"
-                                    if node["listStyleType"] == "disc"
-                                    else "begin_ordered_itemize"
-                                )
-                            }
-                        )
-                        opened_list = True
-                    pass
                     local_indent_level = node["indent"]
-                    indent_level = node["indent"]
+                    # print("indent", node["indent"], "local", local_indent_level)
                     if local_indent_level in list_type:
                         if not list_type[local_indent_level] == node["listStyleType"]:
-
+                            print("cond 1")
                             new_data.append(
                                 {
                                     "type": (
@@ -90,7 +57,7 @@ def format_lists(data: List[dict]) -> List[dict]:
                                     )
                                 }
                             )
-
+                            print("begin 2")
                             new_data.append(
                                 {
                                     "type": (
@@ -102,40 +69,83 @@ def format_lists(data: List[dict]) -> List[dict]:
                             )
                             pass
                     list_type[local_indent_level] = node["listStyleType"]
-                    if indent_level > local_indent_level:
-                        while not indent_level == local_indent_level:
-                            new_data.append(
-                                {
-                                    "type": (
-                                        "end_itemize"
-                                        if list_type[indent_level] == "disc"
-                                        else "end_ordered_itemize"
-                                    )
-                                }
-                            )
-                        indent_level -= 1
                     pass
                 else:
-                    if opened_list:
-                        while not indent_level == 0:
+
+                    # print("-----no indent-----", indent_level)
+                    if local_indent_level is not None:
+                        if local_indent_level > 0:
+                            print("cond 4")
                             new_data.append(
                                 {
                                     "type": (
                                         "end_itemize"
-                                        if list_type[indent_level] == "disc"
+                                        if formatted_data[node_index - 1][
+                                            "listStyleType"
+                                        ]
+                                        == "disc"
                                         else "end_ordered_itemize"
                                     )
                                 }
                             )
-                            indent_level -= 1
-                        opened_list = False
+                            local_indent_level = 0
+                            pass
+                        pass
+                    pass
 
+                if indent_level < local_indent_level:
+                    print("begin 1")
+                    new_data.append(
+                        {
+                            "type": (
+                                "begin_itemize"
+                                if list_type[local_indent_level] == "disc"
+                                else "begin_ordered_itemize"
+                            )
+                        }
+                    )
+                    indent_level = local_indent_level
+                    pass
+            else:
+                if local_indent_level is not None:
+                    if local_indent_level > 0:
+                        print("cond 5")
+                        new_data.append(
+                            {
+                                "type": (
+                                    "end_itemize"
+                                    if formatted_data[node_index - 1]["listStyleType"]
+                                    == "disc"
+                                    else "end_ordered_itemize"
+                                )
+                            }
+                        )
+                        local_indent_level = 0
+                        pass
                     pass
                 pass
-            else:
-                if opened_list:
-                    while not indent_level == 0:
 
+        else:
+            print("cond 3")
+            new_data.append(
+                {
+                    "type": (
+                        "end_itemize"
+                        if formatted_data[node_index - 1]["listStyleType"] == "disc"
+                        else "end_ordered_itemize"
+                    )
+                }
+            )
+            pass
+        new_data.append(node)
+        pass
+
+    return new_data
+
+
+""" if indent_level > local_indent_level:
+                    while indent_level > local_indent_level:
+                        print("cond 2")
                         new_data.append(
                             {
                                 "type": (
@@ -146,25 +156,6 @@ def format_lists(data: List[dict]) -> List[dict]:
                             }
                         )
                         indent_level -= 1
-                    opened_list = False
+                        pass
 
-                pass
-            pass
-        else:
-            if opened_list:
-                while not indent_level == 0:
-                    new_data.append(
-                        {
-                            "type": (
-                                "end_itemize"
-                                if list_type[indent_level] == "disc"
-                                else "end_ordered_itemize"
-                            )
-                        }
-                    )
-                    indent_level -= 1
-                opened_list = False
-            pass
-
-        new_data.append(node)
-    return new_data
+                    pass """

@@ -1,8 +1,12 @@
+import asyncio
 from langchain.schema import HumanMessage, AIMessage
 from typing import Any, List, Optional
 from fastapi import Request
 from langchain_ollama import OllamaLLM
 from ulid import ULID
+from src.lib.ai_document.system_prompts.french.widgets_prompts.widget_prompts_root import (
+    widget_prompts,
+)
 from src.lib.websocketTypes.general_classes import OperationEnum, SexeEnum
 from src.lib.websocketTypes.publish_temporary_chanel_message import publish_message
 from src.lib.websocketTypes.temporary_chanel_message_class import TemporaryMessageType
@@ -38,29 +42,35 @@ async def generate_ai(
             ),
         ]
     else:
+        if chunk["widgetId"] in widget_prompts:
+            system_prompt = widget_prompts.get(chunk["widgetId"])
 
-        widget = (
-            typesense_client.collections["patient-widget-data"]
-            .documents[chunk["widgetId"]]
-            .retrieve()
-        )
-        message = [
-            SystemMessage(content=generate_ai_document_system_message_fr),
-            HumanMessage(
-                content=f"""
-                <MedicalObservation>
-                {content}
-                </MedicalObservation>
-                <Sex>{'female' if sex == SexeEnum.F else 'male'}</Sex>
-                <Description>
-                {widget["description"]}
-                </Description>
-                <Missing>{"true" if widget["NegativeStatement"] else 'false'}</Missing>
-            """
-            ),
-        ]
+            message = [
+                SystemMessage(
+                    content=generate_ai_document_system_message_fr(
+                        description=system_prompt["description"],
+                        examples=system_prompt["examples"],
+                    )
+                ),
+                HumanMessage(
+                    content=f"""
+                    <MedicalObservation>
+                    {content}
+                    </MedicalObservation>
+                    <Sex>{'female' if sex == SexeEnum.F else 'male'}</Sex>
+                """
+                ),
+            ]
 
-        print(message)
+        else:
+            await asyncio.sleep(0.1)
+            publish_message(
+                temporaryChanelId=temporaryChanelId,
+                operation=OperationEnum.publish,
+                content=chunk,
+                type=TemporaryMessageType.payload,
+            )
+            return None
 
     stream = llm.stream(message)
     chunk_count = 0
