@@ -78,5 +78,5 @@ async def pdf(
             patient=patient,
             documentTitle=documentTitle,
         )
-        # background_tasks.add_task(lambda: shutil.rmtree(temp_dir))
+        background_tasks.add_task(lambda: shutil.rmtree(temp_dir))
         return FileResponse(pdf, media_type="application/pdf")

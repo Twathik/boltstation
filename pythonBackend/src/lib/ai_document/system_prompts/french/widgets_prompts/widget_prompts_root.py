@@ -40,6 +40,9 @@ from src.lib.ai_document.system_prompts.french.widgets_prompts.ECG.segment_ST im
 from src.lib.ai_document.system_prompts.french.widgets_prompts.ECG.segment_QT import (
     ECG_segment_QT_widget,
 )
+from src.lib.ai_document.system_prompts.french.widgets_prompts.examen_clinique.donnee_ecg import (
+    donnee_ecg_widget,
+)
 
 widget_prompts: dict = {
     "01JF871FEKE6DAFX1TDYX20DJ9": signes_generaux_widget,
@@ -55,4 +58,5 @@ widget_prompts: dict = {
     "01JGVP9DE5YAJX7T1JMBZYC9RQ": ECG_espace_PR_widget,
     "01JGVR7YYBMM44H64SY07RP058": ECG_segment_ST_widget,
     "01JGVS3WGCGYVZA4SGYMD8MQTR": ECG_segment_QT_widget,
+    "01JGXDVZ2M1QSYFTFE3EQBQ0DV": donnee_ecg_widget,
 }
