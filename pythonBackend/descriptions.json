@@ -1,0 +1,338 @@
+[
+    {
+        "name": "Aorte_Diam_Anneau",
+        "description": "Le diamètre de l'anneau aortique est une mesure échocardiographique essentielle pour évaluer la taille de la racine de l’aorte. Il est mesuré au niveau de l’anneau valvulaire aortique, généralement en diastole, et exprimé en millimètres (mm). Cette mesure est utilisée pour évaluer des pathologies telles que la dilatation de la racine aortique ou des anomalies structurelles. Le diamètre de l’anneau est généralement rapporté comme une valeur numérique unique dans les rapports échocardiographiques."
+    },
+    {
+        "name": "Aorte_Diam_Sinus_Valsalva",
+        "description": "Le diamètre du sinus de Valsalva est une mesure échocardiographique utilisée pour évaluer la taille des sinus aortiques situés juste au-dessus de l’anneau valvulaire aortique. Il est mesuré en diastole et exprimé en millimètres (mm). Cette mesure est essentielle pour détecter des dilatations, des anévrismes ou d’autres anomalies de la racine aortique. Le diamètre du sinus de Valsalva est habituellement rapporté comme une valeur numérique unique dans les rapports échocardiographiques."
+    },
+    {
+        "name": "Aorte_Diam_Jonction_Sino_Tubulaire",
+        "description": "Le diamètre de la jonction sino-tubulaire est une mesure échocardiographique qui évalue la transition entre les sinus de Valsalva et la portion tubulaire de l’aorte ascendante. Il est mesuré en diastole et exprimé en millimètres (mm). Cette mesure est cruciale pour détecter des dilatations ou des rétrécissements pathologiques de la racine aortique, souvent associées à des maladies aortiques ou valvulaires. Le diamètre de la jonction sino-tubulaire est généralement rapporté comme une valeur numérique unique dans les rapports échocardiographiques."
+    },
+    {
+        "name": "Aorte_Diam_Tubulaire",
+        "description": "Le diamètre tubulaire est une mesure échocardiographique qui évalue la portion tubulaire de l’aorte ascendante, située après la jonction sino-tubulaire. Il est mesuré en diastole et exprimé en millimètres (mm). Cette mesure est essentielle pour identifier des anomalies telles que des dilatations ou des rétrécissements de l’aorte ascendante. Le diamètre tubulaire est habituellement rapporté comme une valeur numérique unique dans les rapports échocardiographiques."
+    },
+    {
+        "name": "Diam_tele_diast_VG",
+        "description": "\"Diamètre télédiastolique du ventricule gauche (DTD VG)\" représente la mesure du diamètre interne du ventricule gauche à la fin de la diastole, lorsque le ventricule est le plus rempli de sang. Cette valeur est généralement exprimée en millimètres (mm) et est mesurée par échocardiographie en mode M ou en mode bidimensionnel (2D). Une valeur normale chez un adulte se situe généralement entre 40 et 56 mm. Cette mesure est essentielle pour évaluer la taille et la fonction du ventricule gauche."
+    },
+    {
+        "name": "Diam_tele_syst_VG",
+        "description": "\"Diamètre télésystolique du ventricule gauche (DTS VG)\" correspond à la mesure du diamètre interne du ventricule gauche à la fin de la systole, lorsque le ventricule a expulsé le maximum de sang vers l’aorte. Cette mesure est exprimée en millimètres (mm) et est obtenue par échocardiographie en mode M ou bidimensionnel (2D). Une valeur normale chez un adulte se situe généralement entre 20 et 40 mm. Cette donnée est utilisée pour évaluer la fonction systolique du ventricule gauche."
+    },
+    {
+        "name": "Volum_tele_syst_VG",
+        "description": "\"Volume télésystolique du ventricule gauche (VTS VG)\" est le volume sanguin restant dans le ventricule gauche à la fin de la systole, après l'éjection du sang vers l’aorte. Cette valeur est exprimée en millilitres (mL) et est mesurée par échocardiographie à l’aide de méthodes de calcul volumétriques (comme la méthode Simpson). Une valeur normale chez un adulte est généralement inférieure à 50 mL. Le VTS VG est un indicateur clé de la fonction systolique du cœur."
+    },
+    {
+        "name": "Volum_tele_diast_VG",
+        "description": "\"Volume télédiastolique du ventricule gauche (VTD VG)\" représente le volume sanguin contenu dans le ventricule gauche à la fin de la diastole, lorsque le ventricule est complètement rempli. Cette mesure est exprimée en millilitres (mL) et est obtenue par échocardiographie à l’aide de méthodes volumétriques comme la méthode de Simpson. Une valeur normale chez un adulte se situe généralement entre 60 et 120 mL. Le VTD VG est une donnée essentielle pour évaluer la capacité de remplissage et la fonction globale du ventricule gauche."
+    },
+    {
+        "name": "FE_Simpson",
+        "description": "\"Fraction d'éjection (FE)\" est le pourcentage de sang éjecté par le ventricule gauche à chaque contraction par rapport au volume total qu'il contient en fin de diastole. Elle est calculée comme suit : (VTD - VTS) / VTD × 100. Cette valeur est exprimée en pourcentage (%) et est utilisée comme un indicateur clé de la fonction systolique du ventricule gauche. La FE est mesurée par échocardiographie en utilisant principalement deux techniques :\n\nMode bidimensionnel (2D) : Méthode de Simpson (disque empilé), qui calcule les volumes télédiastolique (VTD) et télésystolique (VTS) à partir de coupes apicales du ventricule gauche.\nMode M : Estimation basée sur les diamètres télédiastolique et télésystolique du ventricule gauche obtenus sur une coupe parasternale grand axe. Bien que moins précise, cette méthode est utile dans des contextes spécifiques ou lorsque l’acquisition bidimensionnelle est limitée.\nUne FE normale chez un adulte est généralement supérieure à 55 %. Des valeurs inférieures peuvent indiquer une dysfonction systolique."
+    },
+    {
+        "name": "FE_3D",
+        "description": "\"Fraction d'éjection mesurée en 3D (FE 3D)\" est le pourcentage de sang éjecté par le ventricule gauche à chaque contraction par rapport au volume total qu'il contient en fin de diastole, calculé à l’aide de l’échocardiographie tridimensionnelle. Cette méthode utilise des reconstructions volumétriques précises pour mesurer directement les volumes télédiastolique (VTD) et télésystolique (VTS) du ventricule gauche sans nécessiter d’assomptions géométriques. La FE est calculée comme suit : (VTD - VTS) / VTD × 100. Cette valeur est exprimée en pourcentage (%).\n\nLa FE 3D est considérée comme plus précise que les méthodes bidimensionnelles (2D), car elle tient compte des asymétries et des irrégularités dans la forme du ventricule gauche. Une FE normale mesurée en 3D chez un adulte est généralement supérieure à 55 %."
+    },
+    {
+        "name": "Strain_GLS",
+        "description": "\"Strain longitudinal global (GLS)\" est une mesure échocardiographique qui évalue la déformation longitudinale du myocarde pendant le cycle cardiaque, exprimée en pourcentage (%). Il reflète la capacité des fibres myocardiques longitudinales, principalement situées dans l’endocarde, à se raccourcir lors de la systole. Une valeur normale de GLS chez un adulte en bonne santé se situe généralement autour de -16 % à -22 %, les valeurs plus négatives indiquant une meilleure fonction myocardique.\n\nLe GLS est obtenu à l’aide d’échocardiographie speckle tracking (analyse de la cinématique myocardique), une technique qui suit les mouvements des points échogènes dans les images échographiques bidimensionnelles (2D). Cette méthode est indépendante de l’angle d’acquisition et offre une analyse détaillée de la fonction myocardique globale et segmentaire.\n\nLe GLS est un outil sensible pour détecter des dysfonctions subtiles du ventricule gauche, même lorsque la fraction d’éjection (FE) reste normale. Une réduction de la valeur absolue (ex. > -16 %) peut indiquer une dysfonction myocardique."
+    },
+    {
+        "name": "VD_diam_basal",
+        "description": "\"Diamètre basal du ventricule droit (VD)\" est une mesure échocardiographique qui évalue la largeur maximale de la base du ventricule droit, généralement mesurée en fin de diastole. Cette valeur est exprimée en millimètres (mm) et est obtenue sur une coupe apicale ou une coupe parasternale des quatre cavités. Une valeur normale du diamètre basal du VD se situe généralement entre 25 et 41 mm chez un adulte.\n\nCette mesure est essentielle pour évaluer la taille et la fonction du ventricule droit, en particulier dans les cas de surcharge volumique ou de pression dans le cœur droit."
+    },
+    {
+        "name": "VD_diam_moy",
+        "description": "\"Diamètre moyen du ventricule droit (VD)\" est une mesure échocardiographique qui évalue la largeur médiane du ventricule droit, généralement mesurée à mi-distance entre la base et l’apex du ventricule. Cette mesure est effectuée en fin de diastole et exprimée en millimètres (mm). Elle est obtenue sur une coupe apicale ou parasternale des quatre cavités.\n\nUne valeur normale du diamètre moyen du VD se situe généralement entre 19 et 35 mm chez un adulte. Cette mesure est utilisée pour détecter des anomalies de la taille du ventricule droit, notamment dans des conditions comme l’hypertension pulmonaire ou la surcharge volumique."
+    },
+    {
+        "name": "VD_diam_longitudinal",
+        "description": "\"Diamètre longitudinal du ventricule droit (VD)\" est une mesure échocardiographique qui évalue la distance maximale entre la base et l’apex du ventricule droit, généralement mesurée en fin de diastole. Cette mesure est exprimée en millimètres (mm) et est obtenue sur une coupe apicale des quatre cavités.\n\nUne valeur normale du diamètre longitudinal du VD se situe généralement entre 59 et 83 mm chez un adulte. Cette mesure est essentielle pour évaluer la taille globale et la dilatation éventuelle du ventricule droit, en complément des mesures basales et moyennes."
+    },
+    {
+        "name": "VD_TAPSE",
+        "description": "\"TAPSE\" (ou excursion systolique de l’anneau tricuspide) est une mesure échocardiographique qui évalue la fonction systolique longitudinale du ventricule droit. Elle est obtenue en mode M en mesurant le déplacement systolique de l’anneau tricuspide, depuis sa position en fin de diastole jusqu'à sa position en fin de systole, sur une coupe apicale des quatre cavités. Cette valeur est exprimée en millimètres (mm).\n\nUne valeur normale de TAPSE est généralement supérieure à 17 mm chez un adulte. Une diminution du TAPSE reflète une altération de la fonction systolique du ventricule droit, souvent observée dans des conditions telles que l’hypertension pulmonaire ou l’insuffisance cardiaque droite."
+    },
+    {
+        "name": "VD_Pic_S",
+        "description": "\"Pic de l'onde S\" (ou vélocité systolique de l'onde S) est une mesure échocardiographique Doppler tissulaire qui évalue la vitesse systolique maximale de l'anneau tricuspide dans le plan longitudinal, reflétant la fonction systolique du ventricule droit. Elle est mesurée en centimètres par seconde (cm/s) sur une coupe apicale des quatre cavités, en plaçant la région d'intérêt Doppler au niveau de l'anneau tricuspide.\n\nUne valeur normale du pic de l'onde S est généralement supérieure à 9,5 cm/s chez un adulte. Des valeurs inférieures peuvent indiquer une altération de la fonction systolique du ventricule droit, comme dans les cas d’hypertension pulmonaire ou de dysfonction ventriculaire droite."
+    },
+    {
+        "name": "VD_FAC",
+        "description": "\"Fraction de surface d’acourcissement (FAC)\" est une mesure échocardiographique qui évalue la fonction systolique globale du ventricule droit en pourcentage (%). Elle est calculée en mesurant la différence entre la surface du ventricule droit en diastole et en systole, divisée par la surface en diastole : FAC = [(Surface télédiastolique - Surface télésystolique) / Surface télédiastolique] × 100. Cette mesure est obtenue sur une coupe apicale des quatre cavités.\n\nUne valeur normale de la FAC est généralement supérieure à 35 % chez un adulte. Une diminution de la FAC peut indiquer une altération de la fonction systolique globale du ventricule droit, souvent associée à des conditions telles que l'hypertension pulmonaire ou une surcharge volumique."
+    },
+    {
+        "name": "VD_strain_GLS",
+        "description": "\"Strain longitudinal global du ventricule droit (VD GLS)\" est une mesure échocardiographique qui évalue la déformation longitudinale globale des fibres myocardiques du ventricule droit pendant la systole. Elle est exprimée en pourcentage (%) et est obtenue à l’aide de la technique de speckle tracking sur une coupe apicale des quatre cavités, en se concentrant sur la paroi libre du ventricule droit (excluant le septum interventriculaire).\n\nUne valeur normale du VD GLS se situe généralement autour de -20 % à -25 % chez un adulte. Les valeurs plus négatives reflètent une meilleure fonction systolique longitudinale. Une diminution de la valeur absolue (ex. > -20 %) peut indiquer une dysfonction myocardique du ventricule droit, souvent observée dans des pathologies telles que l’hypertension pulmonaire, la cardiopathie droite ou des maladies pulmonaires chroniques."
+    },
+    {
+        "name": "OG_Diam",
+        "description": "Le diamètre de l'oreillette gauche (OG) est une mesure utilisée pour évaluer la taille de l'oreillette gauche du cœur. Elle est généralement mesurée en fin de diastole dans une vue parasternal grand axe, et exprimée en millimètres (mm). Les valeurs normales du diamètre de l'OG sont inférieures à 40 mm chez l'adulte. Cette mesure est importante pour évaluer des conditions telles que la dilatation de l'oreillette gauche, souvent associée à des troubles comme la fibrillation auriculaire ou une surcharge volumétrique."
+    },
+    {
+        "name": "OG_Surface",
+        "description": "La surface de l'oreillette gauche (OG) est une mesure utilisée pour évaluer la taille de l'oreillette gauche dans le plan bidimensionnel. Elle est obtenue en fin de systole auriculaire à partir d'une vue apicale à quatre cavités, et exprimée en centimètres carrés (cm²). Une surface normale de l'OG est généralement inférieure à 20 cm² chez l'adulte. Cette mesure permet d'identifier une dilatation auriculaire gauche, souvent associée à des pathologies comme l'hypertension, les valvulopathies ou la fibrillation auriculaire."
+    },
+    {
+        "name": "OG_Volume",
+        "description": "Le volume de l'oreillette gauche (OG) est une mesure tridimensionnelle utilisée pour évaluer avec précision la taille de l'oreillette gauche. Il est calculé à partir de plans échocardiographiques apicaux (deux et quatre cavités) en utilisant la méthode de Simpson ou la formule de l’ellipse modifiée, et exprimé en millilitres (mL). Pour normaliser cette valeur, le volume indexé de l'OG est rapporté à la surface corporelle et exprimé en millilitres par mètre carré (mL/m²). Les valeurs normales du volume indexé sont généralement inférieures à 34 mL/m². Une augmentation du volume de l'OG peut refléter une surcharge de pression ou de volume chronique, souvent observée dans des pathologies comme l'insuffisance cardiaque, les valvulopathies mitrales ou la fibrillation auriculaire."
+    },
+    {
+        "name": "OG_volume_indexe",
+        "description": "Le volume indexé de l'oreillette gauche (OG) est une mesure normalisée qui évalue la taille de l'oreillette gauche en rapportant son volume total à la surface corporelle, exprimée en millilitres par mètre carré (mL/m²). Il est obtenu en fin de systole auriculaire à partir de plans échocardiographiques apicaux (quatre cavités et deux cavités) en utilisant des techniques telles que la méthode de Simpson ou la formule de l'ellipse modifiée. Une valeur normale du volume indexé de l'OG est inférieure à 34 mL/m² chez l'adulte. Cette mesure est essentielle pour détecter une dilatation auriculaire gauche, souvent associée à des pathologies chroniques comme l'hypertension artérielle, la fibrillation auriculaire ou les valvulopathies mitrales."
+    },
+    {
+        "name": "OG_Strain",
+        "description": "Le strain de l'oreillette gauche (OG) est une mesure échocardiographique avancée évaluant la déformation myocardique de l'OG, exprimée en pourcentage (%). Il est généralement calculé en utilisant l'imagerie échographique de speckle tracking (tracking des points d’intérêt) dans des vues apicales, permettant de quantifier la fonction de réservoir, de conduit et de contraction de l'OG. Une valeur normale du strain longitudinal de l'OG pour la phase de réservoir est supérieure à 35 %. Cette mesure fournit des informations précieuses sur la fonction auriculaire gauche, notamment dans le contexte de pathologies comme la fibrillation auriculaire, l’hypertension ou les valvulopathies."
+    },
+    {
+        "name": "Mitrale_surface_anatomique",
+        "description": "\"Surface mitrale anatomique\" est une mesure échocardiographique qui évalue l'aire de l'orifice valvulaire mitral en diastole, reflétant la taille anatomique de la valve mitrale. Cette mesure est exprimée en centimètres carrés (cm²) et est généralement obtenue en mode bidimensionnel (2D) à l’aide de coupes parasternales ou apicales, en traçant manuellement le contour de l’orifice mitral ouvert.\n\nUne surface mitrale normale se situe généralement entre 4 et 6 cm² chez un adulte. Une réduction de cette surface, comme dans le cas d’un rétrécissement mitral (RM), peut entraîner une limitation du flux sanguin entre l’oreillette gauche et le ventricule gauche. La gravité d’un RM est classée selon la surface mitrale :\n\nLéger : 1,5 à 2,5 cm²\nModéré : 1,0 à 1,5 cm²\n"
+    },
+    {
+        "name": "Mitrale_surface_fonctionnelle",
+        "description": "\"Surface mitrale fonctionnelle\" est une mesure échocardiographique qui évalue l'aire effective de l'orifice valvulaire mitral en diastole, correspondant à la zone par laquelle le sang passe réellement de l'oreillette gauche vers le ventricule gauche. Cette valeur est exprimée en centimètres carrés (cm²) et est calculée en utilisant principalement la méthode du Doppler continu ou la méthode de pression demi-temps (PHT, Pressure Half-Time).\n\nLa surface mitrale fonctionnelle peut être différente de la surface anatomique en raison de facteurs dynamiques, tels que les pressions transmural et transvalvulaire, ou la présence de flux turbulent. Les valeurs seuils pour évaluer la sévérité d’un rétrécissement mitral (RM) sont :\n\nLéger : 1,5 à 2,5 cm²\nModéré : 1,0 à 1,5 cm²\nSévère : < 1,0 cm²\nCette mesure est essentielle pour évaluer l’impact hémodynamique d’un rétrécissement mitral sur le flux sanguin et les pressions dans l’oreillette gauche."
+    },
+    {
+        "name": "Mitrale_PHT",
+        "description": "\"Pressure Half-Time (PHT)\" est une mesure échocardiographique Doppler qui évalue le temps nécessaire pour que la pression à travers la valve mitrale diminue de moitié après l’ouverture de la valve en diastole. Cette valeur, exprimée en millisecondes (ms), est utilisée pour estimer la surface mitrale fonctionnelle dans le cadre de l’évaluation d’un rétrécissement mitral (RM).\n\nLa relation entre le PHT et la surface mitrale fonctionnelle est exprimée par la formule :\nSurface mitrale fonctionnelle (cm²) = 220 / PHT.\n\nLes valeurs normales et pathologiques de PHT sont :\n\nNormale : PHT < 60 ms\nRétrécissement mitral léger : 90-150 ms\nRétrécissement mitral modéré : 150-220 ms\nRétrécissement mitral sévère : > 220 ms\nLe PHT est mesuré sur une coupe apicale des quatre cavités en traçant la pente décroissante du flux diastolique mitral enregistré en Doppler continu. Il s’agit d’un paramètre clé pour quantifier la sévérité hémodynamique du RM."
+    },
+    {
+        "name": "Mitral_gradient_moyen",
+        "description": "\"Gradient mitral moyen\" est une mesure échocardiographique Doppler qui évalue la différence moyenne de pression entre l’oreillette gauche et le ventricule gauche pendant la diastole. Cette valeur est exprimée en millimètres de mercure (mmHg) et est calculée en traçant la courbe du flux diastolique mitral enregistré en Doppler continu, puis en intégrant la pression au cours du temps (aire sous la courbe).\n\nLes seuils de gradient mitral moyen pour évaluer la sévérité d’un rétrécissement mitral (RM) sont :\n\nLéger : < 5 mmHg\nModéré : 5-10 mmHg\nSévère : > 10 mmHg\nCette mesure est influencée par des facteurs tels que le débit cardiaque, la fréquence cardiaque, et la présence éventuelle de fibrillation auriculaire. Elle est essentielle pour déterminer l’impact hémodynamique d’un RM sur le flux sanguin."
+    },
+    {
+        "name": "Mitral_gradient_max",
+        "description": "\"Gradient mitral maximal\" est une mesure échocardiographique Doppler qui évalue la différence maximale de pression entre l’oreillette gauche et le ventricule gauche pendant la diastole. Cette valeur, exprimée en millimètres de mercure (mmHg), correspond au point où la vitesse du flux diastolique mitral est la plus élevée, enregistrée à l'aide du Doppler continu sur une coupe apicale des quatre cavités.\n\nLe gradient mitral maximal est influencé par plusieurs facteurs, notamment le débit cardiaque, la fréquence cardiaque, et la sévérité de l’obstruction mitrale. Bien qu’il ne soit pas directement utilisé pour classifier la sévérité d’un rétrécissement mitral (RM), il peut fournir des indications importantes pour l’évaluation globale de la valve mitrale.\n\nLes valeurs typiques associées à un RM sont :\n\nLéger : < 10 mmHg\nModéré : 10-20 mmHg\nSévère : > 20 mmHg"
+    },
+    {
+        "name": "Mitrale_SOR",
+        "description": "\"Surface de l’Orifice Régurgitant (SOR)\" est une mesure échocardiographique qui quantifie la surface de l'orifice mitral par lequel le sang régurgite de manière anormale de la cavité ventriculaire gauche vers l'oreillette gauche pendant la systole. Cette mesure est exprimée en centimètres carrés (cm²) et est obtenue par la méthode de la convergence de flux proximal (PISA, Proximal Isovelocity Surface Area) en échocardiographie Doppler couleur.\n\nLes seuils de SOR pour évaluer la sévérité de l’IM sont :\n\nLégère : < 0,2 cm²\nModérée : 0,2 - 0,39 cm²\nSévère : ≥ 0,4 cm²\nCette mesure est essentielle pour estimer la gravité de l’IM et évaluer son impact hémodynamique, en complément d’autres paramètres comme le volume régurgité et la fraction régurgitante."
+    },
+    {
+        "name": "Mitrale_VR",
+        "description": "\"Volume Régurgité (VR)\" est une mesure échocardiographique qui quantifie le volume de sang régurgité à travers la valve mitrale lors de la systole. Cette mesure est exprimée en millilitres (mL) et est calculée en utilisant les flux sanguins obtenus par échocardiographie Doppler.\n\nLe VR peut être estimé par la méthode de convergence de flux proximal (PISA) ou par la différence entre les volumes d'éjection systolique dans le ventricule gauche et une autre valve cardiaque (par exemple, la valve aortique) :\n\nVR = Volume d'éjection mitral - Volume d'éjection aortique.\nLes seuils pour évaluer la sévérité d’une IM sont :\n\nLégère : < 30 mL\nModérée : 30 - 59 mL\nSévère : ≥ 60 mL\nLe VR est un paramètre clé pour quantifier la sévérité de l’IM et évaluer son impact sur le débit cardiaque et la surcharge volumique de l'oreillette gauche."
+    },
+    {
+        "name": "Mitrale_rapport_ITV",
+        "description": "\"Rapport des Intégrales Temps-Vitesse (ITV)\" est un paramètre échocardiographique qui compare l’intégrale temps-vitesse (ITV) du flux régurgitant mitral à l’ITV du flux aortique. Ce rapport, sans unité, permet d’évaluer la sévérité relative de l’insuffisance mitrale en tenant compte de la proportion du débit cardiaque qui revient en régurgitation par rapport au débit systémique.\n\nLe rapport ITV est calculé comme suit : Rapport ITV = ITV du flux mitral régurgitant / ITV du flux aortique\n\nLes seuils pour évaluer la sévérité d’une IM sont :\n\nLégère : < 0,2\nModérée : 0,2 - 0,5\nSévère : > 0,5\nCe paramètre est utilisé en complément d’autres mesures, comme la surface de l’orifice régurgitant (SOR) et le volume régurgité (VR), pour fournir une évaluation globale de la gravité de l’insuffisance mitrale."
+    },
+    {
+        "name": "Mitrale_vena_contracta",
+        "description": "\"Vena Contracta\" est une mesure échocardiographique qui évalue la largeur maximale du jet régurgitant à travers l’orifice mitral, mesurée au niveau de son rétrécissement le plus étroit (la zone de contraction du jet). Cette mesure est exprimée en millimètres (mm) et est obtenue par échocardiographie Doppler couleur, généralement sur une coupe apicale des quatre cavités ou une coupe parasternale.\n\nLa Vena Contracta est utilisée pour estimer la sévérité de l’insuffisance mitrale (IM) selon les seuils suivants :\n\nLégère : < 3 mm\nModérée : 3 - 6,9 mm\nSévère : ≥ 7 mm\nLa Vena Contracta est une méthode rapide et fiable pour évaluer la gravité de l’IM, en particulier lorsqu’elle est utilisée en association avec d’autres paramètres, tels que la surface de l’orifice régurgitant (SOR) et le volume régurgité (VR)."
+    },
+    {
+        "name": "Prothese_Mitrale_Vmax",
+        "description": "\"Vmax\" correspond à la vitesse maximale du flux sanguin à travers une prothèse mitrale, mesurée par échocardiographie Doppler. Elle est exprimée en mètres par seconde (m/s) et est un paramètre clé pour évaluer le fonctionnement hémodynamique de la prothèse. Une Vmax élevée peut indiquer une sténose prothétique ou un dysfonctionnement, tandis qu'une Vmax normale suggère un bon fonctionnement. Cette mesure est obtenue en alignant le faisceau Doppler avec le flux à travers la prothèse mitrale."
+    },
+    {
+        "name": "Prothese_Aorte_Vmax",
+        "description": "\"Vmax\" correspond à la vitesse maximale du flux sanguin à travers une prothèse aortique, mesurée par échocardiographie Doppler. Elle est exprimée en mètres par seconde (m/s) et est un indicateur clé de la performance de la prothèse. Une Vmax élevée peut indiquer une sténose ou un dysfonctionnement de la prothèse, tandis qu'une Vmax normale reflète un bon fonctionnement hémodynamique. La mesure est obtenue en alignant le faisceau Doppler avec le flux à travers la valve aortique prothétique."
+    },
+    {
+        "name": "Aorte_surface_fonctionnelle",
+        "description": "\"Surface fonctionnelle\" (ou aire valvulaire aortique - AVA) est une mesure échocardiographique qui évalue la surface effective de l’orifice valvulaire aortique à travers lequel le sang passe pendant la systole. Cette valeur est exprimée en centimètres carrés (cm²) et est calculée à l’aide de l’équation de continuité basée sur les flux Doppler, selon la formule :\nAVA = (ITV du tractus de sortie du ventricule gauche × Aire du tractus de sortie) / ITV du flux aortique.\n\nLes seuils de l’AVA pour évaluer la sévérité du rétrécissement aortique (RAO) sont :\n\nLéger : ≥ 1,5 cm²\nModéré : 1,0 - 1,49 cm²\nSévère : < 1,0 cm²\nCritique : < 0,6 cm²\nCette mesure est essentielle pour déterminer la gravité hémodynamique du RAO et est influencée par le débit cardiaque, en particulier dans les situations de faible débit."
+    },
+    {
+        "name": "Aorte_grad_max",
+        "description": "\"Gradient maximal (Grad max)\" est une mesure échocardiographique Doppler qui représente la différence de pression maximale entre le ventricule gauche et l’aorte à travers la valve aortique pendant la systole. Cette valeur est exprimée en millimètres de mercure (mmHg) et est calculée à partir de la vélocité maximale (Vmax) enregistrée par Doppler continu, selon l’équation de Bernoulli modifiée :\nGradient max = 4 × (Vmax)²\n\nLes seuils du gradient maximal pour évaluer la sévérité du rétrécissement aortique (RAO) sont :\n\nLéger : < 36 mmHg\nModéré : 36 - 64 mmHg\nSévère : ≥ 64 mmHg\nLe Grad max est souvent utilisé en complément du gradient moyen et de l’aire valvulaire aortique (AVA) pour déterminer la gravité du RAO et son impact hémodynamique."
+    },
+    {
+        "name": "Prothese_Aorte_grad_Moyen",
+        "description": "\"Gradient moyen\" (Grad moyen) est une mesure échocardiographique Doppler qui représente la pression moyenne exercée par le flux sanguin à travers une prothèse aortique durant tout le cycle systolique. Il est exprimé en millimètres de mercure (mmHg) et est calculé à partir de l'intégration des vitesses du flux sanguin sur la période systolique. Le gradient moyen est un indicateur clé de la performance hémodynamique de la prothèse : une valeur élevée peut suggérer une sténose ou un dysfonctionnement de la prothèse, tandis qu'une valeur normale indique un fonctionnement adéquat. Cette mesure est essentielle pour évaluer la gravité d'un éventuel dysfonctionnement valvulaire."
+    },
+    {
+        "name": "Prothese_Aorte_IP",
+        "description": "\"L'indice de perméabilité\" est une mesure échocardiographique utilisée pour évaluer l'efficacité hémodynamique d'une prothèse aortique. Il est calculé comme le rapport entre la vitesse d'éjection transvalvulaire (VTI, ou temps intégral de la vitesse) dans le tractus d'éjection du ventricule gauche (TEVG) et la vitesse d'éjection transprothétique (VTI de la valve prothétique). Ce paramètre est sans unité et aide à détecter un éventuel dysfonctionnement de la prothèse : une valeur basse peut indiquer une sténose ou une obstruction, tandis qu'une valeur normale reflète une bonne performance de la prothèse. L'indice de perméabilité est particulièrement utile dans l'évaluation des prothèses de petite taille."
+    },
+    {
+        "name": "IAO_SOR",
+        "description": "La surface de l’orifice régurgitant (SOR) est un paramètre échocardiographique utilisé pour quantifier la sévérité de l’insuffisance aortique (IAO). Elle correspond à la surface effective de l’orifice à travers lequel le sang régurgite pendant la diastole, exprimée en centimètres carrés (cm²). Une SOR supérieure à 0,3 cm² est un indicateur d’IAO sévère."
+    },
+    {
+        "name": "IAO_VR",
+        "description": "Le volume régurgité (VR) est un paramètre échocardiographique qui mesure la quantité de sang régurgitant de l’aorte vers le ventricule gauche à chaque cycle cardiaque. Exprimé en millilitres (mL), un VR supérieur à 60 mL est considéré comme un marqueur d’IAO sévère."
+    },
+    {
+        "name": "IAO_PHT",
+        "description": "Le temps de demi-pression (PHT) est un paramètre échocardiographique mesuré par Doppler, utilisé pour évaluer la sévérité de l’insuffisance aortique (IAO). Il correspond au temps, exprimé en millisecondes (ms), nécessaire pour que la pression dans l’aorte diminue de moitié pendant la diastole. Une valeur numérique inférieure à 200 ms est un indicateur d’IAO sévère, tandis qu’un PHT supérieur à 500 ms est considéré comme normal. Cette mesure est souvent décrite dans les rapports échographiques avec des unités explicites (\"ms\") ou des seuils cliniques."
+    },
+    {
+        "name": "IAO_Vena_Contracta",
+        "description": "La vena contracta est un paramètre échocardiographique qui mesure la largeur maximale du jet régurgitant au niveau du rétrécissement le plus étroit, juste après la valve aortique. Exprimée en centimètres (cm), une largeur supérieure à 0,6 cm est généralement indicative d’une insuffisance aortique (IAO) sévère."
+    },
+    {
+        "name": "IAO_V_isthmique_telediastolique",
+        "description": "La vitesse isthmique télé-diastolique est un paramètre Doppler utilisé pour évaluer la dynamique du flux sanguin dans l’isthme aortique en fin de diastole. Elle est exprimée en centimètres par seconde (cm/s). Une valeur anormalement élevée peut être associée à une insuffisance aortique significative."
+    },
+    {
+        "name": "RT_V_MAX",
+        "description": "La vélocité maximale (Vmax) est un paramètre échocardiographique mesuré par Doppler, qui représente la vitesse maximale du flux sanguin à travers la valve tricuspide pendant la diastole. Exprimée en mètres par seconde (m/s), une Vmax supérieure à 1 m/s est indicative d’un rétrécissement tricuspide (RT) significatif. Ce paramètre est essentiel pour calculer le gradient de pression transvalvulaire."
+    },
+    {
+        "name": "RT_Gradient_moyent",
+        "description": "Le gradient de pression transvalvulaire moyen (GPM) est un paramètre hémodynamique utilisé pour évaluer la sévérité du rétrécissement tricuspide (RT). Il correspond à la différence moyenne de pression entre l’oreillette droite et le ventricule droit pendant la diastole. Exprimé en millimètres de mercure (mmHg), un GPM supérieur à 5 mmHg est indicatif d’un RT significatif."
+    },
+    {
+        "name": "IT_SOR",
+        "description": "La surface de l’orifice régurgitant effectif (SOR) est un paramètre échocardiographique qui quantifie la sévérité de l’insuffisance tricuspide (IT). Exprimée en centimètres carrés (cm²), une SOR supérieure à 0,4 cm² est indicative d’une IT sévère."
+    },
+    {
+        "name": "IT_VR",
+        "description": "Le volume régurgité (VR) correspond à la quantité de sang régurgitant de l'oreillette droite vers le ventricule droit à chaque cycle cardiaque. Exprimé en millilitres (mL), un VR supérieur à 45 mL est associé à une IT sévère."
+    },
+    {
+        "name": "IT_flux_veineux_sous_hepatique",
+        "description": "Le flux veineux sous-hépatique est un paramètre Doppler utilisé pour évaluer les effets de l’insuffisance tricuspide (IT) sur le retour veineux systémique. Il mesure le profil du flux sanguin dans les veines sus-hépatiques. En cas d’IT sévère, un flux sanguin systolique inversé ou réduit peut être observé, indiquant une surcharge volumique importante dans l'oreillette droite. Ce paramètre est généralement décrit qualitativement, mais peut inclure des mesures de vitesse en centimètres par seconde (cm/s)."
+    },
+    {
+        "name": "IT_Vitesse_Onde_E",
+        "description": "La vitesse de l’onde E est un paramètre échocardiographique mesuré par Doppler pulsé, qui reflète la vitesse maximale du flux de remplissage ventriculaire passif pendant la diastole précoce. Exprimée en centimètres par seconde (cm/s), une augmentation de cette vitesse peut indiquer une élévation des pressions de remplissage ventriculaire. Ce paramètre est souvent utilisé pour évaluer la fonction diastolique, notamment dans des contextes associés à une insuffisance tricuspide ou d'autres anomalies cardiaques."
+    },
+    {
+        "name": "RP_Vmax",
+        "description": "Vmax du reflux pulmonaire (RP) est une mesure utilisée en échocardiographie Doppler pour évaluer la vitesse maximale du flux sanguin rétrograde à travers la valve pulmonaire lors de la diastole. Elle est exprimée en mètres par seconde (m/s). Une Vmax élevée peut indiquer une régurgitation pulmonaire significative. Cette valeur est habituellement rapportée comme une mesure numérique unique dans les rapports échocardiographiques."
+    },
+    {
+        "name": "RP_Grad_Moy",
+        "description": "Le gradient moyen (Grad moy) du reflux pulmonaire (RP) est une mesure échocardiographique Doppler utilisée pour quantifier la pression moyenne générée par le flux sanguin rétrograde à travers la valve pulmonaire pendant la diastole. Il est exprimé en millimètres de mercure (mmHg). Un gradient moyen anormalement élevé peut indiquer une régurgitation pulmonaire significative. Cette mesure est généralement rapportée sous forme d'une valeur numérique unique dans les observations échocardiographiques"
+    },
+    {
+        "name": "IP_TD",
+        "description": "Le temps de décélération (TD) est une mesure utilisée en échocardiographie Doppler pulsé pour évaluer la durée nécessaire à la réduction du flux sanguin pulmonaire après son pic durant la diastole. Il est exprimé en millisecondes (ms). Une valeur anormalement basse peut indiquer une insuffisance pulmonaire modérée à sévère. Le TD est généralement rapporté comme une seule valeur numérique dans les rapports d'échocardiographie."
+    },
+    {
+        "name": "IP_PHT",
+        "description": "Le temps de demi-pression (PHT) est un paramètre Doppler utilisé pour évaluer la sévérité de l’IP. Il correspond au temps, en millisecondes (ms), nécessaire pour que la pression diminue de moitié pendant la diastole. Un PHT inférieur à 100 ms est associé à une IP sévère."
+    },
+    {
+        "name": "IP_indice_regurgitation",
+        "description": "L'indice de régurgitation est une mesure utilisée en échocardiographie pour évaluer la sévérité d'une insuffisance pulmonaire. Il est calculé comme le rapport entre la durée du flux de régurgitation pulmonaire et la durée du cycle cardiaque total. Cet indice est exprimé en pourcentage (%). Une valeur inférieure à 50 % est généralement associée à une insuffisance pulmonaire significative. L'indice de régurgitation est généralement mentionné comme une seule valeur numérique dans les rapports d'échocardiographie."
+    },
+    {
+        "name": "IP_diam_reg__diam_anneau",
+        "description": "Le rapport entre le diamètre de régurgitation et le diamètre de l'anneau pulmonaire est une mesure utilisée en échocardiographie pour évaluer la sévérité de l'insuffisance pulmonaire. Il est calculé en divisant le diamètre de la zone de régurgitation par le diamètre de l'anneau valvulaire pulmonaire. Ce rapport est exprimé en pourcentage (%) et une valeur supérieure à 50 % est souvent associée à une insuffisance pulmonaire sévère. Cette mesure est rapportée sous forme d'une valeur numérique unique dans les observations échocardiographiques."
+    },
+    {
+        "name": "Prothese_Mitrale_Vmax",
+        "description": "\"Vmax\" correspond à la vitesse maximale du flux sanguin à travers une prothèse mitrale, mesurée par échocardiographie Doppler. Elle est exprimée en mètres par seconde (m/s) et est un paramètre clé pour évaluer le fonctionnement hémodynamique de la prothèse. Une Vmax élevée peut indiquer une sténose prothétique ou un dysfonctionnement, tandis qu'une Vmax normale suggère un bon fonctionnement. Cette mesure est obtenue en alignant le faisceau Doppler avec le flux à travers la prothèse mitrale."
+    },
+    {
+        "name": "Prothese_Mitrale_Grad_Max",
+        "description": "\"Gradient maximal\" (Grad max) est une mesure échocardiographique Doppler qui représente la pression maximale générée par le flux sanguin à travers une prothèse mitrale pendant la diastole. Il est exprimé en millimètres de mercure (mmHg) et est calculé à partir de la vitesse maximale (Vmax) en utilisant l'équation de Bernoulli simplifiée. Un gradient maximal élevé peut indiquer une sténose prothétique ou un dysfonctionnement, tandis qu'une valeur normale reflète un bon fonctionnement hémodynamique de la prothèse. Cette mesure est essentielle pour détecter et quantifier une éventuelle obstruction."
+    },
+    {
+        "name": "Prothese_Mitrale_Grad_Moy",
+        "description": "\"Gradient moyen\" (Grad moy) est une mesure échocardiographique Doppler utilisée pour évaluer les performances hémodynamiques d'une prothèse mitrale. Il représente la pression moyenne exercée par le flux sanguin à travers la prothèse pendant la diastole, exprimée en millimètres de mercure (mmHg). Cette mesure est calculée à partir de l'intégration des vitesses enregistrées tout au long de la phase diastolique. Un gradient moyen élevé peut indiquer une sténose ou un dysfonctionnement de la prothèse, souvent causés par une obstruction mécanique ou une thrombose. Cette valeur est essentielle pour diagnostiquer la sévérité d'une éventuelle altération de la fonction valvulaire."
+    },
+    {
+        "name": "Prothese_Mitrale_Surface_Fonctionnelle",
+        "description": "\"La surface fonctionnelle\" (ou aire effective d'orifice, AEO) est une mesure échocardiographique utilisée pour évaluer la performance hémodynamique d'une prothèse mitrale. Elle représente la surface d'ouverture effective de la prothèse pendant la diastole, exprimée en centimètres carrés (cm²). Cette valeur est calculée à partir de l'équation de continuité ou par la méthode de pression demi-temps (PHT). Une surface fonctionnelle réduite peut indiquer une sténose prothétique ou un dysfonctionnement, tandis qu'une valeur normale reflète un bon fonctionnement de la prothèse. Cette mesure est essentielle pour juger de la sévérité d'une éventuelle altération valvulaire."
+    },
+    {
+        "name": "Prothese_Mitrale_Rapport_ITV",
+        "description": "\"Rapport des ITV\" (index temps-vitesse) est une mesure échocardiographique utilisée pour évaluer la performance d'une prothèse mitrale. Il est calculé comme le rapport entre l’ITV (temps intégral de la vitesse) du flux dans le tractus d'éjection du ventricule gauche (TEVG) et l’ITV du flux transprothétique à travers la valve mitrale. Ce paramètre, sans unité, permet de détecter un dysfonctionnement valvulaire, tel qu'une sténose prothétique. Un rapport réduit peut indiquer une obstruction ou un mauvais fonctionnement de la prothèse, tandis qu’un rapport normal suggère un bon fonctionnement hémodynamique."
+    },
+    {
+        "name": "Prothese_Mitrale_PHT",
+        "description": "\"Pressure Half-Time\" (PHT) est une mesure échocardiographique Doppler utilisée pour évaluer la performance d'une prothèse mitrale. Elle représente le temps, exprimé en millisecondes (ms), nécessaire pour que la pression transvalvulaire diminue de moitié après le pic initial. Le PHT est souvent utilisé pour calculer la surface fonctionnelle (AEO) d'une prothèse mitrale, selon la relation inverse entre le PHT et la surface de l'orifice. Un PHT prolongé peut indiquer une sténose prothétique ou une obstruction, tandis qu'un PHT normal ou court suggère un bon fonctionnement hémodynamique de la prothèse."
+    },
+    {
+        "name": "Prothese_Aorte_Vmax",
+        "description": "\"Vmax\" correspond à la vitesse maximale du flux sanguin à travers une prothèse aortique, mesurée par échocardiographie Doppler. Elle est exprimée en mètres par seconde (m/s) et est un indicateur clé de la performance de la prothèse. Une Vmax élevée peut indiquer une sténose ou un dysfonctionnement de la prothèse, tandis qu'une Vmax normale reflète un bon fonctionnement hémodynamique. La mesure est obtenue en alignant le faisceau Doppler avec le flux à travers la valve aortique prothétique."
+    },
+    {
+        "name": "Prothese_Aorte_grad_Moyen",
+        "description": "\"Gradient moyen\" (Grad moyen) est une mesure échocardiographique Doppler qui représente la pression moyenne exercée par le flux sanguin à travers une prothèse aortique durant tout le cycle systolique. Il est exprimé en millimètres de mercure (mmHg) et est calculé à partir de l'intégration des vitesses du flux sanguin sur la période systolique. Le gradient moyen est un indicateur clé de la performance hémodynamique de la prothèse : une valeur élevée peut suggérer une sténose ou un dysfonctionnement de la prothèse, tandis qu'une valeur normale indique un fonctionnement adéquat. Cette mesure est essentielle pour évaluer la gravité d'un éventuel dysfonctionnement valvulaire."
+    },
+    {
+        "name": "Prothese_Aorte_Grad_max",
+        "description": "\"Gradient maximal\" (Grad max) est une mesure échocardiographique Doppler qui représente la pression maximale générée par le flux sanguin à travers une prothèse aortique. Il est exprimé en millimètres de mercure (mmHg) et est calculé à partir de la vitesse maximale (Vmax) en utilisant l'équation de Bernoulli simplifiée. Un grad max élevé peut indiquer une sténose ou un dysfonctionnement de la prothèse, tandis qu'une valeur normale suggère un bon fonctionnement hémodynamique. Cette mesure est essentielle pour évaluer les performances de la prothèse et détecter d'éventuelles complications."
+    },
+    {
+        "name": "Prothese_Aorte_Surface_Fonctionnelle",
+        "description": "\"La surface fonctionnelle\" (ou aire effective d'orifice, AEO) est une mesure échocardiographique utilisée pour évaluer la performance d'une prothèse aortique. Elle représente la surface d'ouverture fonctionnelle de la valve pendant la systole et est exprimée en centimètres carrés (cm²). Cette mesure est calculée à partir de l'équation de continuité, en utilisant les données de débit, de diamètre et de vitesse dans l'échocardiogramme Doppler. Une surface fonctionnelle réduite peut indiquer une sténose de la prothèse, tandis qu'une surface normale reflète un bon fonctionnement hémodynamique. Cette valeur est essentielle pour évaluer la gravité d'un éventuel dysfonctionnement valvulaire."
+    },
+    {
+        "name": "Prothese_Aorte_Temps_Acceleration",
+        "description": "\"Temps d'accélération\" est une mesure échocardiographique Doppler qui correspond à la durée nécessaire pour que le flux sanguin atteigne sa vitesse maximale (Vmax) à travers une prothèse aortique, mesurée en millisecondes (ms). Ce paramètre est utilisé pour évaluer la performance de la prothèse et détecter d'éventuelles sténoses : un temps d'accélération prolongé peut indiquer un rétrécissement ou un dysfonctionnement de la prothèse, tandis qu'un temps normal suggère un bon fonctionnement hémodynamique. Cette mesure est souvent associée aux gradients pour affiner l'évaluation de la prothèse."
+    },
+    {
+        "name": "Prothese_Aorte_IP",
+        "description": "\"L'indice de perméabilité\" est une mesure échocardiographique utilisée pour évaluer l'efficacité hémodynamique d'une prothèse aortique. Il est calculé comme le rapport entre la vitesse d'éjection transvalvulaire (VTI, ou temps intégral de la vitesse) dans le tractus d'éjection du ventricule gauche (TEVG) et la vitesse d'éjection transprothétique (VTI de la valve prothétique). Ce paramètre est sans unité et aide à détecter un éventuel dysfonctionnement de la prothèse : une valeur basse peut indiquer une sténose ou une obstruction, tandis qu'une valeur normale reflète une bonne performance de la prothèse. L'indice de perméabilité est particulièrement utile dans l'évaluation des prothèses de petite taille."
+    },
+    {
+        "name": "PAPS",
+        "description": "La pression artérielle pulmonaire systolique (PAPS) est une estimation échocardiographique de la pression maximale dans l'artère pulmonaire durant la systole. Elle est calculée à partir de la vitesse maximale (Vmax) de l'insuffisance tricuspide (IT) en utilisant l'équation de Bernoulli modifiée : PAPS = 4 × (Vmax IT)² + pression auriculaire droite estimée (PAD). La PAPS est exprimée en millimètres de mercure (mmHg). Une valeur normale de la PAPS est inférieure à 35 mmHg. Cette mesure est essentielle pour diagnostiquer et surveiller l’hypertension pulmonaire et les pathologies associées à une surcharge de pression du cœur droit."
+    },
+    {
+        "name": "PAPD",
+        "description": "La pression artérielle pulmonaire diastolique (PAPd) est une mesure qui reflète la pression dans l'artère pulmonaire à la fin de la diastole. Elle est généralement estimée en échocardiographie à partir de la vitesse du flux d'insuffisance pulmonaire (IP) en utilisant l'équation de Bernoulli modifiée : PAPd = 4 × (Vmin IP)² + pression auriculaire droite estimée (PAD). La PAPd est exprimée en millimètres de mercure (mmHg). Une valeur normale de la PAPd est généralement inférieure à 15 mmHg. Cette mesure est importante pour évaluer l'état de la circulation pulmonaire, en particulier dans le contexte de l'hypertension pulmonaire ou d'une surcharge de pression chronique du cœur droit."
+    },
+    {
+        "name": "PAPM",
+        "description": "La pression artérielle pulmonaire moyenne (PAPm) est une mesure clé utilisée pour évaluer la pression moyenne dans l'artère pulmonaire au cours du cycle cardiaque. Elle est calculée en échocardiographie à l'aide de la pression artérielle pulmonaire systolique (PAPS) et d'équations empiriques ou directement mesurée lors d’un cathétérisme cardiaque. La PAPm est exprimée en millimètres de mercure (mmHg). Une valeur normale de la PAPm est inférieure à 25 mmHg au repos. Cette mesure est essentielle pour diagnostiquer une hypertension pulmonaire, surveiller son évolution et évaluer l'état hémodynamique du cœur droit."
+    },
+    {
+        "name": "IT_Vmax",
+        "description": "La vitesse maximale (Vmax) de l'insuffisance tricuspide (IT) est une mesure échocardiographique Doppler qui évalue la vitesse maximale du flux rétrograde à travers la valve tricuspide, exprimée en mètres par seconde (m/s). Elle est obtenue en alignant le faisceau Doppler continu avec le jet d'insuffisance tricuspide, généralement à partir d'une vue apicale à quatre cavités ou sous-costale. Une Vmax normale est inférieure à 2,8 m/s. Cette mesure est cruciale pour estimer la pression artérielle pulmonaire systolique (PAPS) et pour évaluer la présence d'une hypertension pulmonaire ou d'autres anomalies hémodynamiques du cœur droit."
+    },
+    {
+        "name": "Temps_Acceleration_AP",
+        "description": "Le temps d'accélération de l'artère pulmonaire (TAc AP) est une mesure échocardiographique Doppler qui correspond à l'intervalle de temps entre le début du flux systolique dans l'artère pulmonaire et son pic de vitesse maximale. Il est exprimé en millisecondes (ms) et obtenu à partir d'une vue parasternal avec Doppler pulsé positionné au niveau de la valve pulmonaire. Un TAc AP normal est supérieur à 120 ms chez l'adulte. Cette mesure est utilisée pour évaluer indirectement la pression artérielle pulmonaire, une diminution du TAc AP pouvant indiquer une élévation de la pression pulmonaire ou une altération de la fonction ventriculaire droite"
+    },
+    {
+        "name": "Diametre_AP",
+        "description": "Le diamètre de l'artère pulmonaire (AP) est une mesure échocardiographique bidimensionnelle utilisée pour évaluer la taille de l'artère pulmonaire principale. Elle est généralement mesurée en millimètres (mm) à partir d'une vue parasternal grand axe ou à partir d'une vue suprasternale en diastole, perpendiculairement à son axe longitudinal. Une valeur normale du diamètre de l'AP est inférieure à 25 mm chez l'adulte. Cette mesure est importante pour détecter une dilatation de l'artère pulmonaire, souvent associée à des conditions telles que l'hypertension pulmonaire, des anomalies congénitales ou des pathologies chroniques de la circulation pulmonaire."
+    },
+    {
+        "name": "VCI_Diam",
+        "description": "Le diamètre de la veine cave inférieure (VCI) est une mesure échocardiographique utilisée pour évaluer la taille et la variabilité respiratoire de la veine cave inférieure, un indicateur indirect de la pression veineuse centrale. Il est mesuré en millimètres (mm) à partir d'une vue sous-costale en mode bidimensionnel, en fin d'expiration et en fin d'inspiration. Une valeur normale du diamètre expiratoire de la VCI est inférieure à 21 mm avec une variation respiratoire de plus de 50 %. Cette mesure est essentielle pour estimer l’état volémique et la pression de remplissage cardiaque dans des conditions comme l'insuffisance cardiaque ou l'hypovolémie."
+    },
+    {
+        "name": "QP__QS",
+        "description": "L'évaluation des shunts intracardiaques ou extracardiaques par le rapport des débits (Qp/Qs) est une méthode échocardiographique permettant de quantifier le flux sanguin pulmonaire (Qp) par rapport au flux sanguin systémique (Qs). Ce rapport est calculé à partir des surfaces des voies d'éjection et des vitesses intégrées mesurées en Doppler pulsé (VTI) dans les zones concernées, généralement au niveau des anneaux pulmonaire et aortique. Un rapport Qp/Qs normal est de 1:1, indiquant une absence de shunt significatif. Une valeur supérieure à 1,5 suggère un shunt gauche-droite, tandis qu'une valeur inférieure à 1 indique un shunt droite-gauche. Cette mesure est essentielle pour évaluer la gravité des shunts et orienter la prise en charge thérapeutique."
+    },
+    {
+        "name": "Resistances_Pulmonaires",
+        "description": "Les résistances pulmonaires (RP) sont une mesure hémodynamique utilisée pour évaluer la résistance au flux sanguin dans la circulation pulmonaire. Elles sont calculées en échocardiographie ou par cathétérisme cardiaque, généralement en unités Wood (UW) ou dyn·s·cm⁻⁵. La formule standard utilise le gradient de pression transpulmonaire (différence entre la pression artérielle pulmonaire moyenne et la pression auriculaire gauche ou pression capillaire bloquée) divisé par le débit cardiaque pulmonaire. Une valeur normale des résistances pulmonaires est inférieure à 2 UW. Cette mesure est essentielle pour diagnostiquer et surveiller l’hypertension pulmonaire et évaluer la sévérité des pathologies du cœur droit ou de la circulation pulmonaire."
+    },
+    {
+        "name": "CIA_Berge_Ant",
+        "description": "La berge antérieure de la communication interauriculaire (CIA) correspond à la limite située en avant de l'orifice septal reliant les oreillettes droite et gauche. Elle est visualisée en échocardiographie bidimensionnelle ou tridimensionnelle dans des plans sous-costaux, apicaux ou transœsophagiens. Cette berge est anatomiquement proche de la racine aortique, et son intégrité est essentielle pour éviter un shunt interauriculaire pathologique ou des complications liées à une intervention corrective. Son évaluation précise est cruciale lors du diagnostic ou de la planification thérapeutique, en particulier pour des procédures comme la fermeture percutanée de la CIA."
+    },
+    {
+        "name": "CIA_berge_Posterieure",
+        "description": "La berge postérieure de la communication interauriculaire (CIA) correspond à la limite située en arrière de l'orifice septal entre les oreillettes droite et gauche. Elle est visualisée en échocardiographie dans des vues apicales ou transœsophagiennes, en relation avec la veine cave inférieure. L'évaluation de cette berge est essentielle pour déterminer la taille, la forme et la localisation exacte de la CIA, ainsi que pour guider les interventions thérapeutiques comme la fermeture percutanée ou chirurgicale."
+    },
+    {
+        "name": "CIA_berge_Sup",
+        "description": "La berge supérieure de la communication interauriculaire (CIA) correspond à la limite supérieure de l'orifice septal entre les oreillettes droite et gauche, située en proximité de la jonction avec la veine cave supérieure. Elle est évaluée en échocardiographie transœsophagienne ou sous-costale, permettant d'apprécier son intégrité et sa relation avec les structures adjacentes. Cette mesure est cruciale pour évaluer les options de traitement et la faisabilité d'une fermeture percutanée ou chirurgicale."
+    },
+    {
+        "name": "CIA_berge_Inf",
+        "description": "La berge inférieure de la communication interauriculaire (CIA) correspond à la limite inférieure de l'orifice septal entre les oreillettes droite et gauche. Elle est située en relation avec la jonction de la veine cave inférieure et est visualisée en échocardiographie, notamment dans des vues sous-costales ou transœsophagiennes. Son évaluation précise est importante pour déterminer l’anatomie de la CIA, sa taille et son orientation, et pour guider les stratégies de fermeture, qu'elles soient percutanées ou chirurgicales."
+    },
+    {
+        "name": "CIA_Diam_Max",
+        "description": "Le diamètre maximal de la communication interauriculaire (CIA) est une mesure échocardiographique utilisée pour évaluer la taille de l'orifice septal reliant les oreillettes droite et gauche. Il est mesuré en millimètres (mm) dans le plan où l'ouverture est la plus large, généralement en utilisant des vues échocardiographiques transœsophagiennes ou sous-costales. Une évaluation précise du diamètre maximal de la CIA est essentielle pour déterminer la gravité du shunt interauriculaire et pour planifier la prise en charge, notamment en évaluant la faisabilité et les dimensions requises pour une fermeture percutanée ou chirurgicale."
+    },
+    {
+        "name": "CIV_Vmax",
+        "description": "La vitesse maximale (Vmax) du flux à travers une communication interventriculaire (CIV) est une mesure échocardiographique Doppler utilisée pour évaluer le gradient de pression entre les ventricules gauche et droit. Exprimée en mètres par seconde (m/s), cette vitesse est mesurée en alignant le faisceau Doppler continu avec le flux de la CIV, généralement à partir de vues parasternales ou apicales. La Vmax est essentielle pour calculer le gradient de pression systolique à l'aide de l'équation de Bernoulli modifiée : Gradient = 4 × (Vmax)². Cette mesure aide à évaluer la sévérité du shunt gauche-droite et à diagnostiquer des pathologies associées, comme l'hypertension pulmonaire ou une surcharge cardiaque droite."
+    },
+    {
+        "name": "CIV_Diametre",
+        "description": "Le diamètre de la communication interventriculaire (CIV) est une mesure échocardiographique utilisée pour évaluer la taille de l'orifice septal reliant les ventricules gauche et droit. Il est mesuré en millimètres (mm) dans le plan où la CIV est la plus large, généralement à partir de vues parasternales ou sous-costales. Une évaluation précise du diamètre de la CIV est cruciale pour déterminer la gravité du shunt gauche-droite, évaluer son impact hémodynamique, et guider la planification d'une intervention, qu'elle soit percutanée ou chirurgicale. Cette mesure permet également de suivre l'évolution de la CIV dans des contextes congénitaux ou acquis."
+    },
+    {
+        "name": "CIV_Nombre",
+        "description": "Le nombre de communications interventriculaires (CIV) correspond à la quantification du nombre total d'orifices anormaux dans le septum interventriculaire, permettant un shunt entre les ventricules gauche et droit. Cette évaluation est réalisée en échocardiographie, souvent à l'aide de plusieurs vues (parasternales, apicales, sous-costales ou transœsophagiennes) pour identifier et localiser les différentes CIV. Déterminer le nombre de CIV est essentiel pour évaluer la complexité anatomique, estimer leur impact hémodynamique global, et planifier une stratégie de prise en charge adaptée, qu'elle soit conservatrice, percutanée ou chirurgicale."
+    }
+]

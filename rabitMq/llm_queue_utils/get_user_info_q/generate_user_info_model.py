@@ -11,8 +11,8 @@ from langchain_ollama.chat_models import ChatOllama
 from langchain_core.messages import SystemMessage
 from langchain_core.prompts.chat import ChatPromptTemplate, HumanMessagePromptTemplate
 
-from lib.websocketTypes.general_classes import MessageDestination, OperationEnum
-from lib.websocketTypes.patient_identity_document_add_message_class import (
+from websocketTypes.general_classes import MessageDestination, OperationEnum
+from websocketTypes.patient_identity_document_add_message_class import (
     AddPatientIdentityDocumentMessage,
     PatientIdentityDocument,
     Payload,

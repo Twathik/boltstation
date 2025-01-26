@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.portainer-route]
+entryPoints = ["web"]
+rule = 'Host(`portainer.bolt.local`)'
+service = "portainer"
+
+[http.services]
+[http.services.portainer]
+[http.services.portainer.loadBalancer]
+[[http.services.portainer.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:9010'

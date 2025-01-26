@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.comfy-route]
+entryPoints = ["web"]
+rule = 'Host(`comfy.bolt.local`)'
+service = "comfy"
+
+[http.services]
+[http.services.comfy]
+[http.services.comfy.loadBalancer]
+[[http.services.comfy.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:8190'

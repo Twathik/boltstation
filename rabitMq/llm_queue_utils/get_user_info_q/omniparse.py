@@ -102,6 +102,7 @@ async def parse(patientIdentityScanId: str) -> str:
             )
             del som_model, caption_model_processor
             torch.cuda.empty_cache()
+            torch.cuda.synchronize()
             gc.collect()
             await prisma_client.disconnect()
 

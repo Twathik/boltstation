@@ -2,7 +2,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 from ulid import ULID
 
-from lib.websocketTypes.general_classes import (
+from websocketTypes.general_classes import (
     OperationEnum,
     SexeEnum,
     WebsocketRootMessage,

@@ -5,6 +5,7 @@ entryPoints = ["web"]
 priority = 4
 rule = 'Host(`app.bolt.local`)'
 service = "frontend"
+#tls = true                      # Enable TLS for this router
 
 [http.services]
 [http.services.frontend]

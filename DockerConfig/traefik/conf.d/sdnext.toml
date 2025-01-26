@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.sdnext-route]
+entryPoints = ["web"]
+rule = 'Host(`sdnext.bolt.local`)'
+service = "sdnext"
+
+[http.services]
+[http.services.sdnext]
+[http.services.sdnext.loadBalancer]
+[[http.services.sdnext.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:7862'

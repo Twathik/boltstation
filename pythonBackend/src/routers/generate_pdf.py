@@ -1,4 +1,3 @@
-import json
 import tempfile
 from typing import Optional
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Request
@@ -12,7 +11,6 @@ from src.lib.pdf.get_patient_data import get_patient_data
 from src.lib.pdf.slate_parser.parsers.format_lists import format_lists
 from src.lib.pdf.slate_parser.slates_classes import Patient, QueryParams
 from ..lib.pdf.generate_pdf_util import generate_pdf
-from pprintpp import pprint
 import os
 import shutil
 from contextlib import asynccontextmanager

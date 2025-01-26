@@ -15,3 +15,11 @@ requests
 langchain
 langchain_ollama
 typesense
+pika
+huggingface_hub
+python-multipart
+transformers
+accelerate
+flash-attn
+ffmpeg
+python-dotenv

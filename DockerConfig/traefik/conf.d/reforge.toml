@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.reforge-route]
+entryPoints = ["web"]
+rule = 'Host(`reforge.bolt.local`)'
+service = "reforge"
+
+[http.services]
+[http.services.reforge]
+[http.services.reforge.loadBalancer]
+[[http.services.reforge.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:7861'

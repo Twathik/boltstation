@@ -1,5 +1,4 @@
 import asyncio
-from langchain.schema import HumanMessage, AIMessage
 from typing import Any, List, Optional
 from fastapi import Request
 from langchain_ollama import OllamaLLM
@@ -13,7 +12,7 @@ from src.lib.websocketTypes.temporary_chanel_message_class import TemporaryMessa
 
 from pprintpp import pprint
 from src.lib.typesense.typesense_client import typesense_client
-from langchain.schema import AIMessage, HumanMessage, SystemMessage
+from langchain.schema import HumanMessage, SystemMessage
 from src.lib.ai_document.system_prompts.french.generate_ai_document_system_message_fr import (
     generate_ai_document_system_message_fr,
 )
@@ -46,12 +45,7 @@ async def generate_ai(
             system_prompt = widget_prompts.get(chunk["widgetId"])
 
             message = [
-                SystemMessage(
-                    content=generate_ai_document_system_message_fr(
-                        description=system_prompt["description"],
-                        examples=system_prompt["examples"],
-                    )
-                ),
+                SystemMessage(content=system_prompt),
                 HumanMessage(
                     content=f"""
                     <MedicalObservation>

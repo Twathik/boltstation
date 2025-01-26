@@ -4,6 +4,7 @@
 entryPoints = ["web"]
 rule = 'Host(`auth.bolt.local`)'
 service = "keycloak"
+#tls = true
 
 [http.services]
 [http.services.keycloak]

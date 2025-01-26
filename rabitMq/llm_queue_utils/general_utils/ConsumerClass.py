@@ -8,7 +8,7 @@ import pika
 
 from pika.adapters.asyncio_connection import AsyncioConnection
 from pika.exchange_type import ExchangeType
-from lib.websocketTypes.general_classes import AsyncVoidFunction
+from lib.general_classes import AsyncVoidFunction
 
 
 class Consumer(object):
@@ -226,7 +226,10 @@ class Consumer(object):
         # how arbitrary data can be passed to the callback when it is called
         cb = functools.partial(self.on_exchange_declareok, userdata=exchange_name)
         self._channel.exchange_declare(
-            exchange=exchange_name, exchange_type=self._EXCHANGE_TYPE, callback=cb
+            exchange=exchange_name,
+            exchange_type=self._EXCHANGE_TYPE,
+            callback=cb,
+            durable=self._durable,
         )
 
     def on_exchange_declareok(self, _unused_frame, userdata):
@@ -439,14 +442,14 @@ class ReconnectingConsumer(object):
     ):
         self._reconnect_delay = 0
         self._amqp_url = amqp_url
-        self._callbackFunction = (callbackFunction,)
-        self._EXCHANGE = (EXCHANGE,)
-        self._EXCHANGE_TYPE = (EXCHANGE_TYPE,)
-        self._LOGGER = (LOGGER,)
-        self._loop = (loop,)
-        self._QUEUE = (QUEUE,)
-        self._ROUTING_KEY = (ROUTING_KEY,)
-        self._durable = (durable,)
+        self._callbackFunction = callbackFunction
+        self._EXCHANGE = EXCHANGE
+        self._EXCHANGE_TYPE = EXCHANGE_TYPE
+        self._LOGGER = LOGGER
+        self._loop = loop
+        self._QUEUE = QUEUE
+        self._ROUTING_KEY = ROUTING_KEY
+        self._durable = durable
         self._consumer = Consumer(
             amqp_url=amqp_url,
             callbackFunction=callbackFunction,
@@ -466,7 +469,7 @@ class ReconnectingConsumer(object):
                 self._consumer.run()
             except KeyboardInterrupt:
 
-                self._comsumer.stop()
+                self._consumer.stop()
                 break
             self._maybe_reconnect()
 

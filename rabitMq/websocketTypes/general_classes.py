@@ -16,14 +16,16 @@ class SexeEnum(str, Enum):
 class OperationEnum(str, Enum):
     add = "add"
     remove = "remove"
+    publish = "publish"
 
 
 class MessageDestination(str, Enum):
     Patient_identity_document = "Patient-identity-document"
+    temporaryChanel = "temporaryChanel"
 
 
 class WebsocketRootMessage(BaseModel):
-    type: str
+    type: MessageDestination
     destination: List[MessageDestination]
     globalMessage: bool
     id: ULID  # Use ULID string

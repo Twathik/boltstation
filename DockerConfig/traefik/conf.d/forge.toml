@@ -1,0 +1,13 @@
+[http]
+[http.routers]
+[http.routers.forge-route]
+entryPoints = ["web"]
+rule = 'Host(`forge.bolt.local`)'
+service = "forge"
+
+[http.services]
+[http.services.forge]
+[http.services.forge.loadBalancer]
+[[http.services.forge.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:7860'
+#url = 'http://host.docker.internal:7860'

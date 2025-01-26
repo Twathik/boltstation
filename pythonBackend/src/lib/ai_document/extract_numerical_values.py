@@ -28,11 +28,10 @@ parser = PydanticOutputParser(pydantic_object=FilteredData)
 def extract_numerical_values(
     temporaryChanelId: str,
     llm: OllamaLLM,
-    request: Request,
     extracted_data: List[str],
     content: str,
-    chunk: Any,
     number_inputs: List[NumberInputDescription],
+    extracted_values: List[Any],
 ):
     data: List[ExtractedData] = []
     for target_input in number_inputs:
@@ -47,25 +46,26 @@ def extract_numerical_values(
                     {parser.get_format_instructions()}"""
             ),
         ]
+        # print(target_input.input_description)
 
         results = llm.invoke(message, format="json")
         results_values: FilteredData | None = None
 
         if results:
             results_values = parser.parse(results)  # type: ignore
-            data.append(
-                ExtractedData(data=results_values, input_name=target_input.input_name)
+
+            extracted_value = {
+                "inputName": target_input.input_name,
+                "value": results_values.value,
+            }
+
+            publish_message(
+                temporaryChanelId=temporaryChanelId,
+                operation=OperationEnum.publish,
+                content=extracted_value,
+                type=TemporaryMessageType.value,
             )
-    populate_found_data(chunk=chunk, data=data)
-
-    for d in data:
-        extracted_data.append(d.data.sentence)
-
-    publish_message(
-        temporaryChanelId=temporaryChanelId,
-        operation=OperationEnum.publish,
-        content=chunk,
-        type=TemporaryMessageType.payload,
-    )
+            extracted_data.append(results_values.sentence)
+            extracted_values.append(extracted_value)
 
     pass

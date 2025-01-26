@@ -43,20 +43,142 @@ from src.lib.ai_document.system_prompts.french.widgets_prompts.ECG.segment_QT im
 from src.lib.ai_document.system_prompts.french.widgets_prompts.examen_clinique.donnee_ecg import (
     donnee_ecg_widget,
 )
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.oreillettes import (
+    ETT_Oreillettes_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.Aorte import (
+    ETT_Aorte_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.CIA import (
+    ETT_CIA_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.CIV import (
+    ETT_CIV_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.fonction_VD import (
+    ETT_fonction_VD_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.fonction_VG import (
+    ETT_fonction_VG_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.HTP import (
+    ETT_HTP_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.IAO import (
+    ETT_IAO_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.IM import (
+    ETT_IM_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.IP import (
+    ETT_IP_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.IT import (
+    ETT_IT_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.prothese_aortique import (
+    ETT_prothese_aortique_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.prothese_mitrale import (
+    ETT_prothese_mitrale_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.RAO import (
+    ETT_RAO_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.RM import (
+    ETT_RM_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.RP import (
+    ETT_RP_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.RT import (
+    ETT_RT_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.Shunts import (
+    ETT_Shunts_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.VCI import (
+    ETT_VCI_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.pericarde import (
+    ETT_Pericarde_widget,
+)
+
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.Aorte_descendante import (
+    ETT_Aorte_descendante_widget,
+)
+
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.prothese_tricuspide import (
+    ETT_prothese_tricuspide_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.prothese_pulmonaire import (
+    ETT_prothese_pulmonaire_widget,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.dispositifs_intra_cardiaques import (
+    dispositifs_intra_cardiaques,
+)
+
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.masses_intra_cardiaques import (
+    masses_intra_cardiaques,
+)
+
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.thrombus_intra_cardiaque import (
+    thrombus_intra_cardiaque,
+)
+
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.fonction_diastolique_vg import (
+    fonction_diastolique_vg,
+)
+
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.malformations_congenital import (
+    malformations_congenital,
+)
+from src.lib.ai_document.system_prompts.french.widgets_prompts.ETT.tumeurs_cardiaques import (
+    tumeurs_cardiaques,
+)
 
 widget_prompts: dict = {
-    "01JF871FEKE6DAFX1TDYX20DJ9": signes_generaux_widget,
-    "01JFMF1QBKA5J2ZG27QCJW40ES": signes_fonctionnels_cardiovasculaires_widget,
-    "01JGKNA9XB1SAYTC73NYKEM9G4": autre_symptomes_widget,
-    "01JF8ATGYHDZ4R0GR4AMAQPE4B": Examen_vasculaire_perepherique_widget,
-    "01JF8AB732DHCX69CFAHHP37TK": examen_respiratoire_widget,
-    "01JF8A6H3H79DHW294BF32GQQS": auscultation_widget,
-    "01JF3BDJJDQ0AA9WNM203A3P88": antecedents_widget,
-    "01JGTX65TYNS43FD3NH9ETD5AW": ECG_analyse_rythme_widget,
-    "01JGV0994FBRBRA9CPCPP1S7CQ": ECG_auriculogramme_widget,
-    "01JGV5GGSN9AN6V7GS8ZS9RBN4": ECG_ventriculogramme_widget,
-    "01JGVP9DE5YAJX7T1JMBZYC9RQ": ECG_espace_PR_widget,
-    "01JGVR7YYBMM44H64SY07RP058": ECG_segment_ST_widget,
-    "01JGVS3WGCGYVZA4SGYMD8MQTR": ECG_segment_QT_widget,
-    "01JGXDVZ2M1QSYFTFE3EQBQ0DV": donnee_ecg_widget,
+    "01JH5W1TD1C2KR64MREYY1EQRD": signes_generaux_widget,  #
+    "01JH5W1W46ZS5FC4TFXMAPN6N1": signes_fonctionnels_cardiovasculaires_widget,
+    "01JH5YJQ7ZCM5ZMX83MGKTSMH6": autre_symptomes_widget,
+    "01JH5W2BJMG7JVG739P67SV94Q": Examen_vasculaire_perepherique_widget,
+    "01JH5W2DZ0FSACWWADN1N0KRGM": examen_respiratoire_widget,
+    "01JH5YJTPF57W0DN953XBHGNA0": auscultation_widget,
+    "01JH5YJY7E0KNYSC9G5CZNM5HK": antecedents_widget,
+    "01JH5YK0B99KVE8BPK9FPVEEYV": ECG_analyse_rythme_widget,
+    "01JH5YJWERKQ56NMPAEM4CE30F": ECG_auriculogramme_widget,
+    "01JH5W0DAC3WCF9J7ZV4622XRP": ECG_ventriculogramme_widget,  #
+    "01JH5YJFS6FQ63ZBNPSDTE2557": ECG_espace_PR_widget,
+    "01JH5W20XSATVKHQS7YE1SYTP2": ECG_segment_ST_widget,
+    "01JH5W1YENRZX8DTGVM24Z4Q5Y": ECG_segment_QT_widget,
+    "01JH5YJHG6KNM6D5VH295YQY0F": donnee_ecg_widget,
+    "01JH5YJBPSSP8MH2RDXPP7MQ06": ETT_Oreillettes_widget,
+    "01JH5YJ9Z1RRYD671FYMTC1976": ETT_Aorte_widget,
+    "01JH5YJ0N8VSN5NFJM6XJBYGQQ": ETT_CIA_widget,
+    "01JH5YHYBRQC2V6P1SVWNGQ6C9": ETT_CIV_widget,
+    "01JH5YJ7RQBASA1E0H2MYDWDFW": ETT_fonction_VD_widget,
+    "01JH5W29SYRK8DJ3E4JZWX0C34": ETT_fonction_VG_widget,
+    "01JH5YJ5WZMC6W5CQPRA61NHMH": ETT_HTP_widget,
+    "01JH5YHRKFYVC5NFRC7XNZNPFB": ETT_IAO_widget,
+    "01JH5YHPVQFCD3337DD50HP86H": ETT_IM_widget,
+    "01JH5YHMVNTP0QW0RZQRXG5QJ7": ETT_IP_widget,
+    "01JH60Z2WADN98FZ2P72YEQ9C9": ETT_IT_widget,
+    "01JH611BZV0AKY74F8MG6FP2A6": ETT_prothese_aortique_widget,
+    "01JH612TTVFGV1BK6JGBTY054K": ETT_prothese_mitrale_widget,
+    "01JH614EGEGH1DPTBHZ62E1ZY7": ETT_RAO_widget,
+    "01JH617K1AA6V67RMC71HA0PWC": ETT_RM_widget,
+    "01JH6199TCA0Q8T2X312AKH7Q9": ETT_RP_widget,
+    "01JH61AT2NPSFGHA1J7SN3CH62": ETT_RT_widget,
+    "01JH61D6HJG8W5232BKEV7AS0M": ETT_Shunts_widget,
+    "01JH61F6P7SBB8XKCYGXP0XZ1Y": ETT_VCI_widget,
+    "01JHG17B1KWW4SY9C321JVGJTH": ETT_Pericarde_widget,
+    "01JHG1E3QHY834HAFV3JSB1KVY": ETT_Aorte_descendante_widget,
+    "01JHG1MRA9ZBEZGK5WZ42WD5ME": ETT_prothese_tricuspide_widget,
+    "01JHG1X3MG3K9QECD7S9J7AZ82": ETT_prothese_pulmonaire_widget,
+    "01JHG2534TY1MF4PJWM8GV78DH": dispositifs_intra_cardiaques,
+    "01JHG2C2SPKHH33BDQWFV9PZ0P": masses_intra_cardiaques,
+    "01JHG2HDXT8WFEZBYQ63SGRKV0": thrombus_intra_cardiaque,
+    "01JHG2RGCV3EBVKXKGP8W7ATQP": fonction_diastolique_vg,
+    "01JHG2ZNPPGXGA3E8ZDT5K82H7": malformations_congenital,
+    "01JHG35503EZZS7T6HZY3PS5TR": tumeurs_cardiaques,
 }

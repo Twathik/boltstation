@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.focus-route]
+entryPoints = ["web"]
+rule = 'Host(`focus.bolt.local`)'
+service = "focus"
+
+[http.services]
+[http.services.focus]
+[http.services.focus.loadBalancer]
+[[http.services.focus.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:7865'

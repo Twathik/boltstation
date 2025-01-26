@@ -11,3 +11,14 @@ sudo chown myserviceuser /path/to/files
 sudo systemctl stop omniparse.service
 sudo systemctl daemon-reload
 journalctl -u omniparse.service --since "10 min ago"
+
+
+###create a self signed cert in the folder traefik/certificates
+
+openssl genrsa -out bolt.key 2048
+
+openssl req -new -key bolt.key -out bolt.csr -config openssl-bolt.cnf
+openssl x509 -req -in bolt.csr -signkey bolt.key -out bolt.crt -days 365 -extensions req_ext -extfile openssl-bolt.cnf
+openssl x509 -in bolt.crt -text -noout
+DNS:bolt.local, DNS:*.bolt.local
+

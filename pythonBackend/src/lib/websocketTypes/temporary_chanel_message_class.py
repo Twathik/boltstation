@@ -17,6 +17,7 @@ class TemporaryMessageType(str, Enum):
     payload = "payload"
     milestone = "milestone"
     chunk = "chunk"
+    value = "value"
 
 
 class TemporaryChanelMessage(BaseModel):

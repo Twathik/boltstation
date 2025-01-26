@@ -1,0 +1,12 @@
+[http]
+[http.routers]
+[http.routers.ruined-route]
+entryPoints = ["web"]
+rule = 'Host(`ruined.bolt.local`)'
+service = "ruined"
+
+[http.services]
+[http.services.ruined]
+[http.services.ruined.loadBalancer]
+[[http.services.ruined.loadBalancer.servers]]
+url = 'http://{{ env "BOLT_HOST" }}:7864'

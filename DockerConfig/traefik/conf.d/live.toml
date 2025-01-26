@@ -4,6 +4,7 @@
 entryPoints = ["web"]
 rule = 'Host(`live.bolt.local`)'
 service = "live"
+#tls = true                       # Enable TLS
 
 [http.services]
 [http.services.live]

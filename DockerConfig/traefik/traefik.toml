@@ -5,13 +5,22 @@ debug = true
 insecure = true
 
 [log]
-level = "INFO"
+level = "DEBUG"
 
 [entryPoints]
 [entryPoints.web]
 address = ":80"
 [entryPoints.ftp]
 address = ":21"
+
+#[entryPoints.websecure]
+#address = ":443"
+#[entryPoints.websecure.http.tls]
+#
+#[tls]
+#[[tls.certificates]]
+#certFile = "/etc/traefik/certs/bolt.local.crt"
+#keyFile = "/etc/traefik/certs/bolt.local.key"
 
 [providers.file]
 directory = "/etc/traefik/conf.d/"
