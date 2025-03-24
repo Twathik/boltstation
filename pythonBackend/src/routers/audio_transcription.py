@@ -1,6 +1,14 @@
 import tempfile
-from typing import Optional
-from fastapi import APIRouter, BackgroundTasks, File, HTTPException, Request, UploadFile
+from typing import Literal, Optional
+from fastapi import (
+    APIRouter,
+    BackgroundTasks,
+    File,
+    Form,
+    HTTPException,
+    Request,
+    UploadFile,
+)
 
 import requests
 
@@ -8,6 +16,11 @@ from src.lib.ai_document.Audio_file_transcription import audio_file_transcriptio
 import os
 import shutil
 from contextlib import asynccontextmanager
+
+from src.lib.audio_transcription.audio_types import audio_types
+from src.lib.audio_transcription.generate_audio_transcription import (
+    generate_transcription,
+)
 
 cwd = os.getcwd
 
@@ -29,7 +42,8 @@ async def temporary_directory(custom_dir: str):
 async def audio_transcription(
     background_tasks: BackgroundTasks,
     request: Request,
-    audio: Optional[UploadFile] = File(None),
+    audio_type: audio_types = Form(...),
+    audio: Optional[UploadFile] = File(...),
 ):
     cookies = request.cookies
 
@@ -60,7 +74,9 @@ async def audio_transcription(
                     audio_transcription = audio_file_transcription(audio_filename)
             background_tasks.add_task(lambda: shutil.rmtree(temp_dir))
 
-        return {"message": "Request completed", "data": audio_transcription}
+            print(type)
+
+        return generate_transcription(request, audio_transcription, type=audio_type)
 
     except Exception as e:
         print(f"Error processing request: {e}")

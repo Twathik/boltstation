@@ -4,6 +4,7 @@ strawberry-graphql
 httpie
 black
 isort
+torch
 prisma
 redis
 pprintpp
@@ -23,3 +24,13 @@ accelerate
 flash-attn
 ffmpeg
 python-dotenv
+pyjwt
+ffmpeg-python
+pillow
+ollama
+pyzbar 
+opencv-python
+biip
+pycdlib
+pydash
+

@@ -20,6 +20,7 @@ import requests
 import os
 
 from src.lib.ai_document.extract_numerical_values import extract_numerical_values
+from src.lib.ai_document.inject_data import inject_data
 from src.lib.ai_document.utils.check_if_contains_number_input import (
     check_if_contains_number_input,
 )
@@ -102,10 +103,11 @@ async def document_ai_generator(
 
     start_time = time.time()
     list_of_descriptions = []
+
     try:
         llm = OllamaLLM(
-            # model="phi4:latest",
-            model=os.getenv("AI_model"),
+            # model=os.getenv("AI_model"),
+            model="gemma2:27b",
             # model="phi4:latest",
             temperature=0.2,
             # other params...
@@ -114,10 +116,21 @@ async def document_ai_generator(
         extracted_data: List[str] = []
         extracted_descriptions = []
         extracted_values = []
+        document: List[Any] = []
+        extracted_json: dict = {}
+
+        for ck in document_data.economizerFormattedTemplate:
+            await inject_data(
+                document=document,
+                chunk=ck,
+                clinicalEventId=clinicalEventId,
+                extracted_data=extracted_data,
+            )
 
         # Simulate long processing
-        for i in range(len(document_data.economizerFormattedTemplate)):
-            chunk = document_data.economizerFormattedTemplate[i]
+        for i in range(len(document)):
+            chunk = document[i]
+
             # Check if the client has disconnected
             if await request.is_disconnected():
                 print("Client disconnected!")
@@ -158,7 +171,7 @@ async def document_ai_generator(
                     return generate
 
             else:
-                print("here", number_input)
+
                 if number_input.check == True:
                     publish_message(
                         temporaryChanelId=document_data.temporaryChanelId,

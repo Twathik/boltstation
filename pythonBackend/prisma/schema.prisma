@@ -35,6 +35,31 @@ enum EventTypes {
   MEDICAL_REPORT
   CERTIFICAT
   EXTERNAL_DOCUMENT
+  KT_PRO_CORO
+  KT_PRO_ATL
+  KT_PRO_CORO_ATL
+  KT_PRO_PERIPHERAL
+  KT_PRO_RENAL_DILATATION
+  KT_PRO_MITRAL_DILATATION
+  KT_PRO_MITRACLIP
+  KT_PRO_TAVI
+  KT_PRO_TRIC
+  KT_PRO_STIMULATION
+  KT_PRO_ABLATION
+  KT_PRO_DEF
+  KT_PRO_RESYNCHRO
+  KT_PRO_CIA
+  KT_PRO_COA
+  KT_PRO_CIV
+  KT_PRO_RP
+  KT_PRO_PCA
+  KT_PRO_ALCOHOLIZATION
+  KT_PRO_CAVE_FILTER
+  KT_PRO_EP_MECHANICAL_THROMBECTOMY
+  KT_PRO_OCCLUDE
+  KT_PRO_EMBOLIZATION
+  KT_PRO_RENAL_DENERVATION
+  KT_PRO_AORTIC_DILATION
 }
 
 enum ScheduleType {
@@ -169,6 +194,25 @@ enum ModalityVendor {
   OTHER
 }
 
+enum HistoryDocumentType {
+  AUTO_SAVE
+  AUDIO_TRANSCRIPTION
+  AI_GENERATED
+}
+
+enum OperatorFunction {
+  DOCTOR
+  NURSE
+  PARAMEDIC
+}
+
+enum OperatorRole {
+  MAIN_OPERATOR
+  SECONDARY_OPERATOR
+  NURSE
+  PARAMEDIC
+}
+
 model User {
   id                  String            @id @default(uuid())
   dqlId               String            @unique
@@ -193,6 +237,8 @@ model User {
   Diagnostic          Diagnostic[]
   Schedule            Schedule[]
   ConsultationBox     ConsultationBox[]
+  personalChanelId    String            @unique @default(uuid())
+  copilotAppUuid      String?
 
   @@index([role])
 }
@@ -278,18 +324,23 @@ model PatientScannedDocument {
 }
 
 model DocumentStore {
-  id                  String     @id @default(uuid())
-  patient             Patient    @relation(fields: [patientId], references: [id])
+  id                  String              @id @default(uuid())
+  patient             Patient             @relation(fields: [patientId], references: [id])
   patientId           String
-  documentName        String     @unique
+  clinicalEvent       ClinicalEvent       @relation(fields: [clinicalEventId], references: [id])
+  clinicalEventId     String
+  documentName        String              @unique
   content             Bytes?
-  textContent         String?    @db.Text
-  mdContent           String?    @db.Text
-  summarizedMdContent String?    @db.Text
-  deleted             Boolean    @default(false)
-  createdAt           DateTime   @default(now())
-  modifiedAt          DateTime   @default(now()) @updatedAt
-  eventType           EventTypes @default(CLINICALEXAM)
+  textContent         String?             @db.Text
+  mdContent           String?             @db.Text
+  summarizedMdContent String?             @db.Text
+  deleted             Boolean             @default(false)
+  createdAt           DateTime            @default(now())
+  modifiedAt          DateTime            @default(now()) @updatedAt
+  eventType           EventTypes          @default(CLINICALEXAM)
+  historyDocument     Boolean             @default(false)
+  AIgenerated         Boolean             @default(false)
+  historyDocumentType HistoryDocumentType @default(AUTO_SAVE)
 
   @@unique([patientId, documentName])
 }
@@ -315,29 +366,32 @@ model ConsultationList {
 }
 
 model ClinicalEvent {
-  id        String     @id @default(uuid())
-  dqlId     String     @unique
-  eventType EventTypes
-
-  user                   User                     @relation(fields: [userId], references: [userId])
-  userId                 String
-  patient                Patient                  @relation(fields: [patientId], references: [id])
-  patientId              String
-  createdAt              DateTime                 @default(now())
-  updatedAt              DateTime                 @updatedAt
-  deleted                Boolean                  @default(false)
-  onTrash                Boolean                  @default(false)
-  deletedReport          String?                  @db.Text
-  deletedByUserId        String?
-  dicom                  Boolean                  @default(false)
-  dicomId                String?
-  prescriptions          Prescription[]
-  workingLists           WorkingList[]
-  validatedByUser        Boolean                  @default(false)
-  updated                Boolean                  @default(false)
-  userTitle              String?
-  PatientScannedDocument PatientScannedDocument[]
-  Diagnostic             Diagnostic[]
+  id                                 String                               @id @default(uuid())
+  dqlId                              String                               @unique
+  eventType                          EventTypes
+  jsonData                           Json?
+  user                               User                                 @relation(fields: [userId], references: [userId])
+  userId                             String
+  patient                            Patient                              @relation(fields: [patientId], references: [id])
+  patientId                          String
+  createdAt                          DateTime                             @default(now())
+  updatedAt                          DateTime                             @updatedAt
+  deleted                            Boolean                              @default(false)
+  onTrash                            Boolean                              @default(false)
+  deletedReport                      String?                              @db.Text
+  deletedByUserId                    String?
+  dicom                              Boolean                              @default(false)
+  dicomId                            String?
+  prescriptions                      Prescription[]
+  workingLists                       WorkingList[]
+  validatedByUser                    Boolean                              @default(false)
+  updated                            Boolean                              @default(false)
+  userTitle                          String?
+  PatientScannedDocument             PatientScannedDocument[]
+  Diagnostic                         Diagnostic[]
+  DocumentStore                      DocumentStore[]
+  UsedSpecificMaterial               UsedSpecificMaterial[]
+  ClinicalEvent_InterventionOperator ClinicalEvent_InterventionOperator[]
 
   @@index([eventType])
 }
@@ -465,4 +519,33 @@ model ConsultationBox {
   ConsultationList ConsultationList[]
   user             User?              @relation(fields: [userId], references: [userId])
   userId           String?
+}
+
+model InterventionOperator {
+  id                                 String                               @id @default(uuid())
+  operatorName                       String
+  operatorFunction                   OperatorFunction
+  deleted                            Boolean                              @default(false)
+  ClinicalEvent_InterventionOperator ClinicalEvent_InterventionOperator[]
+}
+
+model UsedSpecificMaterial {
+  id              String        @id @default(uuid())
+  GTIN            String
+  LOT             String?
+  expireDate      String?
+  productName     String
+  productDetails  String?
+  clinicalEvent   ClinicalEvent @relation(fields: [clinicalEventId], references: [id])
+  clinicalEventId String
+  deleted         Boolean       @default(false)
+}
+
+model ClinicalEvent_InterventionOperator {
+  id                     String               @id @default(uuid())
+  clinicalEvent          ClinicalEvent        @relation(fields: [clinicalEventId], references: [id])
+  clinicalEventId        String
+  interventionOperator   InterventionOperator @relation(fields: [interventionOperatorId], references: [id])
+  interventionOperatorId String
+  role                   OperatorRole
 }

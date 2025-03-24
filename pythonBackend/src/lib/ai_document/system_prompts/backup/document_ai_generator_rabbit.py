@@ -61,7 +61,8 @@ async def document_ai_generator(
     start_time = time.time()
     try:
         llm = OllamaLLM(
-            model=os.getenv("AI_model"),
+            # model=os.getenv("AI_model"),
+            model="gemma2:27b",
             # model="phi4:latest",
             temperature=0.2,
             # other params...
@@ -161,7 +162,7 @@ async def document_ai_generator(
             )
             pass
 
-        """ await generate_ai(
+        await generate_ai(
             chunk=None,
             temporaryChanelId=Document.temporaryChanelId,
             llm=llm,
@@ -170,7 +171,7 @@ async def document_ai_generator(
             extracted_data=extracted_data,
             content=Document.content,
             sex=Document.sex,
-        ) """
+        )
         end_time = time.time()
         exec_time = end_time - start_time
         print("execussion time", exec_time)

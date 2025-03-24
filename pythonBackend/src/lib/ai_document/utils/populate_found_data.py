@@ -3,7 +3,6 @@ from typing import Any, List, Optional
 from pprintpp import pprint
 from pydantic import BaseModel
 
-from src.lib.typesense.typesense_client import typesense_client
 from src.lib.websocketTypes.general_classes import OperationEnum
 from src.lib.websocketTypes.publish_temporary_chanel_message import publish_message
 from src.lib.websocketTypes.temporary_chanel_message_class import TemporaryMessageType

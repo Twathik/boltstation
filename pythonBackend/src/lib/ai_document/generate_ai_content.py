@@ -10,12 +10,7 @@ from src.lib.websocketTypes.general_classes import OperationEnum, SexeEnum
 from src.lib.websocketTypes.publish_temporary_chanel_message import publish_message
 from src.lib.websocketTypes.temporary_chanel_message_class import TemporaryMessageType
 
-from pprintpp import pprint
-from src.lib.typesense.typesense_client import typesense_client
 from langchain.schema import HumanMessage, SystemMessage
-from src.lib.ai_document.system_prompts.french.generate_ai_document_system_message_fr import (
-    generate_ai_document_system_message_fr,
-)
 from src.lib.ai_document.system_prompts.french.get_delta_content_system_message_fr import (
     get_delta_content_system_message_fr,
 )

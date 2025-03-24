@@ -5,7 +5,6 @@ from pydantic import BaseModel
 from src.lib.ai_document.system_prompts.french.widgets_prompts.variables_numeriques.numerical_variables_descriptions import (
     numerical_variables_descriptions,
 )
-from src.lib.typesense.typesense_client import typesense_client
 
 
 class NumberInputDescription(BaseModel):

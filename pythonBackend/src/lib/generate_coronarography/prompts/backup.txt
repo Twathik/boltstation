@@ -1,0 +1,110 @@
+
+### **Exemples de Rapports Générés :**  
+
+#### **Exemple 1 : Aucune anomalie détectée**  
+**Entrée :**  
+{"Tronc commun": {}, "IVA": {}, "Circonflexe": {}, "CD": {}}
+
+Sortie :
+
+### **Réseau coronaire gauche :**
+- **Tronc commun gauche :** Absence de lésions coronaires angiographiques.
+- **Interventriculaire antérieure :** Absence de lésions coronaires angiographiques.
+- **Artère circonflexe :** Absence de lésions coronaires angiographiques.
+### **Réseau coronaire droit :**
+- **Artère coronaire droite :** Absence de lésions coronaires angiographiques.
+
+---
+
+###Exemple 2 : Présence de lésions dans l’IVA
+**Entrée :**
+{
+    "IVA2 distale": {
+        "stenosis": "70-90",
+        "stent": false,
+        "TIMI_Flow": "TIMI 3",
+        "calcification": false,
+        "dissection": false,
+        "thrombosis": false,
+        "tortuosity": false,
+        "remark": ""
+    },
+    "IVA2 proximale": {
+        "stenosis": "70-90",
+        "stent": false,
+        "TIMI_Flow": "TIMI 3",
+        "calcification": false,
+        "dissection": false,
+        "thrombosis": false,
+        "tortuosity": false,
+        "remark": ""
+    }
+}
+
+**Sortie :**
+## **Réseau coronaire gauche :**
+- **Tronc commun gauche :** Absence de lésions coronaires angiographiques.
+- **Interventriculaire antérieure (IVA) :** Sténose modérée à 70-90% à sa partie proximale. Flux coronaire TIMI 3. Sténose modérée à 70-90% à sa partie distale. Flux coronaire TIMI 3.
+- **Artère circonflexe :** Absence de lésions coronaires angiographiques.
+## **Réseau coronaire droit :**
+- **Artère coronaire droite :** Absence de lésions coronaires angiographiques.
+
+---
+
+## **Exemple 3 : Lésion de Bifurcation **
+
+**Entrée :**  
+
+{
+    "CX1 distale": {
+        "stenosis": "90-99",
+        "parentOcclusion": false,
+        "thrombosis": false,
+        "calcification": false,
+        "stent": false,
+        "dissection": false,
+        "remark": "",
+        "TIMI_Flow": null,
+        "length": null,
+        "tortuosity": false,
+        "Rantrop": null,
+        "Rantrop_collaterality": null
+    },
+    "CX2 proximale": {
+        "stenosis": "90-99",
+        "parentOcclusion": false,
+        "thrombosis": false,
+        "calcification": false,
+        "stent": false,
+        "dissection": false,
+        "remark": "",
+        "TIMI_Flow": null,
+        "length": null,
+        "tortuosity": false,
+        "Rantrop": null,
+        "Rantrop_collaterality": null
+    },
+    "Ostium de la 1er marginale": {
+        "stenosis": "90-99",
+        "parentOcclusion": false,
+        "thrombosis": false,
+        "calcification": false,
+        "stent": false,
+        "dissection": false,
+        "remark": "",
+        "TIMI_Flow": null,
+        "length": null,
+        "tortuosity": false,
+        "Rantrop": null,
+        "Rantrop_collaterality": null
+    }
+}
+
+**Sortie: **
+
+## **Réseau coronaire gauche :**
+- **Tronc commun gauche :** Absence de lésions coronaires angiographiques.
+- **Interventriculaire antérieure (IVA) :** Absence de lésions coronaires angiographiques.
+- **Artère circonflexe (Cx) :** Sténose critique à 90-99% à sa partie distale. Sténose critique à 90-99% à sa partie proximale. Sténose critique à 90-99% au niveau de l’ostium de la première marginale. Lésion de bifurcation présente.
+## Réseau coronaire droit :
+- **Artère coronaire droite :** Absence de lésions coronaires angiographiques.

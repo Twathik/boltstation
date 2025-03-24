@@ -1,15 +1,21 @@
 from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from src.lib.get_auth_token import get_auth_token
 from src.lib.rabbitMq.connection import RabbitMQManager
 from src.routers import (
     audio_transcription,
+    export_dicom,
+    generate_coronarography,
     generate_pdf,
+    parse_gs1,
     pdf_demo,
     document_ai_generator,
     widget_ai_generator,
 )
 from src.lib.prismaClient import prisma_client
 from src.lib.redisClient import redis_client
+from src.routers import copilot_audio_transcription
+from src.routers import extract_kt_product_infos
 
 rabbitmq_manager = RabbitMQManager()
 
@@ -75,5 +81,20 @@ app.include_router(
 )
 app.include_router(audio_transcription.router, prefix="/STT", tags=["STT"])
 app.include_router(
+    copilot_audio_transcription.router,
+    prefix="/copilot_STT",
+    tags=["copilot_STT"],
+    dependencies=[Depends(get_auth_token)],
+)
+app.include_router(
     widget_ai_generator.router, prefix="/widget_rewrite", tags=["widget_rewrite"]
+)
+app.include_router(
+    extract_kt_product_infos.router, prefix="/kt_product_info", tags=["kt_product_info"]
+)
+
+app.include_router(parse_gs1.router, prefix="/gs1_parser", tags=["gs1_parser"])
+app.include_router(export_dicom.router, prefix="/export_dicom", tags=["export_dicom"])
+app.include_router(
+    generate_coronarography.router, prefix="/coronarography", tags=["coronarography"]
 )

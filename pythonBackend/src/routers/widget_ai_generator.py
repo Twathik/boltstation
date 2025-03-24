@@ -39,8 +39,8 @@ async def widget_generator(request: Request, document: Document):
     try:
         if document.widgetId in widget_prompts:
             llm = OllamaLLM(
-                # model="phi4:latest",
-                model=os.getenv("AI_model"),
+                # model=os.getenv("AI_model"),
+                model="gemma2:27b",
                 # model="phi4:latest",
                 temperature=0.2,
                 # other params...

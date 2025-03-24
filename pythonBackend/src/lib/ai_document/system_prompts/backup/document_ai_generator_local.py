@@ -51,7 +51,8 @@ async def document_ai_generator(request: Request, Document: Document):
     start_time = time.time()
     try:
         llm = OllamaLLM(
-            model=os.getenv("AI_model"),
+            # model=os.getenv("AI_model"),
+            model="gemma2:27b",
             # model="phi4:latest",
             temperature=0.2,
             # other params...
