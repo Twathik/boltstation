@@ -74,6 +74,7 @@ async def document_ai_generator(request: Request, Document: Document):
                 operation=OperationEnum.publish,
                 content=chunk.get("widgetName", ""),
                 type=TemporaryMessageType.milestone,
+                debug="milestone in ai local generator",
             )
             number_input = check_if_contains_number_input(chunk)
 
@@ -87,6 +88,7 @@ async def document_ai_generator(request: Request, Document: Document):
                     operation=OperationEnum.publish,
                     content=chunk,
                     type=TemporaryMessageType.payload,
+                    debug="initial ai chunk in local ai generator",
                 )
 
                 generate = await generate_ai(
@@ -121,6 +123,7 @@ async def document_ai_generator(request: Request, Document: Document):
                         operation=OperationEnum.publish,
                         content=chunk,
                         type=TemporaryMessageType.payload,
+                        debug="fallback local ai generator numeric",
                     )
                     pass
 

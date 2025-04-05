@@ -35,7 +35,7 @@ async def widget_generator(request: Request, document: Document):
         )
     user = response.json()
     # pprint(user, indent=5)
-    print(document)
+
     try:
         if document.widgetId in widget_prompts:
             llm = OllamaLLM(

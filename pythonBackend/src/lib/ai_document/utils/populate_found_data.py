@@ -1,22 +1,9 @@
-from typing import Any, List, Optional
+from typing import Any, List
 
-from pprintpp import pprint
-from pydantic import BaseModel
-
+from src.lib.ai_document.utils.ai_document_classes import ExtractedData
 from src.lib.websocketTypes.general_classes import OperationEnum
 from src.lib.websocketTypes.publish_temporary_chanel_message import publish_message
 from src.lib.websocketTypes.temporary_chanel_message_class import TemporaryMessageType
-
-# fmt: off
-class FilteredData(BaseModel):
-    value: Optional[float] = None
-    sentence: Optional[str] = ""
-# fmt: on
-
-
-class ExtractedData(BaseModel):
-    input_name: str
-    data: FilteredData
 
 
 def checker_function(child: Any, data: List[ExtractedData], temporaryChanelId: str):
@@ -33,6 +20,7 @@ def checker_function(child: Any, data: List[ExtractedData], temporaryChanelId: s
                         operation=OperationEnum.publish,
                         content={"inputName": d.input_name, "value": d.data.value},
                         type=TemporaryMessageType.value,
+                        debug="populate found data",
                     )
 
     pass

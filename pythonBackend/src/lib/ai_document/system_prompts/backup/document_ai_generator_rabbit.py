@@ -85,6 +85,7 @@ async def document_ai_generator(
                 operation=OperationEnum.publish,
                 content=chunk.get("widgetName", ""),
                 type=TemporaryMessageType.milestone,
+                debug="milestone in rabbit",
             )
             number_input = check_if_contains_number_input(chunk)
 
@@ -99,6 +100,7 @@ async def document_ai_generator(
                     operation=OperationEnum.publish,
                     content=chunk,
                     type=TemporaryMessageType.payload,
+                    debug="initial chunk in rabbit",
                 )
 
                 await asyncio.sleep(sleep_time)
@@ -133,6 +135,7 @@ async def document_ai_generator(
                         operation=OperationEnum.publish,
                         content=chunk,
                         type=TemporaryMessageType.payload,
+                        debug="number in rabbit",
                     )
                     numerical_values_list.append(chunk)
                     pass
@@ -143,6 +146,7 @@ async def document_ai_generator(
                         operation=OperationEnum.publish,
                         content=chunk,
                         type=TemporaryMessageType.payload,
+                        debug="fallback number in rabbit",
                     )
                     pass
 
@@ -159,6 +163,7 @@ async def document_ai_generator(
                 routing_key="chunk",
                 body=json.dumps(body),
                 queue=publish_chunk,
+                debug="ai_chunk in rabbit",
             )
             pass
 

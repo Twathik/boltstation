@@ -1,9 +1,10 @@
 import asyncio
+import traceback
 import json
 import shutil
 import tempfile
 import time
-from typing import Any, List, Optional
+from typing import Any, List, Literal, Optional
 from fastapi import (
     APIRouter,
     BackgroundTasks,
@@ -15,6 +16,7 @@ from fastapi import (
 )
 from fastapi.concurrency import asynccontextmanager
 from langchain_ollama import OllamaLLM
+from pprintpp import pprint
 from pydantic import BaseModel
 import requests
 import os
@@ -55,6 +57,7 @@ class Document(BaseModel):
     temporaryChanelId: str
     economizerFormattedTemplate: List[Any]
     sex: SexeEnum
+    generate_remarks: Literal["0", "1"]
 
 
 @router.post("/")
@@ -66,6 +69,7 @@ async def document_ai_generator(
     temporaryChanelId: str = Form(...),
     economizerFormattedTemplate: str = Form(...),  # JSON string
     sex: SexeEnum = Form(...),
+    generate_remarks: Literal["0", "1"] = Form(...),
     audio: Optional[UploadFile] = File(None),
 ):
     cookies = request.cookies
@@ -75,6 +79,7 @@ async def document_ai_generator(
         temporaryChanelId=temporaryChanelId,
         economizerFormattedTemplate=json.loads(economizerFormattedTemplate),
         sex=sex,
+        generate_remarks=generate_remarks,
     )
     cwd = os.getcwd()
     custom_dir = os.path.join(cwd, "generated")
@@ -102,12 +107,18 @@ async def document_ai_generator(
     user = response.json()
 
     start_time = time.time()
-    list_of_descriptions = []
 
     try:
+        publish_message(
+            temporaryChanelId=document_data.temporaryChanelId,
+            operation=OperationEnum.publish,
+            content="Démarrage de l'agent IA",
+            type=TemporaryMessageType.milestone,
+            debug="milestone in ai generator",
+        )
         llm = OllamaLLM(
             # model=os.getenv("AI_model"),
-            model="gemma2:27b",
+            model="gemma3:27b",
             # model="phi4:latest",
             temperature=0.2,
             # other params...
@@ -117,7 +128,6 @@ async def document_ai_generator(
         extracted_descriptions = []
         extracted_values = []
         document: List[Any] = []
-        extracted_json: dict = {}
 
         for ck in document_data.economizerFormattedTemplate:
             await inject_data(
@@ -142,33 +152,52 @@ async def document_ai_generator(
                 operation=OperationEnum.publish,
                 content=chunk.get("widgetName", ""),
                 type=TemporaryMessageType.milestone,
+                debug="milestone in ai generator",
             )
             number_input = check_if_contains_number_input(chunk)
 
             # pprint(chunk, depth=5, width=80)
             if chunk.get("AIgenerated", False) == True:
                 pass
+
             if chunk.get("AiTarget", False) == True:
                 await asyncio.sleep(0.1)
-                publish_message(
-                    temporaryChanelId=document_data.temporaryChanelId,
-                    operation=OperationEnum.publish,
-                    content=chunk,
-                    type=TemporaryMessageType.payload,
-                )
 
-                generate = await generate_ai(
-                    chunk=chunk,
-                    temporaryChanelId=document_data.temporaryChanelId,
-                    llm=llm,
-                    request=request,
-                    final_remarks=False,
-                    extracted_data=extracted_data,
-                    content=document_data.content,
-                    sex=document_data.sex,
-                )
-                if not generate == None:
-                    return generate
+                content = document_data.content
+                if chunk.get("injected", False) == True:
+
+                    refactor_text = [
+                        child["text"]
+                        for child in chunk.get("children", [])
+                        if child.get("refactor")
+                    ]
+                    if refactor_text:
+                        content = refactor_text
+                    else:
+                        content = None
+                        publish_message(
+                            temporaryChanelId=document_data.temporaryChanelId,
+                            operation=OperationEnum.publish,
+                            content=chunk,
+                            type=TemporaryMessageType.payload,
+                            debug="injected fallback 1",
+                        )
+
+                if content:
+                    generate = await generate_ai(
+                        chunk=chunk,
+                        temporaryChanelId=document_data.temporaryChanelId,
+                        llm=llm,
+                        request=request,
+                        final_remarks=False,
+                        extracted_data=extracted_data,
+                        content=content,
+                        sex=document_data.sex,
+                    )
+                    if not generate == None:
+                        return generate
+                else:
+                    pass
 
             else:
 
@@ -178,6 +207,7 @@ async def document_ai_generator(
                         operation=OperationEnum.publish,
                         content=chunk,
                         type=TemporaryMessageType.payload,
+                        debug="Not AI but input",
                     )
                     extract_numerical_values(
                         content=document_data.content,
@@ -203,6 +233,7 @@ async def document_ai_generator(
                         operation=OperationEnum.publish,
                         content=chunk,
                         type=TemporaryMessageType.payload,
+                        debug="Not AI not input",
                     )
                     pass
 
@@ -214,16 +245,17 @@ async def document_ai_generator(
         with open("extracted_values.json", "w", encoding="utf-8") as file:
             json.dump(extracted_values, file, indent=4, ensure_ascii=False)
 
-        await generate_ai(
-            chunk=None,
-            temporaryChanelId=document_data.temporaryChanelId,
-            llm=llm,
-            request=request,
-            final_remarks=True,
-            extracted_data=extracted_data,
-            content=document_data.content,
-            sex=document_data.sex,
-        )
+        if document_data.generate_remarks == "1":
+            await generate_ai(
+                chunk=None,
+                temporaryChanelId=document_data.temporaryChanelId,
+                llm=llm,
+                request=request,
+                final_remarks=True,
+                extracted_data=extracted_data,
+                content=document_data.content,
+                sex=document_data.sex,
+            )
         end_time = time.time()
         exec_time = end_time - start_time
         print("execussion time", exec_time)
@@ -231,4 +263,5 @@ async def document_ai_generator(
 
     except Exception as e:
         print(f"Error processing request: {e}")
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail="Internal Server Error")

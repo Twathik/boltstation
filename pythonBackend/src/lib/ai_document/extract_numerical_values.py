@@ -1,17 +1,11 @@
 from langchain.schema import SystemMessage, HumanMessage
-from typing import Any, List, Optional
-from fastapi import Request
+from typing import Any, List
 from langchain_ollama import OllamaLLM
-from pprintpp import pprint
-from pydantic import BaseModel, Field
+from src.lib.ai_document.utils.ai_document_classes import ExtractedData, FilteredData
 from src.lib.ai_document.utils.check_if_contains_number_input import (
     NumberInputDescription,
 )
-from src.lib.ai_document.utils.populate_found_data import (
-    ExtractedData,
-    FilteredData,
-    populate_found_data,
-)
+
 from src.lib.websocketTypes.general_classes import OperationEnum
 from src.lib.websocketTypes.publish_temporary_chanel_message import publish_message
 from src.lib.websocketTypes.temporary_chanel_message_class import TemporaryMessageType
@@ -64,6 +58,7 @@ def extract_numerical_values(
                 operation=OperationEnum.publish,
                 content=extracted_value,
                 type=TemporaryMessageType.value,
+                debug="extract numerical values",
             )
             extracted_data.append(results_values.sentence)
             extracted_values.append(extracted_value)

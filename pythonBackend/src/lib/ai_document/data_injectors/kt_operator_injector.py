@@ -1,10 +1,7 @@
 from typing import Any, List
 from ulid import ULID
 
-from pprintpp import pprint
-
 from src.lib.ai_document.utils.get_operator_function import (
-    get_operator_function,
     get_operator_role,
 )
 from src.lib.prismaClient import prisma_client
@@ -23,7 +20,7 @@ async def operator_injector(
 
         document.append(
             {
-                "AiTarget": False,
+                "AiTarget": chunk["AiTarget"],
                 "type": "p",
                 "children": [
                     {

@@ -8,4 +8,6 @@ audio_types = Literal[
     "KT_history",
     "KT_ECG",
     "KT_ischemic_test",
+    "KT_bypass",
+    "KT_procedure_prescription",
 ]

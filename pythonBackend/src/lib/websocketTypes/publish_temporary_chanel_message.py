@@ -1,4 +1,5 @@
-from typing import Any
+from pprint import pprint
+from typing import Any, Optional
 from ulid import ULID
 from src.lib.websocketTypes.general_classes import MessageDestination, OperationEnum
 from src.lib.websocketTypes.temporary_chanel_message_class import (
@@ -16,7 +17,13 @@ def publish_message(
     content: Any,
     operation: OperationEnum,
     type: TemporaryMessageType,
+    debug: Optional[str] = "",
 ):
+    """print("new message", debug)
+    pprint(
+        content,
+        depth=4,
+    )"""
     message = TemporaryChanelMessageType(
         bashPayload=None,
         destination=[],

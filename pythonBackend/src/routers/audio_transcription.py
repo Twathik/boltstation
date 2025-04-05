@@ -74,8 +74,6 @@ async def audio_transcription(
                     audio_transcription = audio_file_transcription(audio_filename)
             background_tasks.add_task(lambda: shutil.rmtree(temp_dir))
 
-            print(type)
-
         return generate_transcription(request, audio_transcription, type=audio_type)
 
     except Exception as e:

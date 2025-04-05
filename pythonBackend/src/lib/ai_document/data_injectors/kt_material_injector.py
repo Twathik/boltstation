@@ -2,8 +2,6 @@ import json
 from typing import Any, List
 from ulid import ULID
 
-from pprintpp import pprint
-
 
 from src.lib.prismaClient import prisma_client
 

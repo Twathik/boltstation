@@ -5,14 +5,15 @@ from pydantic import BaseModel
 import httpx  # Async HTTP requests
 from dotenv import load_dotenv
 
-from src.lib.generate_coronarography.generators.generate_coronarography_initial_report import (
+
+from src.lib.ai_document.data_injectors.generate_coronarography.generators.generate_coronarography_initial_report import (
     generate_initial_coronarography_report,
 )
-from src.lib.generate_coronarography.utils.coronarography_classes import (
+from src.lib.ai_document.data_injectors.generate_coronarography.utils.coronarography_classes import (
     AiChatMessage,
     ChatHistory,
-    CoronarySegmentation,
 )
+from src.lib.ai_document.utils.ai_document_classes import CoronarySegmentation
 from src.lib.prismaClient import prisma_client
 
 # Load environment variables from .env file
@@ -67,7 +68,7 @@ async def generate_coronarography(request: Request, document: Document):
         )
 
     except Exception as e:
-        pprint(e, depth=4, width=80)
+
         tb = traceback.format_exc()  # Get the traceback as a string
         print("Traceback information:")
         print(tb)

@@ -47,7 +47,7 @@ def format_lists(data: List[dict]) -> List[dict]:
                     # print("indent", node["indent"], "local", local_indent_level)
                     if local_indent_level in list_type:
                         if not list_type[local_indent_level] == node["listStyleType"]:
-                            print("cond 1")
+
                             new_data.append(
                                 {
                                     "type": (
@@ -57,7 +57,7 @@ def format_lists(data: List[dict]) -> List[dict]:
                                     )
                                 }
                             )
-                            print("begin 2")
+
                             new_data.append(
                                 {
                                     "type": (
@@ -75,7 +75,7 @@ def format_lists(data: List[dict]) -> List[dict]:
                     # print("-----no indent-----", indent_level)
                     if local_indent_level is not None:
                         if local_indent_level > 0:
-                            print("cond 4")
+
                             new_data.append(
                                 {
                                     "type": (
@@ -94,7 +94,7 @@ def format_lists(data: List[dict]) -> List[dict]:
                     pass
 
                 if indent_level < local_indent_level:
-                    print("begin 1")
+
                     new_data.append(
                         {
                             "type": (
@@ -109,7 +109,7 @@ def format_lists(data: List[dict]) -> List[dict]:
             else:
                 if local_indent_level is not None:
                     if local_indent_level > 0:
-                        print("cond 5")
+
                         new_data.append(
                             {
                                 "type": (
@@ -126,7 +126,7 @@ def format_lists(data: List[dict]) -> List[dict]:
                 pass
 
         else:
-            print("cond 3")
+
             new_data.append(
                 {
                     "type": (

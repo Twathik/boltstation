@@ -5,17 +5,10 @@ from pydantic import BaseModel
 from src.lib.ai_document.system_prompts.french.widgets_prompts.variables_numeriques.numerical_variables_descriptions import (
     numerical_variables_descriptions,
 )
-
-
-class NumberInputDescription(BaseModel):
-    input_name: str
-    input_description: str
-    input_value: Optional[float] = None
-
-
-class NumberInputsCheckerResponse(BaseModel):
-    check: bool
-    number_inputs: List[NumberInputDescription]
+from src.lib.ai_document.utils.ai_document_classes import (
+    NumberInputDescription,
+    NumberInputsCheckerResponse,
+)
 
 
 def checker_function(child: Any, number_inputs: List[NumberInputDescription]):
@@ -25,7 +18,6 @@ def checker_function(child: Any, number_inputs: List[NumberInputDescription]):
 
     if "type" in child:
         if child["type"] == "data-input":
-            pprint(child, depth=4)
 
             check = next(
                 (

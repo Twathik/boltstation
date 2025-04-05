@@ -10,7 +10,7 @@ from src.lib.audio_transcription.generic_ollama_request import (
 
 
 def KT_diagnostic_transcription(request: Request, audio_transcription: str):
-    print(audio_transcription)
+
     return generic_ollama_report_formater(
         request,
         system_prompt=KT_diagnostic_system_prompt,
